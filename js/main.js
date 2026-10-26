@@ -19,12 +19,13 @@
     return '<div class="f" data-f="' + name + '"><label class="sr" for="' + id + '">' + esc(ph) + '</label><input class="in" id="' + id + '" name="' + name + '" type="' + (type || "text") + '" placeholder="' + esc(ph) + '" value="' + esc(val || "") + '"' + (extra || "") + '><div class="msg"></div></div>';
   }
   var who = /[?&]who=priv(&|$)/.test(location.search) ? "priv" : "biz";
+  var EXT = ["pdf", "doc", "docx", "xls", "xlsx", "txt", "png", "jpg", "jpeg"], ACCEPT = EXT.map(function (e) { return "." + e; }).join(",");
 
   /* ---------- a form: "quick" (mk-style contact form) or "cost" (choose services, leave a contact) ---------- */
   function Form(host) {
     this.host = host; this.kind = host.getAttribute("data-form");
     this.uid = "f" + Math.floor(Math.random() * 1e6);
-    this.s = { services: [], who: who };
+    this.s = { services: [], who: who, files: [] };
     this.render();
   }
   Form.prototype.id = function (k) { return this.uid + k; };
@@ -43,6 +44,15 @@
         '<p class="lbl-s">' + t("cost.pick") + '</p><div class="picks" data-f="svc">' + picks + '<div class="msg"></div></div>' +
         '<div class="row">' + input(this.id("n"), "name", t("form.nameph"), s.name, "text", ' autocomplete="name"') + input(this.id("e"), "email", "Email", s.email, "email", ' autocomplete="email" inputmode="email"') + input(this.id("p"), "phone", t("form.phoneph"), s.phone, "tel", ' autocomplete="tel"') + "</div>" +
         '<div class="send"><button class="btn btn-primary" type="submit">' + t("cost.btn") + ' <span class="ar" aria-hidden="true">→</span></button><span>' + t("cost.note") + "</span></div>" +
+        '<p class="legal">' + t("form.legal") + "</p></form>";
+    } else if (this.kind === "rush") {
+      h = '<form novalidate class="rushf">' +
+        '<div class="row2">' + input(this.id("n"), "name", "Name", s.name, "text", ' autocomplete="name"') + input(this.id("e"), "email", "Email", s.email, "email", ' autocomplete="email" inputmode="email"') + "</div>" +
+        input(this.id("p"), "phone", "Your phone number", s.phone, "tel", ' autocomplete="tel"') +
+        '<div class="f" data-f="text"><label class="sr" for="' + this.id("t") + '">Your text</label><textarea class="in" id="' + this.id("t") + '" name="text" rows="4" placeholder="Your text">' + esc(s.text || "") + '</textarea><div class="msg"></div></div>' +
+        '<div class="f" data-f="files"><label class="attach"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 11-8.6 8.6a5.5 5.5 0 0 1-7.8-7.8l8.6-8.6a3.7 3.7 0 0 1 5.2 5.2L9.8 17a1.8 1.8 0 0 1-2.6-2.6L15 6.6"/></svg><span>Attach a file</span><small>PDF, DOC(X), XLS(X), TXT, PNG, JPG · up to 20 MB · max 5</small>' +
+        '<input type="file" name="files" multiple accept="' + ACCEPT + '"></label><div class="chips"></div><div class="msg"></div></div>' +
+        '<button class="btn btn-primary submit" type="submit">Contact me</button>' +
         '<p class="legal">' + t("form.legal") + "</p></form>";
     } else {
       h = '<form novalidate class="quickf">' +
@@ -67,8 +77,34 @@
     $$('input[name="who"]', f).forEach(function (r) { r.addEventListener("change", function () { s.who = r.value; }); });
     var multi = f.querySelector(".multi");
     if (multi) document.addEventListener("click", function (e) { if (multi.open && !multi.contains(e.target)) multi.open = false; });
+    /* files: only the names travel (the site never reads or uploads them); type, size and count are checked here */
+    var fi = f.querySelector('input[type="file"]');
+    if (fi) {
+      this.paintFiles();
+      fi.addEventListener("change", function () {
+        var problems = [];
+        Array.prototype.forEach.call(fi.files, function (fl) {
+          var ext = (fl.name.split(".").pop() || "").toLowerCase();
+          if (EXT.indexOf(ext) < 0) problems.push(fl.name + ": this file type is not accepted");
+          else if (fl.size > 20 * 1048576) problems.push(fl.name + ": bigger than 20 MB, send it by email");
+          else if (s.files.length >= 5) problems.push("Max 5 files");
+          else if (!s.files.some(function (x) { return x.name === fl.name && x.size === fl.size; })) s.files.push({ name: fl.name.slice(0, 120), size: fl.size });
+        });
+        fi.value = "";
+        self.paintFiles();
+        if (problems.length) self.err("files", problems[0]); else self.clear("files");
+      });
+    }
     ["name", "email", "text"].forEach(function (n) { if (f[n]) f[n].addEventListener("input", function () { self.clear(n); }); });
     f.addEventListener("submit", function (e) { e.preventDefault(); self.submit(); });
+  };
+  Form.prototype.paintFiles = function () {
+    var s = this.s, self = this, box = this.host.querySelector(".chips");
+    if (!box) return;
+    box.innerHTML = s.files.map(function (fl, i) {
+      return '<span class="chip"><span>' + esc(fl.name) + " · " + (fl.size > 1048576 ? (fl.size / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(fl.size / 1024)) + " KB") + '</span><button type="button" aria-label="Remove ' + esc(fl.name) + '" data-i="' + i + '">×</button></span>';
+    }).join("");
+    $$("button", box).forEach(function (b) { b.addEventListener("click", function () { s.files.splice(+b.getAttribute("data-i"), 1); self.paintFiles(); }); });
   };
   Form.prototype.summary = function () {
     return this.s.services.length ? esc(this.s.services.map(t).join(", ")) : '<span class="ph">' + t("form.pick") + "</span>";
@@ -99,11 +135,12 @@
       s.phone ? "Phone: " + s.phone.trim() : "",
       this.kind === "quick" ? "Category: " + T.en[s.who === "biz" ? "form.biz" : "form.priv"] : "",
       s.services.length ? "Services: " + s.services.map(function (k) { return T.en[k]; }).join(", ") : "",
-      s.text ? "\n" + s.text.trim() : ""
+      s.text ? "\n" + s.text.trim() : "",
+      s.files && s.files.length ? "\nFiles (please attach them to this email): " + s.files.map(function (x) { return x.name; }).join(", ") : ""
     ].filter(Boolean).join("\n");
     var mail = "mailto:" + MAIL + "?subject=" + encodeURIComponent((this.kind === "cost" ? "Cost request " : "Request ") + id) + "&body=" + encodeURIComponent(body);
     this.host.innerHTML = '<div class="done" role="status"><div class="ok-ic">' + CHECK + "</div><h3>" + t("ok.title") + "</h3><p>" + t("ok.text") + '</p><div class="oid">' + id + '</div><div class="acts"><a class="btn btn-primary" href="' + mail + '">' + t("ok.mail") + '</a><a class="btn btn-ghost" href="' + TG + '" target="_blank" rel="noopener">' + t("ok.tg") + '</a><button type="button" class="btn btn-ghost" data-new>' + t("ok.new") + "</button></div><small>" + t("ok.small") + "</small></div>";
-    this.host.querySelector("[data-new]").addEventListener("click", function () { self.s = { services: [], who: who }; self.render(); });
+    this.host.querySelector("[data-new]").addEventListener("click", function () { self.s = { services: [], who: who, files: [] }; self.render(); });
     window.location.href = mail;
   };
 
