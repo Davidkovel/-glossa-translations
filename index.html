@@ -24,23 +24,32 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#d4ab43" stroke-width="1.5"/><ellipse cx="18" cy="18" rx="7" ry="16.5" fill="none" stroke="#d4ab43" stroke-width="1.5"/><path d="M1.5 18h33" stroke="#d4ab43" stroke-width="1.5"/></svg>Glossa<small>translations</small></a>
+    <a class="logo" href="#"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#7dd3c0" stroke-width="1.5"/><ellipse cx="18" cy="18" rx="7" ry="16.5" fill="none" stroke="#7dd3c0" stroke-width="1.5"/><path d="M1.5 18h33" stroke="#7dd3c0" stroke-width="1.5"/></svg>Glossa<small>translations</small></a>
     <nav aria-label="Main"><a href="#services">Services</a><a href="#quality">Quality</a><a href="#industries">Industries</a><a href="#faq">FAQ</a></nav>
-    <a class="btn btn-primary" href="#price">Get a price</a>
+    <a class="btn btn-primary" href="#order">Get a price</a>
   </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero" id="order">
     <div class="wrap">
-      <div class="live" aria-hidden="true">
-        <div class="live__row"><span class="live__pair"><b>EN</b> → <b data-to>UA</b></span><span class="live__langs"><span>UA</span><span>DE</span><span>JA</span><span>ES</span><span>AR</span><span>PL</span></span></div>
-        <div class="live__src" data-src>Your order ships tomorrow.</div>
-        <div class="live__out" data-out>Ваше замовлення відправимо завтра.</div>
+      <div class="hero__l">
+        <h1>Translation into <em>120+ languages</em></h1>
+        <p class="sub">Checked by three people. Your price in 15 minutes.</p>
+        <div class="live" aria-hidden="true">
+          <div class="live__row"><span class="live__pair"><b>EN</b> → <b data-to>UA</b></span></div>
+          <div class="live__src" data-src>Your order ships tomorrow.</div>
+          <div class="live__out" data-out>Ваше замовлення відправимо завтра.</div>
+        </div>
+        <ul class="hero__facts"><li>NDA on request</li><li>Urgent in 24 h</li><li>−10% first order</li></ul>
       </div>
-      <h1>Translation into <em>120+ languages</em></h1>
-      <p class="sub">Checked three times. Your price in 15 minutes.</p>
-      <div class="ctas"><a class="btn btn-primary" href="#price">Get a price →</a><a class="btn btn-ghost" href="#services">What we translate</a></div>
+      <div class="hero__r">
+        <div class="formcard">
+          <h2>Quick request</h2>
+          <p class="formcard__p">We reply with the exact price and deadline.</p>
+          <div data-form="quick"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -98,32 +107,12 @@
   <section class="block" style="padding-top:0">
     <div class="wrap">
       <div class="coupon">
-        <div><h2>10% off your <em>first order</em></h2><ul><li>Any service, any volume</li><li>Applied automatically, no code needed</li></ul><a class="btn btn-primary" href="#price">Send a request →</a></div>
+        <div><h2>10% off your <em>first order</em></h2><ul><li>Any service, any volume</li><li>Applied automatically, no code needed</li></ul><a class="btn btn-primary" href="#order">Send a request →</a></div>
         <div class="coupon__tag"><b>−10%</b><span>first order</span></div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="price" style="padding-top:0">
-    <div class="wrap">
-      <div class="price">
-        <div class="pform">
-          <h2>Get your <em>price</em></h2>
-          <p class="pform__p">Pick the service, leave a contact. We reply with the exact price and deadline in 15 minutes.</p>
-          <div data-form="cost"></div>
-        </div>
-        <figure class="mgr">
-          <div class="mgr__ph">
-            <!-- put the manager's real photo here: img/manager.webp (portrait, transparent or dark background) -->
-            <img src="img/manager.webp" alt="" width="600" height="800" onerror="this.remove()">
-            <svg class="mgr__sil" viewBox="0 0 200 260" aria-hidden="true"><circle cx="100" cy="86" r="44" fill="#2a2418"/><path d="M18 260c4-62 40-96 82-96s78 34 82 96z" fill="#2a2418"/></svg>
-            <span class="mgr__bubble">Hi! I'll send your price in 15 min 👋</span>
-          </div>
-          <figcaption><b>Your project manager</b><span>Replies 9:00–21:00 · Telegram, email</span><span class="ten">−10% on your first order</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
   <section class="block" id="faq" style="padding-top:0">
     <div class="wrap">
       <h2>Quick <em>answers</em></h2>

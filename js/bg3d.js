@@ -30,11 +30,11 @@
     var s = new THREE.Points(g, new THREE.PointsMaterial({ size: size, map: DOT, color: color, transparent: true, opacity: .85, depthWrite: false }));
     scene.add(s); return s;
   }
-  var starsFar = starLayer(phone ? 600 : 1400, 120, .14, 0xc9c0ae), starsNear = starLayer(phone ? 200 : 450, 90, .22, 0xefd8a4);
+  var starsFar = starLayer(phone ? 600 : 1400, 120, .14, 0xaab4c0), starsNear = starLayer(phone ? 200 : 450, 90, .22, 0xbfeee3);
 
   /* the globe */
   var world = new THREE.Group(), globe = new THREE.Group(); scene.add(world); world.add(globe); world.rotation.x = .28;
-  var N = phone ? 1800 : 3200, pos = [], col = [], GOLD = new THREE.Color("#f0dcae"), DIM = new THREE.Color("#5d4c2c");
+  var N = phone ? 1800 : 3200, pos = [], col = [], GOLD = new THREE.Color("#dbe6ee"), DIM = new THREE.Color("#2e3a44");
   for (var i = 0; i < N; i++) {
     var y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = Math.PI * (3 - Math.sqrt(5)) * i, x = Math.cos(th) * r, z = Math.sin(th) * r;
     var land = Math.sin(x * 4.1 + Math.cos(z * 3.3)) * Math.cos(y * 3.7 - x * 1.3) + Math.sin(z * 5.2 + y * 2.1) * .55;
@@ -56,23 +56,21 @@
     return new THREE.Vector3(-rad * Math.sin(p) * Math.cos(t), rad * Math.cos(p), rad * Math.sin(p) * Math.sin(t));
   }
   function label(word, code) {
-    var c = document.createElement("canvas"), g = c.getContext("2d"), font = "600 44px Manrope, 'Segoe UI', 'Noto Sans', sans-serif";
-    g.font = font; var w = Math.ceil(g.measureText(word).width) + 150; c.width = w; c.height = 84;
-    g.font = font;
-    g.fillStyle = "rgba(14,14,18,.82)"; g.strokeStyle = "rgba(212,171,67,.7)"; g.lineWidth = 2;
-    var rr = 40; g.beginPath(); g.moveTo(rr, 2); g.arcTo(w - 2, 2, w - 2, 82, rr); g.arcTo(w - 2, 82, 2, 82, rr); g.arcTo(2, 82, 2, 2, rr); g.arcTo(2, 2, w - 2, 2, rr); g.closePath(); g.fill(); g.stroke();
-    g.fillStyle = "#d4ab43"; g.font = "800 26px Manrope, sans-serif"; g.textBaseline = "middle"; g.fillText(code, 26, 43);
-    g.fillStyle = "#f3ede2"; g.font = font; g.fillText(word, 92, 45);
+    var c = document.createElement("canvas"), g = c.getContext("2d"), font = "500 40px Manrope, 'Segoe UI', 'Noto Sans', sans-serif";
+    g.font = font; var w = Math.ceil(g.measureText(word).width) + 90; c.width = w; c.height = 64;
+    g.textBaseline = "middle";
+    g.fillStyle = "#7dd3c0"; g.font = "700 22px Manrope, sans-serif"; g.fillText(code, 4, 34);
+    g.fillStyle = "#dbe6ee"; g.font = font; g.fillText(word, 50, 34);
     var t = new THREE.CanvasTexture(c); t.minFilter = THREE.LinearFilter;
-    var s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false, depthTest: false }));
-    s.scale.set(w / 84 * .22, .22, 1); return s;
+    var sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false, depthTest: false }));
+    sp.scale.set(w / 64 * .15, .15, 1); return sp;
   }
   var pins = [];
   PLACES.forEach(function (pl, ix) {
     var base = vec(pl[0], pl[1], 1.01), tip = vec(pl[0], pl[1], 1.25 + (ix % 3) * .2);
-    var dot = new THREE.Mesh(new THREE.SphereGeometry(.022, 10, 10), new THREE.MeshBasicMaterial({ color: 0xefd8a4, transparent: true }));
+    var dot = new THREE.Mesh(new THREE.SphereGeometry(.022, 10, 10), new THREE.MeshBasicMaterial({ color: 0xbfeee3, transparent: true }));
     dot.position.copy(base);
-    var stem = new THREE.Line(new THREE.BufferGeometry().setFromPoints([base, tip]), new THREE.LineBasicMaterial({ color: 0xd4ab43, transparent: true, opacity: .6 }));
+    var stem = new THREE.Line(new THREE.BufferGeometry().setFromPoints([base, tip]), new THREE.LineBasicMaterial({ color: 0x7dd3c0, transparent: true, opacity: .4 }));
     var tag = label(pl[2], pl[3]); tag.position.copy(tip).multiplyScalar(1.06);
     globe.add(dot); globe.add(stem); globe.add(tag);
     pins.push({ base: base, dot: dot, stem: stem, tag: tag });
@@ -83,7 +81,7 @@
   for (var a = 0; a < PLACES.length; a++) {
     var p1 = vec(PLACES[a][0], PLACES[a][1], 1), p2 = vec(PLACES[(a + 3) % PLACES.length][0], PLACES[(a + 3) % PLACES.length][1], 1), pts = [];
     for (var s = 0; s <= 64; s++) { var t = s / 64; pts.push(p1.clone().lerp(p2, t).normalize().multiplyScalar(1 + Math.sin(Math.PI * t) * .32)); }
-    var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: 0xf0dcae, transparent: true, opacity: .85, blending: THREE.AdditiveBlending, depthWrite: false }));
+    var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: 0x7dd3c0, transparent: true, opacity: .85, blending: THREE.AdditiveBlending, depthWrite: false }));
     line.userData = { off: a * .53, sp: .16 + (a % 4) * .03 }; globe.add(line); arcs.push(line);
   }
 
@@ -91,7 +89,7 @@
   [[1.55, .25, .9], [1.72, -.45, .5], [1.9, .85, .3]].forEach(function (q) {
     var g = new THREE.BufferGeometry().setFromPoints(new THREE.EllipseCurve(0, 0, q[0], q[0], 0, Math.PI * 2).getPoints(180));
     var h = new THREE.Group(); h.rotation.set(Math.PI / 2 + q[1], q[2], 0);
-    h.add(new THREE.LineLoop(g, new THREE.LineBasicMaterial({ color: 0xd4ab43, transparent: true, opacity: .16 }))); world.add(h);
+    h.add(new THREE.LineLoop(g, new THREE.LineBasicMaterial({ color: 0x7dd3c0, transparent: true, opacity: .12 }))); world.add(h);
   });
 
   function resize() {
@@ -116,13 +114,13 @@
       world.scale.setScalar(hs + (.95 - hs) * p);
       globe.rotation.y = clock * (still ? 0 : .06) + scrollY * .0012;
       world.rotation.x = .28 + my * .25; world.rotation.y = mx * .35;
-      canvas.style.opacity = String(1 - .55 * p);
+      canvas.style.opacity = String(.9 - .6 * p);
       starsFar.position.y = scrollY * .0008; starsNear.position.y = scrollY * .0022;
       starsNear.position.x = mx * .4;
       pins.forEach(function (pn) {
         tmp.copy(pn.base).applyQuaternion(globe.quaternion).applyQuaternion(world.quaternion).normalize();
         var f = Math.max(0, Math.min(1, (tmp.dot(cam) + .1) * 2.2));
-        pn.tag.material.opacity = f; pn.stem.material.opacity = .6 * f; pn.dot.material.opacity = f;
+        pn.tag.material.opacity = f * .55; pn.stem.material.opacity = .6 * f; pn.dot.material.opacity = f;
       });
       arcs.forEach(function (l) {
         var tt = (clock * l.userData.sp + l.userData.off) % 1.5, hd = Math.min(65, Math.floor(tt * 65)), tl = Math.max(0, hd - 30);
