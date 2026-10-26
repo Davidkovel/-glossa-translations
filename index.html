@@ -23,6 +23,7 @@
     <a class="logo" href="index.html" aria-label="Glossa Translations"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a>
     <nav class="nav" aria-label="Main">
       <a href="#services" data-i="nav.services"></a>
+      <a href="#quality" data-i="nav.qa"></a>
       <a href="#price" data-i="nav.faq"></a>
       <a href="#contacts" data-i="nav.contacts"></a>
     </nav>
@@ -32,44 +33,22 @@
 </header>
 
 <main id="main">
-  <!-- one scene: the globe stays, the text changes as you scroll -->
-  <section class="cena" data-cena style="--ecras:4" aria-label="Glossa">
-    <div class="palco">
-      <canvas id="globe" aria-hidden="true"></canvas>
+<div class="bgword" aria-hidden="true"><span>Translation</span></div>
 
-      <div class="beat b-hero" data-beat data-de="0" data-ate=".22">
-        <h1 class="morph"><span class="sr">Translation</span><span class="w" aria-hidden="true">Translation</span><span class="lng" aria-hidden="true">EN</span></h1>
-        <p class="line" data-i="h.line"></p>
-        <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a></div>
-        <p class="hint" aria-hidden="true"><i></i><span data-i="scroll"></span></p>
-      </div>
-
-      <div class="beat b-side" data-beat data-de=".24" data-ate=".46">
-        <p class="big"><span data-conta="120">120</span>+</p>
-        <h2 data-i="b2.t"></h2>
-        <p class="line" data-i="b2.p"></p>
-      </div>
-
-      <div class="beat b-side" data-beat data-de=".5" data-ate=".72">
-        <h2 data-i="b3.t"></h2>
-        <ol class="three">
-          <li><b>1</b><span data-i="b3.1"></span></li>
-          <li><b>2</b><span data-i="b3.2"></span></li>
-          <li><b>3</b><span data-i="b3.3"></span></li>
-        </ol>
-      </div>
-
-      <div class="beat b-side" data-beat data-de=".76" data-ate="1.01">
-        <h2 data-i="b4.t"></h2>
-        <p class="tag10" data-i="b4.p"></p>
-        <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a></div>
-      </div>
-
-      <div class="bar-p" aria-hidden="true"><b data-progresso-pagina></b></div>
+  <section class="hero2" data-word="Translation|EN" data-cor="#09090b">
+    <div class="wrap">
+      <h1 class="morph"><span class="sr">Translation</span><span class="w" aria-hidden="true">Translation</span><span class="lng" aria-hidden="true">EN</span></h1>
+      <p class="line" data-i="h.line"></p>
+      <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#services" data-i="nav.services"></a></div>
+      <ul class="pills">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.1"></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.2"></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.3"></span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="proof" aria-label="Clients">
+  <section class="proof" aria-label="Clients" data-word="Переклад|UA">
     <p class="wrap" data-i="proof"></p>
     <div class="faixa" data-faixa>
       <div class="faixa__trilho">
@@ -83,27 +62,68 @@
     </div>
   </section>
 
-  <section id="services" class="svc-sec">
+<section class="nums" data-word="Traducción|ES" data-cor="#d6b46e" data-tinta="#17120a">
     <div class="wrap">
-      <h2 class="t" data-i="sv.h"></h2>
+      <h2 class="t2" data-i="n.h"></h2>
+      <div class="grid-n">
+        <div><b><span data-conta="120">120</span>+</b><span data-i="n.1"></span></div>
+        <div><b><span data-conta="3">3</span></b><span data-i="n.2"></span></div>
+        <div><b><span data-conta="15">15</span> min</b><span data-i="n.3"></span></div>
+        <div><b><span data-conta="24">24</span> h</b><span data-i="n.4"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="svc2" data-word="Übersetzung|DE" data-cor="#09090b">
+    <div class="wrap">
+      <h2 class="t2" data-i="sv.h"></h2>
+      <div class="cards">
+        <article><h3 data-i="c.1t"></h3><p data-i="c.1p"></p></article>
+        <article><h3 data-i="c.2t"></h3><p data-i="c.2p"></p></article>
+        <article class="hot"><h3 data-i="c.3t"></h3><p data-i="c.3p"></p></article>
+        <article><h3 data-i="c.4t"></h3><p data-i="c.4p"></p></article>
+        <article><h3 data-i="c.5t"></h3><p data-i="c.5p"></p></article>
+        <article><h3 data-i="c.6t"></h3><p data-i="c.6p"></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="quality" data-word="翻訳|JA" data-cor="#f2ede3" data-tinta="#14110c">
+    <div class="wrap">
+      <h2 class="t2" data-i="w.h"></h2>
+      <ol class="steps3">
+        <li><b>01</b><h3 data-i="w.1t"></h3><p data-i="w.1p"></p></li>
+        <li><b>02</b><h3 data-i="w.2t"></h3><p data-i="w.2p"></p></li>
+        <li><b>03</b><h3 data-i="w.3t"></h3><p data-i="w.3p"></p></li>
+      </ol>
+      <div class="qa3"><span data-i="b3.1"></span><i>→</i><span data-i="b3.2"></span><i>→</i><span data-i="b3.3"></span></div>
+    </div>
+  </section>
+
+  <section class="inds" data-word="Tłumaczenie|PL" data-cor="#09090b">
+    <div class="wrap">
+      <h2 class="t2" data-i="i.h"></h2>
       <ul class="chips" data-cai>
-        <li><span data-i="sv.1"></span></li>
-        <li><span data-i="sv.2"></span></li>
-        <li><span data-i="sv.3"></span></li>
-        <li><span data-i="sv.4"></span></li>
-        <li><span data-i="sv.5"></span></li>
-        <li><span data-i="sv.6"></span></li>
-        <li><span data-i="sv.7"></span></li>
-        <li><span data-i="sv.8"></span></li>
+        <li data-i="i.1"></li><li data-i="i.2"></li><li data-i="i.3"></li><li data-i="i.4"></li><li data-i="i.5"></li><li data-i="i.6"></li><li data-i="i.7"></li><li data-i="i.8"></li>
       </ul>
     </div>
   </section>
 
-  <section id="price" class="price-sec">
+  <section id="price" class="price-sec" data-word="Traduction|FR" data-cor="#09090b">
     <div class="wrap">
       <div class="req">
         <div class="side"><h2 data-i="cost.h"></h2><p data-i="cost.p"></p></div>
         <div data-form="cost"></div>
+      </div>
+    </div>
+  </section>
+  <section class="faq2" data-word="Çeviri|TR">
+    <div class="wrap">
+      <h2 class="t2" data-i="q.h"></h2>
+      <div class="faq">
+        <details><summary><span data-i="q.1q"></span><i aria-hidden="true"></i></summary><p data-i="q.1a"></p></details>
+        <details><summary><span data-i="q.2q"></span><i aria-hidden="true"></i></summary><p data-i="q.2a"></p></details>
+        <details><summary><span data-i="q.3q"></span><i aria-hidden="true"></i></summary><p data-i="q.3a"></p></details>
       </div>
     </div>
   </section>
@@ -129,7 +149,6 @@
 
 <div class="cookie" hidden><span data-i="cookie.t"></span><button class="btn" type="button" data-i="cookie.ok"></button></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll.js"></script>
