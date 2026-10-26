@@ -5,12 +5,12 @@
 .h2 h1{font-size:clamp(46px,6.4vw,92px);font-weight:500;letter-spacing:-.05em;line-height:.98}
 .h2 .sub{font-size:clamp(17px,1.5vw,20px);max-width:44ch;margin:20px 0 30px}
 .h2 .ctas{margin-bottom:34px}
-.live.mini{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:14px 18px;border-radius:16px;background:rgba(20,26,32,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);margin:0;max-width:600px}
+.live.mini{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:14px 18px;border-radius:16px;background:rgba(27,26,46,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);margin:0;max-width:600px}
 .live.mini .live__src,.live.mini .live__out{font-size:16px;letter-spacing:0;line-height:1.4;min-height:0;font-weight:400;margin:0}
 .live.mini .live__out{color:var(--ink)}
 .live.mini .live__pair{font-size:12px;padding:4px 10px}
 
-.stats{border-block:1px solid var(--line);background:rgba(13,16,20,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.stats{border-block:1px solid var(--line);background:rgba(18,17,31,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
 .stats div{padding:34px 0 34px 24px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .stats div:first-child{border-left:0;padding-left:0}
@@ -18,21 +18,21 @@
 .stats span{color:var(--ink-3);font-size:15px}
 
 .cases{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cases article{border-radius:20px;padding:26px;background:rgba(20,26,32,.82);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column;gap:10px}
+.cases article{border-radius:20px;padding:26px;background:rgba(27,26,46,.82);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column;gap:10px}
 .cases__tags{display:flex;gap:6px;flex-wrap:wrap}
-.cases__tags span{font-size:12px;letter-spacing:.06em;color:var(--gold-2);background:rgba(125,211,192,.1);border-radius:999px;padding:4px 10px}
+.cases__tags span{font-size:12px;letter-spacing:.06em;color:var(--gold-2);background:rgba(168,162,255,.1);border-radius:999px;padding:4px 10px}
 .cases h3{font-size:21px;font-weight:600;letter-spacing:-.02em}
 .cases p{margin:0;color:var(--ink-3)}
 .cases__pair{margin-top:auto;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ink-2)}
 
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.rv-card{margin:0;border-radius:20px;padding:24px;background:rgba(20,26,32,.82);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column;gap:12px}
+.rv-card{margin:0;border-radius:20px;padding:24px;background:rgba(27,26,46,.82);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column;gap:12px}
 .rv-stars{color:#f5c84b;letter-spacing:2px}
 .rv-card blockquote{margin:0;color:var(--ink-2);font-size:15.5px}
 .rv-card figcaption{margin-top:auto;display:flex;flex-direction:column}
 .rv-card figcaption span{color:var(--ink-3);font-size:13px}
 
-.rush{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);border-radius:24px;padding:clamp(22px,4vw,48px);background:radial-gradient(70% 120% at 0% 0%,rgba(125,211,192,.12),transparent 60%),rgba(20,26,32,.92);box-shadow:inset 0 0 0 1px rgba(125,211,192,.22)}
+.rush{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);border-radius:24px;padding:clamp(22px,4vw,48px);background:radial-gradient(70% 120% at 0% 0%,rgba(168,162,255,.12),transparent 60%),rgba(27,26,46,.92);box-shadow:inset 0 0 0 1px rgba(168,162,255,.22)}
 .rush__l h2{margin-bottom:12px}
 .rush__l > p{color:var(--ink-2);margin:0 0 30px}
 .nf{border-top:1px solid var(--line);padding-top:24px}
@@ -61,3 +61,7 @@
   .cases,.reviews,.rush{grid-template-columns:1fr}
   .rushf .row2{grid-template-columns:1fr}
 }
+/* palette 4: indigo + lavender */
+:root{--bg:#12111f;--card:#1b1a2e;--ink:#f1f0fa;--ink-2:#cbc9de;--ink-3:#8e8ba8;--gold:#a8a2ff;--gold-2:#cfcbff;--gold-ink:#120f3a}
+html{background:#12111f}
+.top{background:rgba(18,17,31,.82)}
