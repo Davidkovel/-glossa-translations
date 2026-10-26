@@ -42,17 +42,17 @@
       h = '<form novalidate class="costf">' +
         '<p class="eyebrow-s">' + t("cost.pick") + '</p><div class="picks" data-f="svc">' + picks + '<div class="msg"></div></div>' +
         '<div class="row">' + input(this.id("n"), "name", t("form.nameph"), s.name, "text", ' autocomplete="name"') + input(this.id("e"), "email", "Email", s.email, "email", ' autocomplete="email" inputmode="email"') + input(this.id("p"), "phone", t("form.phoneph"), s.phone, "tel", ' autocomplete="tel"') + "</div>" +
-        '<div class="bar"><span>' + t("cost.note") + '</span><button class="btn btn-brand" type="submit">' + t("cost.btn") + ARROW + "</button></div>" +
+        '<div class="bar"><span>' + t("cost.note") + '</span><button class="btn btn-gold" type="submit">' + t("cost.btn") + ARROW + "</button></div>" +
         '<p class="legal">' + t("form.legal") + "</p></form>";
     } else {
-      h = '<form novalidate class="quickf">' +
+      h = '<form novalidate class="quickf glass">' +
         '<div class="row2">' + input(this.id("n"), "name", t("form.nameph"), s.name, "text", ' autocomplete="name"') + input(this.id("e"), "email", "Email", s.email, "email", ' autocomplete="email" inputmode="email"') + "</div>" +
         '<div class="row2">' + input(this.id("p"), "phone", t("form.phoneph"), s.phone, "tel", ' autocomplete="tel"') + "</div>" +
         '<div class="f" data-f="text"><label class="sr" for="' + this.id("t") + '">' + t("form.msg") + '</label><textarea class="in" id="' + this.id("t") + '" name="text" rows="4" placeholder="' + esc(t("form.msgph")) + '">' + esc(s.text || "") + '</textarea><div class="msg"></div></div>' +
         '<div class="f"><span class="lbl">' + t("form.services") + '</span><details class="multi"><summary class="in">' + this.summary() + '</summary><div class="multi-list">' + picks + "</div></details></div>" +
         '<p class="cat">' + t("form.cat") + "</p>" +
         '<div class="cats"><label class="check"><input type="radio" name="who" value="biz"' + (s.who === "biz" ? " checked" : "") + "><span>" + t("form.biz") + '</span></label><label class="check"><input type="radio" name="who" value="priv"' + (s.who === "priv" ? " checked" : "") + "><span>" + t("form.priv") + "</span></label></div>" +
-        '<button class="btn btn-brand submit" type="submit">' + t("form.submit") + "</button>" +
+        '<button class="btn btn-gold submit" type="submit">' + t("form.submit") + "</button>" +
         '<p class="legal">' + t("form.legal") + "</p></form>";
     }
     this.host.innerHTML = h;
@@ -102,7 +102,7 @@
       s.text ? "\n" + s.text.trim() : ""
     ].filter(Boolean).join("\n");
     var mail = "mailto:" + MAIL + "?subject=" + encodeURIComponent((this.kind === "cost" ? "Cost request " : "Request ") + id) + "&body=" + encodeURIComponent(body);
-    this.host.innerHTML = '<div class="done" role="status"><div class="ok-ic">' + CHECK + "</div><h3>" + t("ok.title") + "</h3><p>" + t("ok.text") + '</p><div class="oid">' + id + '</div><div class="acts"><a class="btn btn-brand" href="' + mail + '">' + t("ok.mail") + '</a><a class="btn btn-ghost" href="' + TG + '" target="_blank" rel="noopener">' + t("ok.tg") + '</a><button type="button" class="btn btn-ghost" data-new>' + t("ok.new") + "</button></div><small>" + t("ok.small") + "</small></div>";
+    this.host.innerHTML = '<div class="done" role="status"><div class="ok-ic">' + CHECK + "</div><h3>" + t("ok.title") + "</h3><p>" + t("ok.text") + '</p><div class="oid">' + id + '</div><div class="acts"><a class="btn btn-gold" href="' + mail + '">' + t("ok.mail") + '</a><a class="btn btn-ghost" href="' + TG + '" target="_blank" rel="noopener">' + t("ok.tg") + '</a><button type="button" class="btn btn-ghost" data-new>' + t("ok.new") + "</button></div><small>" + t("ok.small") + "</small></div>";
     this.host.querySelector("[data-new]").addEventListener("click", function () { self.s = { services: [], who: who }; self.render(); });
     window.location.href = mail;
   };

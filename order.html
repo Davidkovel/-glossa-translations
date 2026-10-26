@@ -5,19 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Quick contact form — Glossa Translations</title>
 <meta name="description" content="Send a request for translation or localization. A manager replies with the exact price within 15 minutes.">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#08080a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-globe-side>
+<div class="bg-fallback" aria-hidden="true"></div>
+<canvas id="globe" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Glossa Translations">
-      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#2b44f0"/><path d="M24.5 13.2A8 8 0 1 0 25 20h-7" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="34" height="34" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="none" stroke="#d8b878" stroke-width="1.2"/><ellipse cx="18" cy="18" rx="7.5" ry="17" fill="none" stroke="#d8b878" stroke-width="1.2"/><path d="M1 18h34" stroke="#d8b878" stroke-width="1.2"/><circle cx="27" cy="9" r="2.4" fill="#f0d9a6"/></svg>
       <span class="wm"><b>Glossa</b><span>translations</span></span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -36,7 +39,7 @@
       <h1 data-i="form.h"></h1>
       <div data-form="quick"></div>
     </div>
-    <aside class="person">
+    <aside class="person glass">
       <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
       <b data-i="form.boss"></b>
       <span data-i="form.bossname"></span>
@@ -53,7 +56,9 @@
 
 <div class="cookie" hidden><span data-i="cookie.t"></span><button class="btn" type="button" data-i="cookie.ok"></button></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script src="js/globe.js"></script>
 </body>
 </html>
