@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Glossa Translations — every language, checked three times</title>
-<meta name="description" content="Translation and localization of documents, websites, apps and games into 120+ languages. Three people check every text. Price within 15 minutes, −10% on your first order.">
-<meta property="og:title" content="Glossa Translations — every language, checked three times">
-<meta property="og:description" content="Translation and localization into 120+ languages. Price within 15 minutes.">
+<meta name="description" content="Translation and localization into 120+ languages. Three checks on every text. Your price within 15 minutes, −10% on your first order.">
+<meta property="og:title" content="Glossa Translations">
+<meta property="og:description" content="Translation into 120+ languages. Checked three times. Price in 15 minutes.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#09090b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -17,131 +17,93 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="intro" aria-hidden="true"><div class="word">Hello</div><div class="name">Gloss<em>a</em></div><button class="skipi" type="button">Skip</button><span class="bar"></span></div>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Glossa Translations">
-      
-      <span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small>
-    </a>
+    <a class="logo" href="index.html" aria-label="Glossa Translations"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a>
     <nav class="nav" aria-label="Main">
       <a href="#services" data-i="nav.services"></a>
-      <a href="#price" data-i="cost.btn"></a>
-      <a href="#faq" data-i="nav.faq"></a>
+      <a href="#price" data-i="nav.faq"></a>
       <a href="#contacts" data-i="nav.contacts"></a>
     </nav>
     <div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="ua">UA</button></div>
-    <a class="btn btn-primary" href="order.html" data-i="cta.quote"></a>
+    <a class="btn btn-primary" href="#price" data-i="cta.quote"></a>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="wrap">
-      <div class="top-line"><p class="eyebrow in-1" data-i="hero.eyebrow"></p>
-      <h1 class="in-2"><span data-i="hero.h1a"></span><span data-i="hero.h1b"></span></h1></div>
-      <div>
-        <p class="lead in-3" data-i="hero.lead"></p>
-        <div class="ctas in-4">
-          <a class="btn btn-primary" href="order.html?who=biz"><span data-i="hero.biz"></span> <span class="ar" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="order.html?who=priv"><span data-i="hero.priv"></span> <span class="ar" aria-hidden="true">→</span></a>
-        </div>
-        <ul class="facts in-4">
-          <li><b>120+</b><span data-i="facts.1"></span></li>
-          <li><b>3</b><span data-i="facts.2"></span></li>
-          <li><b>15 min</b><span data-i="facts.3"></span></li>
-        </ul>
+  <!-- one scene: the globe stays, the text changes as you scroll -->
+  <section class="cena" data-cena style="--ecras:4" aria-label="Glossa">
+    <div class="palco">
+      <canvas id="globe" aria-hidden="true"></canvas>
+
+      <div class="beat b-hero" data-beat data-de="0" data-ate=".22">
+        <h1 class="morph"><span class="sr">Translation</span><span class="w" aria-hidden="true">Translation</span><span class="lng" aria-hidden="true">EN</span></h1>
+        <p class="line" data-i="h.line"></p>
+        <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a></div>
+        <p class="hint" aria-hidden="true"><i></i><span data-i="scroll"></span></p>
       </div>
-      <div class="live in-3" aria-live="off">
-        <div class="row"><span data-i="live.k"></span><span class="pill"><i></i>EN → <span data-to>UA</span></span></div>
-        <p class="src">Your order is on its way and will arrive tomorrow.</p>
-        <div class="arrow" data-i="live.t"></div>
-        <p class="out">Ваше замовлення вже в дорозі й прибуде завтра.</p>
-        <div class="checks3">
-          <div class="ck"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b><span data-i="qa.1t"></span></div>
-          <div class="ck"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b><span data-i="qa.2t"></span></div>
-          <div class="ck"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b><span data-i="live.3"></span></div>
-        </div>
+
+      <div class="beat b-side" data-beat data-de=".24" data-ate=".46">
+        <p class="big"><span data-conta="120">120</span>+</p>
+        <h2 data-i="b2.t"></h2>
+        <p class="line" data-i="b2.p"></p>
+      </div>
+
+      <div class="beat b-side" data-beat data-de=".5" data-ate=".72">
+        <h2 data-i="b3.t"></h2>
+        <ol class="three">
+          <li><b>1</b><span data-i="b3.1"></span></li>
+          <li><b>2</b><span data-i="b3.2"></span></li>
+          <li><b>3</b><span data-i="b3.3"></span></li>
+        </ol>
+      </div>
+
+      <div class="beat b-side" data-beat data-de=".76" data-ate="1.01">
+        <h2 data-i="b4.t"></h2>
+        <p class="tag10" data-i="b4.p"></p>
+        <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a></div>
+      </div>
+
+      <div class="bar-p" aria-hidden="true"><b data-progresso-pagina></b></div>
+    </div>
+  </section>
+
+  <section class="proof" aria-label="Clients">
+    <p class="wrap" data-i="proof"></p>
+    <div class="faixa" data-faixa>
+      <div class="faixa__trilho">
+        <svg viewBox="0 0 92 32" role="img" aria-label="1win"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-style="italic" font-size="27" letter-spacing="-1">1win</text></svg>
+        <svg viewBox="0 0 196 32" role="img" aria-label="Parimatch"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="24" letter-spacing="-.5">PARIMATCH</text></svg>
+        <svg viewBox="0 0 120 32" role="img" aria-label="GGPro"><rect x="1" y="3" width="44" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="23" y="24" text-anchor="middle" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="18">GG</text><text x="52" y="24" fill="currentColor" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="2">PRO</text></svg>
+        <svg viewBox="0 0 70 32" role="img" aria-label="Uber"><text x="0" y="25" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-weight="500" font-size="28" letter-spacing="-.5">Uber</text></svg>
+        <svg viewBox="0 0 168 32" role="img" aria-label="WhiteBIT"><path d="M3 6h9l-4.5 20z" fill="currentColor"/><path d="M13 6h9l-4.5 20z" fill="currentColor" opacity=".55"/><text x="30" y="24" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="20" letter-spacing=".5">WHITEBIT</text></svg>
+        <svg viewBox="0 0 150 32" role="img" aria-label="Microsoft"><rect x="0" y="4" width="11" height="11" fill="currentColor"/><rect x="13" y="4" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="0" y="17" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="13" y="17" width="11" height="11" fill="currentColor" opacity=".6"/><text x="32" y="24" fill="currentColor" font-family="Segoe UI,Arial,sans-serif" font-weight="600" font-size="22">Microsoft</text></svg>
       </div>
     </div>
   </section>
 
-  <div class="ribbon" aria-hidden="true"><div class="track"><span>translation</span><span>переклад</span><span>traducción</span><span>Übersetzung</span><span>翻訳</span><span>tłumaczenie</span><span>traduction</span><span>çeviri</span><span>tradução</span><span>перевод</span><span>ترجمة</span><span>traduzione</span><span>번역</span><span>překlad</span><span>translation</span><span>переклад</span><span>traducción</span><span>Übersetzung</span><span>翻訳</span><span>tłumaczenie</span><span>traduction</span><span>çeviri</span><span>tradução</span><span>перевод</span><span>ترجمة</span><span>traduzione</span><span>번역</span><span>překlad</span></div></div>
-
-  <div class="proof">
+  <section id="services" class="svc-sec">
     <div class="wrap">
-      <p data-i="proof"></p>
-      <div class="marquee" aria-label="1win, Parimatch, GGPro, Uber, WhiteBIT, Microsoft">
-        <div class="track">
-          <div class="set">
-            <svg viewBox="0 0 92 32" aria-hidden="true"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-style="italic" font-size="27" letter-spacing="-1">1win</text></svg>
-            <svg viewBox="0 0 196 32" aria-hidden="true"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="24" letter-spacing="-.5">PARIMATCH</text></svg>
-            <svg viewBox="0 0 120 32" aria-hidden="true"><rect x="1" y="3" width="44" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="23" y="24" text-anchor="middle" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="18">GG</text><text x="52" y="24" fill="currentColor" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="2">PRO</text></svg>
-            <svg viewBox="0 0 70 32" aria-hidden="true"><text x="0" y="25" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-weight="500" font-size="28" letter-spacing="-.5">Uber</text></svg>
-            <svg viewBox="0 0 168 32" aria-hidden="true"><path d="M3 6h9l-4.5 20z" fill="currentColor"/><path d="M13 6h9l-4.5 20z" fill="currentColor" opacity=".55"/><text x="30" y="24" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="20" letter-spacing=".5">WHITEBIT</text></svg>
-            <svg viewBox="0 0 150 32" aria-hidden="true"><rect x="0" y="4" width="11" height="11" fill="currentColor"/><rect x="13" y="4" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="0" y="17" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="13" y="17" width="11" height="11" fill="currentColor" opacity=".6"/><text x="32" y="24" fill="currentColor" font-family="Segoe UI,Arial,sans-serif" font-weight="600" font-size="22">Microsoft</text></svg>
-          </div>
-          <div class="set" aria-hidden="true">
-            <svg viewBox="0 0 92 32"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-style="italic" font-size="27" letter-spacing="-1">1win</text></svg>
-            <svg viewBox="0 0 196 32"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="24" letter-spacing="-.5">PARIMATCH</text></svg>
-            <svg viewBox="0 0 120 32"><rect x="1" y="3" width="44" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="23" y="24" text-anchor="middle" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="18">GG</text><text x="52" y="24" fill="currentColor" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="2">PRO</text></svg>
-            <svg viewBox="0 0 70 32"><text x="0" y="25" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-weight="500" font-size="28" letter-spacing="-.5">Uber</text></svg>
-            <svg viewBox="0 0 168 32"><path d="M3 6h9l-4.5 20z" fill="currentColor"/><path d="M13 6h9l-4.5 20z" fill="currentColor" opacity=".55"/><text x="30" y="24" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="20" letter-spacing=".5">WHITEBIT</text></svg>
-            <svg viewBox="0 0 150 32"><rect x="0" y="4" width="11" height="11" fill="currentColor"/><rect x="13" y="4" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="0" y="17" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="13" y="17" width="11" height="11" fill="currentColor" opacity=".6"/><text x="32" y="24" fill="currentColor" font-family="Segoe UI,Arial,sans-serif" font-weight="600" font-size="22">Microsoft</text></svg>
-          </div>
-        </div>
-      </div>
-      <button class="mq-btn" type="button" data-mq aria-pressed="false" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
-    </div>
-  </div>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="head rv"><h2 data-i="sv.h"></h2><p data-i="sv.p"></p></div>
-      <ul class="svc">
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><h3 data-i="sv.1t"></h3><p data-i="sv.1p"></p></li>
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></span><h3 data-i="sv.2t"></h3><p data-i="sv.2p"></p></li>
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M8 10v4M6 12h4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg></span><h3 data-i="sv.3t"></h3><p data-i="sv.3p"></p></li>
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><h3 data-i="sv.4t"></h3><p data-i="sv.4p"></p></li>
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M13 15h4M7 11h2"/></svg></span><h3 data-i="sv.5t"></h3><p data-i="sv.5p"></p></li>
-        <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><h3 data-i="sv.6t"></h3><p data-i="sv.6p"></p></li>
+      <h2 class="t" data-i="sv.h"></h2>
+      <ul class="chips" data-cai>
+        <li><span data-i="sv.1"></span></li>
+        <li><span data-i="sv.2"></span></li>
+        <li><span data-i="sv.3"></span></li>
+        <li><span data-i="sv.4"></span></li>
+        <li><span data-i="sv.5"></span></li>
+        <li><span data-i="sv.6"></span></li>
+        <li><span data-i="sv.7"></span></li>
+        <li><span data-i="sv.8"></span></li>
       </ul>
-      <div class="checks rv" id="quality">
-        <h3 data-i="ck.h"></h3>
-        <div><b><i>1</i><span data-i="qa.1t"></span></b><p data-i="qa.1p"></p></div>
-        <div><b><i>2</i><span data-i="qa.2t"></span></b><p data-i="qa.2p"></p></div>
-        <div><b><i>3</i><span data-i="qa.3t"></span></b><p data-i="qa.3p"></p></div>
-      </div>
     </div>
   </section>
 
-  <section id="price" style="padding-top:0">
+  <section id="price" class="price-sec">
     <div class="wrap">
-      <div class="req rv">
-        <div class="side">
-          <h2 data-i="req.h"></h2>
-          <p data-i="req.p"></p>
-          <span class="badge10"><b>−10%</b><span data-i="req.10"></span></span>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="req.a"></span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="req.b"></span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="req.c"></span></li>
-          </ul>
-        </div>
+      <div class="req">
+        <div class="side"><h2 data-i="cost.h"></h2><p data-i="cost.p"></p></div>
         <div data-form="cost"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" style="padding-top:0">
-    <div class="wrap">
-      <div class="head rv"><h2 data-i="faq.h"></h2></div>
-      <div class="faq">
-        <details><summary><span data-i="faq.1q"></span><i aria-hidden="true"></i></summary><p data-i="faq.1a"></p></details>
-        <details><summary><span data-i="faq.2q"></span><i aria-hidden="true"></i></summary><p data-i="faq.2a"></p></details>
-        <details><summary><span data-i="faq.3q"></span><i aria-hidden="true"></i></summary><p data-i="faq.3a"></p></details>
-        <details><summary><span data-i="faq.5q"></span><i aria-hidden="true"></i></summary><p data-i="faq.5a"></p></details>
       </div>
     </div>
   </section>
@@ -149,19 +111,29 @@
 
 <footer id="contacts">
   <div class="wrap">
-    <div class="cols">
-      <div><a class="logo" href="index.html"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a><p data-i="foot.about"></p></div>
-      <div><h4 data-i="foot.services"></h4><ul><li><a href="#services" data-i="sv.1t"></a></li><li><a href="#services" data-i="sv.2t"></a></li><li><a href="#services" data-i="sv.3t"></a></li><li><a href="#services" data-i="sv.5t"></a></li></ul></div>
-      <div><h4 data-i="foot.contacts"></h4><ul><li><a href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a></li><li><a href="https://t.me/glossa_translations" target="_blank" rel="noopener">Telegram @glossa_translations</a></li><li><a href="order.html" data-i="cta.quote"></a></li></ul></div>
-    </div>
-    <div class="bottom"><span>© 2026 Glossa Translations. <span data-i="foot.rights"></span></span><a href="privacy.html" data-i="foot.privacy"></a></div>
+    <a class="logo" href="index.html"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a>
+    <nav><a href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a><a href="https://t.me/glossa_translations" target="_blank" rel="noopener">Telegram</a><a href="order.html" data-i="cta.quote"></a><a href="privacy.html" data-i="foot.privacy"></a></nav>
+    <span class="copy">© 2026 Glossa Translations</span>
   </div>
 </footer>
 
+<div class="exit" hidden role="dialog" aria-modal="true" aria-labelledby="exit-h">
+  <div class="exit__card">
+    <button class="exit__x" type="button" aria-label="Close">×</button>
+    <p class="exit__k">−10%</p>
+    <h2 id="exit-h" data-i="ex.h"></h2>
+    <p class="exit__p" data-i="ex.p"></p>
+    <div data-form="cost"></div>
+  </div>
+</div>
+
 <div class="cookie" hidden><span data-i="cookie.t"></span><button class="btn" type="button" data-i="cookie.ok"></button></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
-<script src="js/live.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/exit.js"></script>
 </body>
 </html>
