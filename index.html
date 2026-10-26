@@ -5,154 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Glossa Translations — every language, checked three times</title>
 <meta name="description" content="Translation and localization into 120+ languages. Three checks on every text. Your price within 15 minutes, −10% on your first order.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0c0f">
 <meta property="og:title" content="Glossa Translations">
 <meta property="og:description" content="Translation into 120+ languages. Checked three times. Price in 15 minutes.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#09090b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tf.css">
+<link rel="stylesheet" href="css/glossa.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="js/capa.js"></script>
+<script defer src="js/btn.js"></script>
+<script defer src="js/flight.js"></script>
+<script defer src="js/i18n.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/cover.js"></script>
+<script defer src="js/exit.js"></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="saltar" href="#conteudo">Skip to content</a>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Glossa Translations"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#services" data-i="nav.services"></a>
-      <a href="#quality" data-i="nav.qa"></a>
-      <a href="#price" data-i="nav.faq"></a>
-      <a href="#contacts" data-i="nav.contacts"></a>
-    </nav>
-    <div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="ua">UA</button></div>
-    <a class="btn btn-primary" href="#price" data-i="cta.quote"></a>
-  </div>
+<header class="topo">
+  <a class="marca" href="#viagem" aria-label="Glossa Translations, home">
+    <svg class="marca__g" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#d4ab43" stroke-width="1.3"/><ellipse cx="18" cy="18" rx="7" ry="16.5" fill="none" stroke="#d4ab43" stroke-width="1.3"/><path d="M1.5 18h33M4 10h28M4 26h28" stroke="#d4ab43" stroke-width="1.1"/></svg>
+    <span>Glossa<em>Translations</em></span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#ciclo">How it works</a>
+    <a href="#marcas">Clients</a>
+    <a href="#preco">Price</a>
+    <a class="pilula" href="#preco">Get a price</a>
+  </nav>
 </header>
 
-<main id="main">
-<div class="bgword" aria-hidden="true"><span>Translation</span></div>
+<div class="rolar" aria-hidden="true">
+  <span data-pct-pagina>0%</span>
+  <span class="rolar__txt">Scroll through the languages</span>
+  <i class="rolar__linha"><b data-progresso-pagina></b></i>
+</div>
 
-  <section class="hero2" data-word="Translation|EN" data-cor="#09090b">
-    <div class="wrap">
-      <h1 class="morph"><span class="sr">Translation</span><span class="w" aria-hidden="true">Translation</span><span class="lng" aria-hidden="true">EN</span></h1>
-      <p class="line" data-i="h.line"></p>
-      <div class="ctas"><a class="btn btn-primary" href="#price"><span data-i="cta.quote"></span> <span class="ar" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#services" data-i="nav.services"></a></div>
-      <ul class="pills">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.1"></span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.2"></span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i="p.3"></span></li>
+<main id="conteudo">
+
+  <!-- 1. THE FLIGHT: it opens on a living globe; the scroll flies past real translation screens, one per stop. -->
+  <section class="cena" id="viagem" data-cena data-cor="#0b0c0f" data-tinta="#f3ebdd" style="--ecras:7" aria-label="Translations, one flight">
+    <div class="palco">
+      <div class="ceu" aria-hidden="true"><i class="brilho brilho--a"></i><i class="brilho brilho--b"></i><i class="grelha"></i></div>
+      <div class="luz" aria-hidden="true"></div>
+
+      <div class="mundo" data-viagem="6.4">
+        <div class="camada capa" data-z="1" data-longe="9" data-perto=".42">
+          <div class="cover">
+            <canvas id="globe" aria-hidden="true"></canvas>
+            <div><div class="cover__name">Glossa</div><div class="cover__sub">Translations</div><div class="cover__word" data-word>Translation · EN</div></div>
+          </div>
+        </div>
+        <div class="camada poeira" data-z="1.4" data-longe="3"></div>
+        <div class="camada poeira poeira--b" data-z="2.9" data-longe="3.4"></div>
+        <div class="camada poeira" data-z="4.4" data-longe="3.4"></div>
+        <div class="camada poeira poeira--b" data-z="5.9" data-longe="3.4"></div>
+
+        <div class="camada tela tr tr--doc" data-z="2.2" data-x="-.27" data-y="-.06" data-longe="1.6">
+          <div class="tr__top"><span>Lease agreement · p. 1</span><span class="tr__pill">EN → UA</span></div>
+          <p class="tr__src">1.1 The Landlord leases the premises to the Tenant for a term of 12 months.</p>
+          <p class="tr__out">1.1 Орендодавець передає Орендареві приміщення в оренду строком на 12 місяців.</p>
+          <div class="tr__checks"><span>Translator</span><span>Editor</span><span>Native</span></div>
+        </div>
+        <div class="camada tela tr tr--app" data-z="3.2" data-x=".27" data-y="-.04" data-longe="2.5">
+          <div class="tr__top"><span>Shop app · checkout</span><span class="tr__pill">EN → DE</span></div>
+          <p class="tr__src">Your cart · Free delivery tomorrow</p>
+          <p class="tr__out">Ihr Warenkorb<br>Kostenlose Lieferung morgen</p>
+          <div class="tr__ui"><b>Jetzt kaufen</b><b>Weiter einkaufen</b></div>
+        </div>
+        <div class="camada tela tr tr--game" data-z="4.2" data-x="-.27" data-y="-.06">
+          <div class="tr__top"><span>Casino lobby · promo</span><span class="tr__pill">EN → ES</span></div>
+          <p class="tr__src">Welcome bonus 100% up to €500</p>
+          <p class="tr__out">Bono de bienvenida <em>100%</em><br>hasta 500 €</p>
+          <div class="tr__checks"><span>Terms checked</span><span>Local market</span></div>
+        </div>
+        <div class="camada tela tr tr--video" data-z="5.2" data-x=".27" data-y="-.04">
+          <div class="tr__top"><span>Product video · subtitles</span><span class="tr__pill">EN → JA</span></div>
+          <div class="tr__screen"><span class="tr__sub">ご注文の商品は明日お届けします。</span></div>
+        </div>
+        <div class="camada tela tr tr--crypto" data-z="6.2" data-x="-.27" data-y="-.06">
+          <div class="tr__top"><span>Exchange · deposit</span><span class="tr__pill">EN → AR</span></div>
+          <p class="tr__src">Deposit USDT · Network fee 0</p>
+          <p class="tr__out">إيداع USDT<br>رسوم الشبكة 0</p>
+          <div class="tr__checks"><span>KYC terms</span><span>RTL layout</span></div>
+        </div>
+        <div class="camada tela tela--tua" data-z="7.9" data-y=".1" data-longe="3.6"><span>your&nbsp;text</span></div>
+      </div>
+      <div class="veu" aria-hidden="true"></div>
+
+      <div class="beat beat--hero beat--capa" data-beat data-de="0" data-ate=".07">
+        <h1 class="so-leitor">Glossa Translations — every language, checked three times</h1>
+        <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll through the languages</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.127" data-ate="0.254">
+        <p class="chapeu">01 · Documents · EN → UA</p>
+        <h2>Contracts &amp; certificates</h2>
+      </div>
+      <div class="beat beat--esq" data-beat data-de="0.283" data-ate="0.410">
+        <p class="chapeu">02 · Websites &amp; apps · EN → DE</p>
+        <h2>Every button, every screen</h2>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.440" data-ate="0.567">
+        <p class="chapeu">03 · iGaming · EN → ES</p>
+        <h2>Bonuses that read local</h2>
+      </div>
+      <div class="beat beat--esq" data-beat data-de="0.596" data-ate="0.723">
+        <p class="chapeu">04 · Video · EN → JA</p>
+        <h2>Subtitles &amp; voice</h2>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.752" data-ate="0.879">
+        <p class="chapeu">05 · Crypto &amp; fintech · EN → AR</p>
+        <h2>Right to left, done right</h2>
+      </div>
+      <div class="beat beat--fim" data-beat data-de=".884" data-ate="1">
+        <p class="chapeu">06 · 120+ languages</p>
+        <h2>Your text<br>is next.</h2>
+        <p class="acoes"><a class="botao" href="#preco">Get a price in 15 min</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="marcas" id="marcas" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="Clients">
+    <p class="marcas__titulo">Teams we translate for</p>
+    <div class="marcas__faixa">
+      <ul class="marcas__trilho">
+        <li><span class="wm wm--logo"><img class="wm__cor" src="img/logos/1win.png" alt="1win" width="56" height="56"><b>1win</b></span></li>
+        <li><span class="wm wm--word">PARI<i>MATCH</i></span></li>
+        <li><span class="wm wm--logo"><img src="img/logos/whitebit.png" alt="WhiteBIT" width="40" height="40"><b>WhiteBIT</b></span></li>
+        <li><span class="wm wm--logo"><img class="wm__uber" src="img/logos/uber.svg" alt="Uber" width="82" height="30"></span></li>
+        <li><span class="wm wm--word">GG<i>Pro</i></span></li>
+        <li><span class="wm wm--word">Microsoft</span></li>
+        <li><a class="wm wm--tu" href="#preco">Your brand →</a></li>
       </ul>
     </div>
   </section>
 
-  <section class="proof" aria-label="Clients" data-word="Переклад|UA">
-    <p class="wrap" data-i="proof"></p>
-    <div class="faixa" data-faixa>
-      <div class="faixa__trilho">
-        <svg viewBox="0 0 92 32" role="img" aria-label="1win"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-style="italic" font-size="27" letter-spacing="-1">1win</text></svg>
-        <svg viewBox="0 0 196 32" role="img" aria-label="Parimatch"><text x="0" y="25" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="24" letter-spacing="-.5">PARIMATCH</text></svg>
-        <svg viewBox="0 0 120 32" role="img" aria-label="GGPro"><rect x="1" y="3" width="44" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="23" y="24" text-anchor="middle" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="18">GG</text><text x="52" y="24" fill="currentColor" font-family="Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="2">PRO</text></svg>
-        <svg viewBox="0 0 70 32" role="img" aria-label="Uber"><text x="0" y="25" fill="currentColor" font-family="Helvetica Neue,Arial,sans-serif" font-weight="500" font-size="28" letter-spacing="-.5">Uber</text></svg>
-        <svg viewBox="0 0 168 32" role="img" aria-label="WhiteBIT"><path d="M3 6h9l-4.5 20z" fill="currentColor"/><path d="M13 6h9l-4.5 20z" fill="currentColor" opacity=".55"/><text x="30" y="24" fill="currentColor" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="20" letter-spacing=".5">WHITEBIT</text></svg>
-        <svg viewBox="0 0 150 32" role="img" aria-label="Microsoft"><rect x="0" y="4" width="11" height="11" fill="currentColor"/><rect x="13" y="4" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="0" y="17" width="11" height="11" fill="currentColor" opacity=".8"/><rect x="13" y="17" width="11" height="11" fill="currentColor" opacity=".6"/><text x="32" y="24" fill="currentColor" font-family="Segoe UI,Arial,sans-serif" font-weight="600" font-size="22">Microsoft</text></svg>
-      </div>
-    </div>
+  <section class="ciclo" id="ciclo" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="How it works">
+    <p class="chapeu">How it works</p>
+    <h2 class="titulo-secao">Send a file. Get it back checked three times.</h2>
+    <ol class="ciclo__passos">
+      <li><b>Send the file</b><small>Form, email or Telegram · any format</small></li>
+      <li><b>Get the price</b><small>Exact price and deadline in 15 minutes</small></li>
+      <li><b>Translator → editor → native</b><small>Three people read every text</small></li>
+      <li><b>Receive it</b><small>On time, in your format · urgent in 24 h</small></li>
+    </ol>
   </section>
 
-<section class="nums" data-word="Traducción|ES" data-cor="#d6b46e" data-tinta="#17120a">
-    <div class="wrap">
-      <h2 class="t2" data-i="n.h"></h2>
-      <div class="grid-n">
-        <div><b><span data-conta="120">120</span>+</b><span data-i="n.1"></span></div>
-        <div><b><span data-conta="3">3</span></b><span data-i="n.2"></span></div>
-        <div><b><span data-conta="15">15</span> min</b><span data-i="n.3"></span></div>
-        <div><b><span data-conta="24">24</span> h</b><span data-i="n.4"></span></div>
+  <section class="preco" id="preco" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="Get a price">
+    <div class="preco__card">
+      <div class="side">
+        <p class="chapeu">Price in 15 minutes</p>
+        <h2>What do you need translated?</h2>
+        <p>Pick the service and leave a contact. A manager replies with the exact price and deadline.</p>
+        <span class="ten">−10% on your first order, automatically</span>
       </div>
-    </div>
-  </section>
-
-  <section id="services" class="svc2" data-word="Übersetzung|DE" data-cor="#09090b">
-    <div class="wrap">
-      <h2 class="t2" data-i="sv.h"></h2>
-      <div class="cards">
-        <article><h3 data-i="c.1t"></h3><p data-i="c.1p"></p></article>
-        <article><h3 data-i="c.2t"></h3><p data-i="c.2p"></p></article>
-        <article class="hot"><h3 data-i="c.3t"></h3><p data-i="c.3p"></p></article>
-        <article><h3 data-i="c.4t"></h3><p data-i="c.4p"></p></article>
-        <article><h3 data-i="c.5t"></h3><p data-i="c.5p"></p></article>
-        <article><h3 data-i="c.6t"></h3><p data-i="c.6p"></p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="how" id="quality" data-word="翻訳|JA" data-cor="#f2ede3" data-tinta="#14110c">
-    <div class="wrap">
-      <h2 class="t2" data-i="w.h"></h2>
-      <ol class="steps3">
-        <li><b>01</b><h3 data-i="w.1t"></h3><p data-i="w.1p"></p></li>
-        <li><b>02</b><h3 data-i="w.2t"></h3><p data-i="w.2p"></p></li>
-        <li><b>03</b><h3 data-i="w.3t"></h3><p data-i="w.3p"></p></li>
-      </ol>
-      <div class="qa3"><span data-i="b3.1"></span><i>→</i><span data-i="b3.2"></span><i>→</i><span data-i="b3.3"></span></div>
-    </div>
-  </section>
-
-  <section class="inds" data-word="Tłumaczenie|PL" data-cor="#09090b">
-    <div class="wrap">
-      <h2 class="t2" data-i="i.h"></h2>
-      <ul class="chips" data-cai>
-        <li data-i="i.1"></li><li data-i="i.2"></li><li data-i="i.3"></li><li data-i="i.4"></li><li data-i="i.5"></li><li data-i="i.6"></li><li data-i="i.7"></li><li data-i="i.8"></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="price" class="price-sec" data-word="Traduction|FR" data-cor="#09090b">
-    <div class="wrap">
-      <div class="req">
-        <div class="side"><h2 data-i="cost.h"></h2><p data-i="cost.p"></p></div>
-        <div data-form="cost"></div>
-      </div>
-    </div>
-  </section>
-  <section class="faq2" data-word="Çeviri|TR">
-    <div class="wrap">
-      <h2 class="t2" data-i="q.h"></h2>
-      <div class="faq">
-        <details><summary><span data-i="q.1q"></span><i aria-hidden="true"></i></summary><p data-i="q.1a"></p></details>
-        <details><summary><span data-i="q.2q"></span><i aria-hidden="true"></i></summary><p data-i="q.2a"></p></details>
-        <details><summary><span data-i="q.3q"></span><i aria-hidden="true"></i></summary><p data-i="q.3a"></p></details>
-      </div>
+      <div data-form="cost"></div>
     </div>
   </section>
 </main>
 
-<footer id="contacts">
-  <div class="wrap">
-    <a class="logo" href="index.html"><span class="wm"><b>Gloss<i>a</i></b></span><small>translations</small></a>
-    <nav><a href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a><a href="https://t.me/glossa_translations" target="_blank" rel="noopener">Telegram</a><a href="order.html" data-i="cta.quote"></a><a href="privacy.html" data-i="foot.privacy"></a></nav>
-    <span class="copy">© 2026 Glossa Translations</span>
-  </div>
+<footer class="rodape2">
+  <span>© 2026 Glossa Translations</span>
+  <span><a href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a> · <a href="https://t.me/glossa_translations" target="_blank" rel="noopener">Telegram</a> · <a href="privacy.html">Privacy</a></span>
 </footer>
+
+<div class="doca">
+  <a class="doca__tg" href="https://t.me/glossa_translations" target="_blank" rel="noopener" aria-label="Write to us in Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.5-1.4ZM8.1 13.5l9.6-6.1c.5-.3.9-.1.5.2l-8.2 7.4-.3 3.4-1.6-4.9Z"/></svg><span>Telegram</span></a>
+  <a class="doca__tel" href="#preco" aria-label="Get a price"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H5.2L4 17.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Price</span></a>
+</div>
 
 <div class="exit" hidden role="dialog" aria-modal="true" aria-labelledby="exit-h">
   <div class="exit__card">
     <button class="exit__x" type="button" aria-label="Close">×</button>
     <p class="exit__k">−10%</p>
-    <h2 id="exit-h" data-i="ex.h"></h2>
-    <p class="exit__p" data-i="ex.p"></p>
+    <h2 id="exit-h">Leaving already? Get your price first.</h2>
+    <p class="exit__p">Pick a service and leave an email. Price in 15 minutes, −10% on your first order.</p>
     <div data-form="cost"></div>
   </div>
 </div>
 
-<div class="cookie" hidden><span data-i="cookie.t"></span><button class="btn" type="button" data-i="cookie.ok"></button></div>
-
-<script src="js/i18n.js"></script>
-<script src="js/main.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/hero.js"></script>
-<script src="js/exit.js"></script>
+<div class="cookie" hidden><span>Only essential cookies, to remember your choice.</span><button class="btn btn-primary" type="button">OK</button></div>
 </body>
 </html>
