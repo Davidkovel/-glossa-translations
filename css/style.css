@@ -302,3 +302,64 @@ footer a:hover{color:var(--ink)}
 .attach:hover span{text-decoration:underline}
 .hero .pick span{padding:5px 11px;font-size:12.5px}
 .hero .picks{gap:6px}
+
+/* ===== mk-style look: white, bright blue, bold sans headings ===== */
+:root{--bg:#ffffff;--paper:#ffffff;--brand:#1636f5;--brand-ink:#0d25c9;--brand-soft:#eef1fe;--brand-tint:#d6ddfd;--line:#e7e9f0;--line-2:#c9d0ee;--f-display:"Montserrat",var(--f-ui)}
+body{background:#fff}
+.top{background:rgba(255,255,255,.9)}
+.top.scrolled{border-bottom-color:var(--line)}
+h1{font-weight:800;font-size:clamp(38px,5vw,64px);line-height:1.05;letter-spacing:-.035em;margin:20px 0 18px}
+h1 em{font-style:normal;color:var(--brand)}
+h2.t{font-weight:800;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.03em;max-width:18ch}
+h2.t em{font-style:normal}
+.cta h2{font-weight:800;font-size:clamp(28px,3.4vw,44px);letter-spacing:-.03em}
+.cta h2 em{font-style:normal}
+.plan .pr{font-weight:800;font-size:44px;letter-spacing:-.03em}
+.step .n{font-weight:800;font-size:48px;letter-spacing:-.04em}
+.qa{background:#f6f7fb}
+.s{background:#f6f7fb;border-color:transparent}
+.s.dark{background:var(--brand);border-color:var(--brand)}
+.s.dark p{color:#dfe4ff}
+.s.dark .ic{background:rgba(255,255,255,.16);color:#fff}
+.s.dark .from{color:#fff}
+.inds span{background:#f6f7fb;border-color:transparent}
+.cta{background:var(--brand)}
+.cta p{color:#dfe4ff}
+.cta h2 em{color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.cta .btn-brand{background:#fff;color:var(--brand);box-shadow:none}
+.ribbon{background:var(--brand)}
+.ribbon b{color:#fff}
+
+/* the quick form, mk-style */
+.card{border-radius:14px;box-shadow:0 20px 60px -20px rgba(22,54,245,.25);border-color:#e3e7fb}
+.mkf .grid2{grid-template-columns:1fr 1fr;column-gap:16px}
+.mkf .f{margin-bottom:16px}
+.mkf .in{background:#fff;border:1px solid #a9b6f7;border-radius:4px;padding:15px 16px;font-size:16px}
+.mkf .in::placeholder{color:#8a90a3}
+.mkf .in:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-tint)}
+.mkf .lbl{font-size:13px;font-weight:600;color:var(--ink-2)}
+.multi{position:relative}
+.multi summary{list-style:none;cursor:pointer;min-height:54px;padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%231636f5' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.multi summary::-webkit-details-marker{display:none}
+.multi summary .ph{color:#8a90a3}
+.multi-list{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid #a9b6f7;border-radius:6px;box-shadow:var(--sh-2);padding:6px;max-height:280px;overflow:auto}
+.multi-list .pick{display:block}
+.multi-list .pick input{position:static;opacity:1;pointer-events:auto;width:17px;height:17px;accent-color:var(--brand);margin:0 10px 0 0;vertical-align:-3px}
+.multi-list .pick span{display:inline;border:0;background:none;padding:0;font-size:15px;color:var(--ink)}
+.multi-list .pick{padding:10px 10px;border-radius:4px}
+.multi-list .pick:hover{background:var(--brand-soft)}
+.multi-list .pick input:checked+span{background:none;color:var(--brand);font-weight:700}
+.mkf .cat{margin:4px 0 10px;font-size:15px;color:var(--ink)}
+.mkf .cats{display:grid;gap:4px;margin-bottom:18px}
+.mkf .cats .check{margin:0;font-size:15px;color:var(--ink)}
+.mkf .extras{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.mkf .voucher{flex:1;min-width:220px;max-width:300px}
+.mkf .voucher .in{padding:10px 12px;font-size:14px;letter-spacing:.02em}
+.mkf .voucher .btn{padding:8px 14px;font-size:13px;border-radius:4px}
+.mkf .chips{margin-bottom:8px}
+.mkf .vstate{margin-bottom:8px}
+.mkf .check{margin:6px 0 14px}
+.mkf .submit{width:auto;border-radius:4px;padding:15px 26px;font-size:14px;letter-spacing:.12em;text-transform:uppercase;box-shadow:none}
+.mkf .note{justify-content:flex-start;text-align:left;margin-top:12px}
+@media (max-width:560px){.mkf .grid2{grid-template-columns:1fr}.mkf .submit{width:100%}.mkf .voucher{max-width:none}}
+.mkf .grid2{row-gap:0}

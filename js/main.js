@@ -41,36 +41,38 @@
     }).join("");
     this.host.innerHTML =
       (big ? "" : '<div class="card-head"><div><h2>' + t("form.title") + "</h2><p>" + t("form.sub") + '</p></div><span class="badge">' + t("form.badge") + "</span></div>") +
-      '<form novalidate>' +
+      '<form novalidate class="mkf">' +
       '<div class="grid2">' +
-        '<div class="f" data-f="name"><label for="' + this.id("nm") + '">' + t("form.name") + '</label><input class="in" id="' + this.id("nm") + '" name="name" autocomplete="name" value="' + esc(s.name || "") + '"><div class="msg"></div></div>' +
-        '<div class="f" data-f="email"><label for="' + this.id("em") + '">' + t("form.email") + '</label><input class="in" id="' + this.id("em") + '" name="email" type="email" inputmode="email" autocomplete="email" value="' + esc(s.email || "") + '"><div class="msg"></div></div>' +
+        '<div class="f" data-f="name"><label class="sr" for="' + this.id("nm") + '">' + t("form.name") + '</label><input class="in" id="' + this.id("nm") + '" name="name" autocomplete="name" placeholder="' + esc(t("form.nameph")) + '" value="' + esc(s.name || "") + '"><div class="msg"></div></div>' +
+        '<div class="f" data-f="email"><label class="sr" for="' + this.id("em") + '">' + t("form.email") + '</label><input class="in" id="' + this.id("em") + '" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email" value="' + esc(s.email || "") + '"><div class="msg"></div></div>' +
+        '<div class="f"><label class="sr" for="' + this.id("ph") + '">' + t("form.phone") + '</label><input class="in" id="' + this.id("ph") + '" name="phone" type="tel" autocomplete="tel" placeholder="' + esc(t("form.phoneph")) + '" value="' + esc(s.phone || "") + '"></div>' +
       "</div>" +
-      '<div class="f"><label for="' + this.id("ph") + '">' + t("form.phone") + ' <span class="opt">' + t("form.opt") + '</span></label><input class="in" id="' + this.id("ph") + '" name="phone" type="tel" autocomplete="tel" value="' + esc(s.phone || "") + '"></div>' +
-      '<div class="f" data-f="text"><label for="' + this.id("tx") + '">' + t("form.msg") + '</label><textarea class="in" id="' + this.id("tx") + '" name="text" rows="' + (big ? 5 : 3) + '" placeholder="' + esc(t("form.msgph")) + '">' + esc(s.text || "") + '</textarea><div class="msg"></div></div>' +
-      '<div class="f"><span class="lbl">' + t("form.services") + ' <span class="opt">' + t("form.opt") + '</span></span><div class="picks">' + svc + "</div></div>" +
-      '<div class="f"><span class="lbl">' + t("form.cat") + '</span><div class="seg" role="radiogroup">' +
-        '<button type="button" role="radio" data-who="biz" aria-pressed="' + (s.who === "biz") + '">' + t("form.biz") + "</button>" +
-        '<button type="button" role="radio" data-who="priv" aria-pressed="' + (s.who === "priv") + '">' + t("form.priv") + "</button></div></div>" +
-      '<div class="f"><label class="attach">' + ICON.clip + "<span>" + t("form.attach") + '</span><input type="file" name="files" multiple></label><div class="chips" data-chips="files"></div></div>' +
-      '<div class="f"><label for="' + this.id("vc") + '">' + t("form.voucher") + '</label><div class="voucher"><input class="in" id="' + this.id("vc") + '" name="voucher" placeholder="' + CODE + '" value="' + esc(s.voucher || "") + '" autocomplete="off"><button type="button" class="btn btn-ghost" data-apply>' + t("form.apply") + '</button></div><div class="vstate"></div></div>' +
-      '<div class="f" data-f="consent" style="margin:0"><label class="check"><input type="checkbox" name="consent"' + (s.consent ? " checked" : "") + "><span>" + t("form.consent") + '</span></label><div class="msg" style="margin:-10px 0 12px"></div></div>' +
-      '<button class="btn btn-brand submit" type="submit">' + t("form.submit") + ' <span aria-hidden="true">→</span></button>' +
-      '<p class="note">' + ICON.lock + "<span>" + t("form.note") + "</span></p>" +
+      '<div class="f" data-f="text"><label class="sr" for="' + this.id("tx") + '">' + t("form.msg") + '</label><textarea class="in" id="' + this.id("tx") + '" name="text" rows="' + (big ? 4 : 3) + '" placeholder="' + esc(t("form.msgph")) + '">' + esc(s.text || "") + '</textarea><div class="msg"></div></div>' +
+      '<div class="f"><span class="lbl">' + t("form.services") + '</span><details class="multi"><summary class="in">' + (s.services.length ? esc(s.services.map(t).join(", ")) : '<span class="ph">' + t("form.pick") + "</span>") + '</summary><div class="multi-list">' + svc + "</div></details></div>" +
+      '<p class="cat">' + t("form.cat") + "</p>" +
+      '<div class="cats">' +
+        '<label class="check"><input type="radio" name="who" value="biz"' + (s.who === "biz" ? " checked" : "") + "><span>" + t("form.biz") + "</span></label>" +
+        '<label class="check"><input type="radio" name="who" value="priv"' + (s.who === "priv" ? " checked" : "") + "><span>" + t("form.priv") + "</span></label></div>" +
+      '<div class="extras"><label class="attach">' + ICON.clip + "<span>" + t("form.attach") + '</span><input type="file" name="files" multiple></label>' +
+        '<div class="voucher"><label class="sr" for="' + this.id("vc") + '">' + t("form.voucher") + '</label><input class="in" id="' + this.id("vc") + '" name="voucher" placeholder="' + esc(t("form.voucher")) + ' (' + CODE + ')" value="' + esc(s.voucher || "") + '" autocomplete="off"><button type="button" class="btn btn-ghost" data-apply>' + t("form.apply") + "</button></div></div>" +
+      '<div class="chips" data-chips="files"></div><div class="vstate"></div>' +
+      '<div class="f" data-f="consent" style="margin:0"><label class="check"><input type="checkbox" name="consent"' + (s.consent ? " checked" : "") + "><span>" + t("form.consent") + '</span></label><div class="msg"></div></div>' +
+      '<button class="btn btn-brand submit" type="submit">' + t("form.submit") + "</button>" +
+      '<p class="note">' + t("form.note") + "</p>" +
       "</form>";
     this.paintFiles(); this.paintVoucher();
     var f = this.host.querySelector("form");
     $$('input[name="svc"]', f).forEach(function (c) {
       c.addEventListener("change", function () {
         s.services = $$('input[name="svc"]:checked', f).map(function (x) { return x.value; });
+        f.querySelector(".multi summary").innerHTML = s.services.length ? esc(s.services.map(t).join(", ")) : '<span class="ph">' + t("form.pick") + "</span>";
       });
     });
-    $$("[data-who]", f).forEach(function (b) {
-      b.addEventListener("click", function () {
-        s.who = b.getAttribute("data-who");
-        $$("[data-who]", f).forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      });
+    $$('input[name="who"]', f).forEach(function (r) {
+      r.addEventListener("change", function () { s.who = r.value; });
     });
+    var multi = f.querySelector(".multi");
+    document.addEventListener("click", function (e) { if (multi.open && !multi.contains(e.target)) multi.open = false; });
     var file = f.files;
     file.addEventListener("change", function () { self.add(file.files); file.value = ""; });
     f.voucher.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); self.apply(); } });
