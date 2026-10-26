@@ -155,3 +155,79 @@ footer a:hover{color:var(--gold-2)}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 .logo svg{flex:none}.top .btn{white-space:nowrap}@media (max-width:600px){.logo small{display:none}.live__src,.live__out{font-size:clamp(26px,7.4vw,40px)}}
+
+/* ===== v10: 3D space behind the page ===== */
+#bg3d{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block;pointer-events:none;transition:opacity .2s}
+body{background:transparent}
+.hero::before{background:radial-gradient(50% 50% at 25% 40%,rgba(11,12,15,.75),transparent 75%)}
+.hero .wrap > *{max-width:640px}
+.hero .live__src,.hero .live__out{font-size:clamp(30px,4.4vw,64px)}
+@media (max-width:1000px){.hero{justify-content:flex-start;padding-top:28px}.hero .wrap > *{max-width:none}.hero .live{margin-bottom:28px}}
+@media (max-width:1000px) and (orientation:portrait){.hero{min-height:auto;padding-bottom:46svh}}
+
+/* numbers */
+.nums{border-block:1px solid var(--line);background:rgba(11,12,15,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr)}
+.grid4 div{padding:34px 0;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--line);padding-left:24px}
+.grid4 div:first-child{border-left:0;padding-left:0}
+.grid4 b{font-size:clamp(38px,4.4vw,60px);font-weight:300;letter-spacing:-.05em;line-height:1;color:var(--gold-2)}
+.grid4 span{color:var(--ink-3);font-size:15px}
+
+/* cards a little glassy over the space */
+.svc article{background:rgba(20,21,26,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.checks li{background:rgba(11,12,15,.55);padding:20px 0 0}
+
+/* industries */
+.tags{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.tags li{border-radius:999px;padding:14px 22px;font-size:clamp(16px,1.5vw,20px);background:rgba(20,21,26,.75);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* coupon */
+.coupon{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;border-radius:24px;padding:clamp(24px,4vw,48px);background:linear-gradient(120deg,rgba(212,171,67,.22),rgba(212,171,67,.04) 60%),rgba(20,21,26,.88);box-shadow:inset 0 0 0 1px rgba(212,171,67,.35)}
+.coupon h2{margin-bottom:14px}
+.coupon ul{margin:0 0 24px;padding-left:18px;color:var(--ink-2)}
+.coupon__tag{border:1px dashed rgba(212,171,67,.6);border-radius:20px;padding:24px 34px;text-align:center}
+.coupon__tag b{display:block;font-size:clamp(60px,7vw,96px);font-weight:200;letter-spacing:-.05em;line-height:1;color:var(--gold-2)}
+.coupon__tag span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.price{background:radial-gradient(70% 120% at 0% 0%,rgba(212,171,67,.13),transparent 60%),rgba(20,21,26,.92)}
+
+/* faq */
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font-size:18px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);position:relative;transition:transform .3s var(--ease)}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--gold);transform:translate(-50%,-50%)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--ink-2)}
+
+/* Telegram: frosted glass, iPhone-like */
+.tg{background:rgba(255,255,255,.12);color:#fff;font:600 15px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;letter-spacing:-.01em;padding:12px 18px 12px 12px;backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 10px 30px -10px rgba(0,0,0,.6)}
+.tg svg{width:30px;height:30px;padding:6px;border-radius:50%;background:#2aabee;fill:#fff}
+.tg:hover{background:rgba(255,255,255,.18)}
+
+@media (max-width:900px){
+  .grid4{grid-template-columns:1fr 1fr}
+  .grid4 div{border-left:0;padding-left:0;padding:22px 0}
+  .coupon{grid-template-columns:1fr}
+}
+
+/* price block like a contact page: form + the manager who answers */
+.price{grid-template-columns:1.35fr .65fr;align-items:center}
+.pform h2{margin-bottom:10px}
+.pform__p{color:var(--ink-2);margin:0 0 24px}
+.mgr{margin:0;text-align:center}
+.mgr__ph{position:relative;aspect-ratio:3/4;max-width:300px;margin:0 auto;display:flex;align-items:flex-end;justify-content:center}
+.mgr__ph::before{content:"";position:absolute;inset:6% 4% 0;border-radius:46% 54% 40% 60% / 50% 44% 56% 50%;background:radial-gradient(70% 70% at 40% 30%,#f0dcae,#d4ab43 55%,#8a6a22);animation:blob 12s ease-in-out infinite alternate}
+@keyframes blob{to{border-radius:58% 42% 55% 45% / 42% 58% 42% 58%}}
+.mgr__ph img{position:relative;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:0 0 24px 24px}
+.mgr__ph img ~ .mgr__sil{display:none}
+.mgr__sil{position:relative;width:78%}
+.mgr__bubble{position:absolute;left:-10%;top:10%;background:rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);color:#fff;font:500 14px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:10px 14px;border-radius:16px 16px 16px 4px;max-width:200px;text-align:left;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+.mgr figcaption{display:flex;flex-direction:column;gap:4px;margin-top:16px}
+.mgr figcaption b{font-size:18px;font-weight:600}
+.mgr figcaption span{color:var(--ink-3);font-size:14px}
+.mgr .ten{margin:10px auto 0;color:var(--gold-2);border:1px dashed rgba(212,171,67,.55);border-radius:12px;padding:8px 14px;width:max-content}
+@media (max-width:900px){.price{grid-template-columns:1fr}.mgr{order:-1}.mgr__ph{max-width:200px}.mgr__bubble{left:-30%}}

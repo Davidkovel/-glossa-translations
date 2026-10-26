@@ -12,17 +12,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/simple.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="js/bg3d.js"></script>
 <script defer src="js/i18n.js"></script>
 <script defer src="js/main.js"></script>
 <script defer src="js/typing.js"></script>
 <script defer src="js/exit.js"></script>
 </head>
 <body>
+<canvas id="bg3d" aria-hidden="true"></canvas>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#d4ab43" stroke-width="1.5"/><ellipse cx="18" cy="18" rx="7" ry="16.5" fill="none" stroke="#d4ab43" stroke-width="1.5"/><path d="M1.5 18h33" stroke="#d4ab43" stroke-width="1.5"/></svg>Glossa<small>translations</small></a>
-    <nav aria-label="Main"><a href="#services">Services</a><a href="#quality">Quality</a><a href="#price">Price</a></nav>
+    <nav aria-label="Main"><a href="#services">Services</a><a href="#quality">Quality</a><a href="#industries">Industries</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn-primary" href="#price">Get a price</a>
   </div>
 </header>
@@ -49,6 +52,15 @@
     </div>
   </div>
 
+  <section class="nums" aria-label="Glossa in numbers">
+    <div class="wrap grid4">
+      <div><b>120+</b><span>languages, native linguists</span></div>
+      <div><b>3</b><span>people check every text</span></div>
+      <div><b>15 min</b><span>to get your exact price</span></div>
+      <div><b>24 h</b><span>urgent delivery</span></div>
+    </div>
+  </section>
+
   <section class="block" id="services">
     <div class="wrap">
       <h2>What we <em>translate</em></h2>
@@ -74,15 +86,53 @@
     </div>
   </section>
 
+  <section class="block" id="industries" style="padding-top:0">
+    <div class="wrap">
+      <h2>Industries we <em>know</em></h2>
+      <ul class="tags">
+        <li>iGaming &amp; betting</li><li>Crypto &amp; fintech</li><li>Mobility &amp; delivery</li><li>SaaS &amp; apps</li><li>E-commerce</li><li>Legal</li><li>Medical</li><li>Marketing &amp; ads</li><li>Private clients</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="coupon">
+        <div><h2>10% off your <em>first order</em></h2><ul><li>Any service, any volume</li><li>Applied automatically, no code needed</li></ul><a class="btn btn-primary" href="#price">Send a request →</a></div>
+        <div class="coupon__tag"><b>−10%</b><span>first order</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="price" style="padding-top:0">
     <div class="wrap">
       <div class="price">
-        <div class="side">
+        <div class="pform">
           <h2>Get your <em>price</em></h2>
-          <p>Pick the service, leave a contact. We reply with the exact price and deadline in 15 minutes.</p>
-          <span class="ten">−10% on your first order</span>
+          <p class="pform__p">Pick the service, leave a contact. We reply with the exact price and deadline in 15 minutes.</p>
+          <div data-form="cost"></div>
         </div>
-        <div data-form="cost"></div>
+        <figure class="mgr">
+          <div class="mgr__ph">
+            <!-- put the manager's real photo here: img/manager.webp (portrait, transparent or dark background) -->
+            <img src="img/manager.webp" alt="" width="600" height="800" onerror="this.remove()">
+            <svg class="mgr__sil" viewBox="0 0 200 260" aria-hidden="true"><circle cx="100" cy="86" r="44" fill="#2a2418"/><path d="M18 260c4-62 40-96 82-96s78 34 82 96z" fill="#2a2418"/></svg>
+            <span class="mgr__bubble">Hi! I'll send your price in 15 min 👋</span>
+          </div>
+          <figcaption><b>Your project manager</b><span>Replies 9:00–21:00 · Telegram, email</span><span class="ten">−10% on your first order</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <h2>Quick <em>answers</em></h2>
+      <div class="faq">
+        <details><summary>How fast can you translate?<i aria-hidden="true"></i></summary><p>About 2,000–2,500 words a day per linguist with all three checks. Urgent orders are split across a team and can be ready in 24 hours.</p></details>
+        <details><summary>Which languages?<i aria-hidden="true"></i></summary><p>More than 120: all EU languages, Ukrainian, Turkish, Arabic, Hindi, Japanese, Korean, Chinese, Latin American Spanish and Portuguese and more.</p></details>
+        <details><summary>Can you certify documents?<i aria-hidden="true"></i></summary><p>Yes: passports, diplomas and certificates with stamp and signature for official use.</p></details>
+        <details><summary>Is my file safe?<i aria-hidden="true"></i></summary><p>We sign an NDA on request. Only your project's linguists see the files, and we delete them after delivery if you ask.</p></details>
+        <details><summary>How do I pay?<i aria-hidden="true"></i></summary><p>Card, bank transfer (EUR, USD, UAH) or USDT. Companies can pay by invoice.</p></details>
       </div>
     </div>
   </section>
