@@ -68,8 +68,8 @@
     s.scale.set(w / 84 * .22, .22, 1); return s;
   }
   var pins = [];
-  PLACES.forEach(function (pl) {
-    var base = vec(pl[0], pl[1], 1.01), tip = vec(pl[0], pl[1], 1.32);
+  PLACES.forEach(function (pl, ix) {
+    var base = vec(pl[0], pl[1], 1.01), tip = vec(pl[0], pl[1], 1.25 + (ix % 3) * .2);
     var dot = new THREE.Mesh(new THREE.SphereGeometry(.022, 10, 10), new THREE.MeshBasicMaterial({ color: 0xefd8a4, transparent: true }));
     dot.position.copy(base);
     var stem = new THREE.Line(new THREE.BufferGeometry().setFromPoints([base, tip]), new THREE.LineBasicMaterial({ color: 0xd4ab43, transparent: true, opacity: .6 }));
@@ -111,7 +111,7 @@
       var h = innerHeight, p = smooth(scrollY, h * .15, h * 1.1);       // 0 on the first screen, 1 once you are into the page
       mx += (tx - mx) * Math.min(1, dt * 2.5); my += (ty - my) * Math.min(1, dt * 2.5);
       var wide = innerWidth / innerHeight > 1.1;
-      var hx = wide ? 2.05 : 0, hy = wide ? -.05 : -1.25, hs = wide ? 1.05 : .78;     // hero: right side (phone: under the text)
+      var hx = wide ? 1.7 : 0, hy = wide ? -.05 : -1.25, hs = wide ? .92 : .72;     // hero: right side (phone: under the text)
       world.position.set(hx * (1 - p) + 0 * p, hy * (1 - p) + 0 * p, -1.2 * p);
       world.scale.setScalar(hs + (.95 - hs) * p);
       globe.rotation.y = clock * (still ? 0 : .06) + scrollY * .0012;

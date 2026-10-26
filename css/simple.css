@@ -231,3 +231,4 @@ body{background:transparent}
 .mgr figcaption span{color:var(--ink-3);font-size:14px}
 .mgr .ten{margin:10px auto 0;color:var(--gold-2);border:1px dashed rgba(212,171,67,.55);border-radius:12px;padding:8px 14px;width:max-content}
 @media (max-width:900px){.price{grid-template-columns:1fr}.mgr{order:-1}.mgr__ph{max-width:200px}.mgr__bubble{left:-30%}}
+.hero .wrap{width:100%}
