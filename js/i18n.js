@@ -1,7 +1,7 @@
 /* All site copy. EN is the default; UA mirrors every key. */
 window.LX_TEXT = {
 en: {
-  "facts.1": "languages", "facts.2": "checks on every text", "facts.3": "to get your price", "proof": "Trusted by teams at", "mq.pause": "Pause logos",
+  "live.k": "Live example", "live.t": "Translated, checked", "live.3": "Native check", "facts.1": "languages", "facts.2": "checks on every text", "facts.3": "to get your price", "proof": "Trusted by teams at", "mq.pause": "Pause logos",
   "sv.h": "What we <em>translate</em>", "sv.p": "One team for documents, products and people. Every job goes through the same three checks.",
   "sv.1t": "Documents and certified translation", "sv.1p": "Contracts, reports, passports, diplomas. With stamp and signature when needed.",
   "sv.2t": "Website and app localization", "sv.2p": "Interface strings, SEO and store pages, in your files, CMS or TMS.",
@@ -63,7 +63,7 @@ en: {
   "cookie.t": "We use only essential cookies to remember your language.", "cookie.ok": "OK"
 },
 ua: {
-  "facts.1": "мов", "facts.2": "перевірки кожного тексту", "facts.3": "до вашої ціни", "proof": "Нам довіряють команди", "mq.pause": "Зупинити логотипи",
+  "live.k": "Живий приклад", "live.t": "Перекладено й перевірено", "live.3": "Перевірка носієм", "facts.1": "мов", "facts.2": "перевірки кожного тексту", "facts.3": "до вашої ціни", "proof": "Нам довіряють команди", "mq.pause": "Зупинити логотипи",
   "sv.h": "Що ми <em>перекладаємо</em>", "sv.p": "Одна команда для документів, продуктів і людей. Кожна робота проходить ті самі три перевірки.",
   "sv.1t": "Документи та засвідчений переклад", "sv.1p": "Договори, звіти, паспорти, дипломи. З печаткою та підписом, коли потрібно.",
   "sv.2t": "Локалізація сайтів і застосунків", "sv.2p": "Рядки інтерфейсу, SEO і сторінки в магазинах, у ваших файлах, CMS чи TMS.",
