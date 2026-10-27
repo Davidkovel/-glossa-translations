@@ -586,3 +586,14 @@ main, .foot { position: relative; z-index: 1; }
 .casino .gl { display: block; margin: -8px 0 12px; font-size: 13px; }
 .player__cc span { display: block; font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, .8); }
 .player__cc { bottom: 34px; }
+
+/* file upload */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.file { cursor: pointer; align-items: center; }
+.file > div { flex: 1; min-width: 0; }
+.file b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file__btn { flex: none; font-weight: 800; font-size: 14px; padding: 9px 16px; border-radius: 99px; background: rgba(127, 178, 255, .16); color: #dfeaff; border: 1px solid rgba(127, 178, 255, .4); }
+.file:hover .file__btn { background: rgba(127, 178, 255, .28); }
+.file:focus-within { outline: 2px solid var(--sky); outline-offset: 2px; }
+.form__err { color: #ff8a8a; font-size: 14px; font-weight: 600; }

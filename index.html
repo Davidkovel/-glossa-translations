@@ -291,7 +291,10 @@
       </div>
       <p class="price__off"><b>−10%</b> on your first order, applied automatically.</p>
     </div>
-    <form class="form" data-form>
+    <form class="form" data-form method="POST" enctype="multipart/form-data" action="https://formsubmit.co/hi@lingvo-translations.com">
+      <input type="hidden" name="_subject" value="New request from the Lingvo site">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <h3 class="form__title">Quick request</h3>
       <p class="form__lead">To get a faster answer, choose what your request is about.</p>
       <div class="who" role="group" aria-label="Client type">
@@ -315,10 +318,13 @@
       </div>
       <label class="f"><span>Phone or Telegram</span><input name="phone" autocomplete="tel" placeholder="+48 … or @username"></label>
       <label class="f"><span>Your request</span><textarea name="text" rows="3" placeholder="What to translate, from which language into which, and by when"></textarea></label>
-      <div class="file">
+      <label class="file" data-file>
         <span class="file__icon" aria-hidden="true"></span>
-        <div><b>Have a file?</b><small>Send it in <a href="https://t.me/lingvo_translations">Telegram</a> or to <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a>. PDF, Word, Excel, PowerPoint, photos, SRT. We never open programs or macros.</small></div>
-      </div>
+        <div><b data-file-name>Attach a file</b><small>PDF, Word, Excel, PowerPoint, TXT, SRT, JPG or PNG, up to 10 MB. Bigger files: <a href="https://t.me/lingvo_translations">Telegram</a>.</small></div>
+        <span class="file__btn">Browse</span>
+        <input type="file" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.srt,.vtt,.jpg,.jpeg,.png" data-file-input>
+      </label>
+      <p class="form__err" data-file-err hidden></p>
       <button class="btn btn--brand btn--lg btn--full" type="submit">Submit your request <span class="arr" aria-hidden="true"></span></button>
       <p class="form__note">By sending the request you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
       <p class="form__ok" data-ok hidden>Your email app should open with the request ready. Nothing opened? Write to <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p>

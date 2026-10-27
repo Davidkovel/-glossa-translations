@@ -67,20 +67,23 @@
     const body = Object.entries(fields).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
     location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Quote request') + '&body=' + encodeURIComponent(body);
   };
+  /* the request form posts to FormSubmit, which mails it (with the file) to our inbox.
+     Only documents and pictures, up to 10 MB; anything else is refused here before it is sent. */
   const form = $('[data-form]');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const d = new FormData(form);
-    send({
-      Client: d.get('client'),
-      Services: d.getAll('service').join(', '),
-      Name: d.get('name'),
-      Email: d.get('email'),
-      'Phone or Telegram': d.get('phone'),
-      Request: d.get('text'),
-    });
-    $('[data-ok]').hidden = false;
-  });
+  const OK_EXT = /\.(pdf|docx?|xlsx?|pptx?|txt|srt|vtt|jpe?g|png)$/i, MAX = 10 * 1024 * 1024;
+  const fileIn = $('[data-file-input]'), fileName = $('[data-file-name]'), fileErr = $('[data-file-err]');
+  const checkFile = () => {
+    const f = fileIn && fileIn.files[0];
+    let err = '';
+    if (f && !OK_EXT.test(f.name)) err = 'This file type is not accepted. Please send a PDF, Word, Excel, PowerPoint, text or image file.';
+    else if (f && f.size > MAX) err = 'The file is larger than 10 MB. Please send it in Telegram.';
+    if (err) fileIn.value = '';
+    fileErr.hidden = !err; fileErr.textContent = err;
+    fileName.textContent = fileIn.files[0] ? fileIn.files[0].name : 'Attach a file';
+    return !err;
+  };
+  fileIn?.addEventListener('change', checkFile);
+  form?.addEventListener('submit', (e) => { if (!checkFile()) e.preventDefault(); });
 
   /* exit intent: once per visit */
   const exit = $('[data-exit]');
