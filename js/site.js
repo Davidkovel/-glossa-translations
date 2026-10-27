@@ -270,4 +270,13 @@
   };
   requestAnimationFrame(frame);
 
+
+  /* phone: a «Get a price» button stays under the thumb after the first screen, and steps aside at the form */
+  const mcta = $('[data-mcta]'), priceSec = $('#price');
+  if (mcta && priceSec) {
+    let atForm = false;
+    new IntersectionObserver(([en]) => { atForm = en.isIntersecting; tog(); }, { threshold: .05 }).observe(priceSec);
+    const tog = () => mcta.classList.toggle('is-on', scrollY > innerHeight * .8 && !atForm);
+    addEventListener('scroll', tog, { passive: true }); tog();
+  }
 })();

@@ -890,3 +890,14 @@ body { line-height: 1.6; }
 @media (prefers-reduced-motion: reduce) { .scroll-hint__mouse i { animation: none; } }
 .hero > .scroll-hint { position: absolute !important; left: 50%; transform: translateX(-50%); margin: 0 !important; z-index: 2; }
 .lang-band { padding-top: clamp(90px, 12vh, 140px); }
+
+/* trust line under the hero buttons */
+.hero__trust { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 10px; margin-top: 16px; font-size: 14px; font-weight: 600; color: #cfd6f3; }
+.hero__trust i { width: 4px; height: 4px; border-radius: 50%; background: var(--sky); }
+/* phone sticky call to action */
+.mcta { display: none; }
+@media (max-width: 600px) {
+  .mcta { display: flex; position: fixed; z-index: 29; left: 12px; right: 70px; bottom: 12px; height: 50px; align-items: center; justify-content: center; gap: 10px; border-radius: 99px; background: #fff; color: #05060f; font-weight: 800; font-size: 15.5px; text-decoration: none; box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .8); transform: translateY(90px); transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+  .mcta.is-on { transform: none; }
+  .hero__trust { font-size: 13px; }
+}
