@@ -1,7 +1,7 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const MAIL = 'hi@versio-translations.com';
+  const MAIL = 'hi@lingvo-translations.com';
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* header line once the page moves */
@@ -91,11 +91,11 @@
   /* exit intent: once per visit */
   const exit = $('[data-exit]');
   let shown = null;
-  try { shown = sessionStorage.getItem('versio-exit'); } catch (_) {}
+  try { shown = sessionStorage.getItem('lingvo-exit'); } catch (_) {}
   const open = () => {
     if (shown) return;
     shown = '1';
-    try { sessionStorage.setItem('versio-exit', '1'); } catch (_) {}
+    try { sessionStorage.setItem('lingvo-exit', '1'); } catch (_) {}
     exit.hidden = false;
   };
   document.addEventListener('mouseout', (e) => { if (!e.relatedTarget && e.clientY < 8 && scrollY > 600) open(); });
