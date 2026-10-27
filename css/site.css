@@ -468,3 +468,4 @@ main, .foot { position: relative; z-index: 1; }
 .pic--pass { display: block; }
 .pass { position: absolute; left: 9%; top: 11%; width: 38%; transform: rotate(-8deg); border-radius: 6px; box-shadow: 0 20px 34px -12px rgba(0, 0, 0, .75); }
 .doc--pass { position: absolute; right: 8%; top: 22%; width: 54%; transform: rotate(4deg); }
+.show__sub { margin-top: 12px; color: var(--muted); font-size: 18px; }
