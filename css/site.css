@@ -480,3 +480,17 @@ main, .foot { position: relative; z-index: 1; }
 .btn-ui--bad i { background: #ff5c5c; color: #fff; }
 .btn-ui--ok { width: 58%; }
 .btn-ui--ok i { background: #22c55e; color: #05230f; }
+
+/* footer: a last call, four calm columns, one fine line */
+.foot { display: block; padding: clamp(60px, 9vh, 100px) var(--pad) 32px; background: linear-gradient(180deg, rgba(5, 6, 15, 0), #05060f 30%); border-top: 1px solid var(--line); }
+.foot__cta { max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: clamp(40px, 6vh, 64px); border-bottom: 1px solid var(--line); }
+.foot__cta h2 { font: 800 clamp(30px, 4.4vw, 60px)/1 Manrope, sans-serif; letter-spacing: -.045em; }
+.foot__cols { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; padding: clamp(36px, 5vh, 56px) 0; }
+.foot__brand p { margin-top: 14px; color: var(--muted); font-size: 15px; max-width: 300px; }
+.foot__cols nav { display: grid; gap: 10px; align-content: start; }
+.foot__cols nav b { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 4px; }
+.foot__cols nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px; }
+.foot__cols nav a:hover { color: var(--sky); }
+.foot__cols nav span { color: var(--muted); font-size: 14px; }
+.foot__fine { max-width: 1240px; margin: 0 auto; padding-top: 22px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint); }
+@media (max-width: 900px) { .foot__cols { grid-template-columns: 1fr 1fr; } .foot__brand { grid-column: 1 / -1; } }

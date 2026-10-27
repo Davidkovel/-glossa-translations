@@ -155,7 +155,7 @@
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
     const rot = big.rot, tilt = lerp(-.5, .45, e);
-    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .32, e);
+    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .14, e);
     g.clearRect(0, 0, W, H);
     const rim = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08);
     rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, `rgba(127,178,255,${.55 * fade})`); rim.addColorStop(1, 'rgba(127,178,255,0)');
@@ -170,7 +170,7 @@
     const at = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
     const [x, y, z] = P(onSphere(HELLO[at][2], HELLO[at][3]));
     const show = false && e > .6 && z > .2;
-    if (e > .6 && z > .2) { g.fillStyle = `rgba(255,255,255,${.7 * fade})`; g.beginPath(); g.arc(x, y, 3.5 * dpr, 0, 7); g.fill(); }
+    if (e > .6 && z > .2) { g.fillStyle = `rgba(255,255,255,${.5 * fade})`; g.beginPath(); g.arc(x, y, 3.5 * dpr, 0, 7); g.fill(); }
     hi.style.opacity = show ? Math.min(1, (e - .6) * 4) : 0;
     if (show) { hi.style.left = (x / dpr) + 'px'; hi.style.top = (y / dpr) + 'px'; if (hi.textContent !== HELLO[at][0]) hi.textContent = HELLO[at][0]; }
   };
