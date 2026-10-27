@@ -759,3 +759,8 @@ body { line-height: 1.6; }
   .langs { margin-top: auto !important; padding-top: 28px; }
   .logos { padding-top: 34px; }
 }
+@media (max-width: 600px) {
+  .hero { padding-top: 128px !important; }
+  .hero__cta { margin-top: 26px; }
+}
+@media (max-width: 600px) { .hero { padding-top: 104px !important; } }

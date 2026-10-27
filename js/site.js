@@ -157,7 +157,7 @@
     const R0 = Math.max(W * .86, H * .8), R1 = Math.min(W, H) * (phone ? .42 : .3);
     if (big.t0 == null) big.t0 = t;
     const it = t - big.t0, ip = big.intro ? smooth(Math.min(1, it / 1600)) : 1;
-    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * (phone ? .74 : .4) + R0, H * .54, e) + (1 - ip) * H * .55 * (1 - e);
+    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * (phone ? .8 : .4) + R0, H * .54, e) + (1 - ip) * H * .55 * (1 - e);
     const at0 = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
