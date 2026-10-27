@@ -547,3 +547,33 @@ main, .foot { position: relative; z-index: 1; }
 .file b { display: block; font-size: 15px; }
 .file small { color: var(--muted); font-size: 13.5px; line-height: 1.45; }
 .file a, .form__note a { color: var(--sky); }
+
+/* what we do: translation, localization, copywriting — each picture reads without knowing the languages */
+.do { max-width: 1352px; margin: 0 auto; padding: clamp(70px, 11vh, 130px) var(--pad) clamp(40px, 6vh, 70px); }
+.do__grid { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.dox { background: linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)); border: 1px solid rgba(255, 255, 255, .14); border-radius: 24px; padding: 10px 10px 26px; }
+.dox h3 { margin: 20px 14px 0; font-size: 24px; font-weight: 800; letter-spacing: -.03em; }
+.dox p { margin: 8px 14px 0; color: var(--muted); font-size: 16px; }
+.dox__pic { aspect-ratio: 4 / 3; border-radius: 16px; background: linear-gradient(160deg, #171b38, #0a0d22); display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px; }
+.dox__arrow { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h13M13 6l6 6-6 6' fill='none' stroke='%2305060f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+.sheet, .prod { flex: 1; max-width: 42%; background: #fff; color: #0c1130; border-radius: 10px; padding: 12px; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, .8); }
+.sheet small, .prod small { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; color: #fff; background: #6b7299; border-radius: 99px; padding: 2px 8px; }
+.sheet--done small, .prod--done small { background: var(--sky); color: #05060f; }
+.sheet b { display: block; margin: 8px 0 8px; font-size: 13px; line-height: 1.2; }
+.sheet i { display: block; height: 5px; width: var(--w); background: #e3e6f0; border-radius: 9px; margin: 6px 0; }
+.prod { display: grid; gap: 4px; }
+.prod__img { display: block; aspect-ratio: 16 / 10; border-radius: 7px; margin: 6px 0 2px; background: linear-gradient(135deg, #c9d6ff, #8ea0ff); }
+.prod b { font-size: 16px; }
+.prod em { font-style: normal; font-size: 11.5px; color: #6b7299; }
+.prod__btn { margin-top: 4px; text-align: center; background: #0c1130; color: #fff; font-weight: 800; font-size: 11.5px; padding: 7px 4px; border-radius: 7px; }
+.copy { width: 86%; background: #fff; color: #0c1130; border-radius: 14px; padding: 16px; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, .8); }
+.copy__post { display: flex; gap: 10px; align-items: center; }
+.copy__post b { display: block; font-size: 14px; }
+.copy__post small { color: #6b7299; font-size: 12px; }
+.copy__ava { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--sky), #4d6bff); }
+.copy__text { margin: 12px 0; font-size: 17px; font-weight: 800; line-height: 1.25; letter-spacing: -.02em; }
+.copy__tag { display: inline-block; margin: 0 6px 4px 0; font-size: 11.5px; font-weight: 700; color: #4d6bff; background: #eef1ff; border-radius: 99px; padding: 3px 9px; }
+.do__why { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; color: var(--muted); font-size: 17px; }
+.do__why b { color: var(--text); }
+@media (max-width: 900px) { .do__grid { grid-template-columns: 1fr; } }
+.dox .copy__text { color: #0c1130; margin: 12px 0; font-size: 17px; }
