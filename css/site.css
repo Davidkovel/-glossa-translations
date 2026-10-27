@@ -812,3 +812,52 @@ body { line-height: 1.6; }
 .lgx--gg { height: auto; color: #111; font: 800 18px/1 Manrope, sans-serif; letter-spacing: -.04em; padding: 8px 12px; }
 .lgx--gg b { color: #e1262d; }
 @media (max-width: 600px) { .slide__brands { justify-content: center; } }
+
+/* industry pictures that are recognised at a glance */
+.screen--pic { background: linear-gradient(160deg, #171b38, #0a0d22); display: grid; place-items: center; min-height: 340px; }
+.mk { width: min(320px, 100%); border-radius: 18px; padding: 18px; display: grid; gap: 8px; text-align: center; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, .8); }
+.mk small { font-size: 12px; font-weight: 700; opacity: .75; }
+.mk b { font-size: 20px; letter-spacing: -.02em; }
+.mk .gl { margin: -4px 0 2px; }
+.mk__btn { justify-self: center; font-weight: 800; font-size: 15px; padding: 11px 22px; border-radius: 10px; margin-top: 4px; }
+.mk__btn--green { background: #1dc65a; color: #fff; }
+.mk__btn--yellow { background: #f8ff13; color: #111; }
+.mk__btn--bank { background: #0e7a4f; color: #fff; }
+.mk--casino { background: radial-gradient(110% 90% at 50% 0%, #3b2fd0, #120c3a 75%); color: #fff; }
+.reels { display: flex; justify-content: center; gap: 8px; margin: 6px 0; }
+.reels span { width: 64px; height: 76px; border-radius: 12px; background: #fff; color: #e1262d; font: 900 48px/76px Manrope, sans-serif; box-shadow: inset 0 -6px 0 #e3e6f0; }
+.mk--bet { background: #111; color: #fff; }
+.match { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin: 6px 0; }
+.team { display: grid; justify-items: center; gap: 6px; font-weight: 800; font-size: 15px; flex: 1; }
+.ball { width: 40px; height: 40px; border-radius: 50%; background: #fff radial-gradient(circle at 50% 50%, #111 0 22%, transparent 23%); box-shadow: inset 0 0 0 3px #333; }
+.match > b { color: #f8ff13; font-size: 16px; }
+.odds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.odds span { background: #222; border-radius: 9px; padding: 8px 4px; font-size: 12px; color: #aaa; display: grid; }
+.odds span b { color: #f8ff13; font-size: 16px; }
+.mk--crypto { background: #fff; color: #0c1130; text-align: left; }
+.coin { display: flex; align-items: center; gap: 10px; }
+.coin > span { width: 42px; height: 42px; border-radius: 50%; background: #f7931a; color: #fff; display: grid; place-items: center; font: 900 24px Manrope, sans-serif; }
+.coin b { display: block; font-size: 17px; } .coin small { opacity: .6; }
+.coin em { margin-left: auto; font-style: normal; font-weight: 800; font-size: 17px; }
+.chart { width: 100%; height: 70px; }
+.bs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bs span { text-align: center; font-weight: 800; padding: 11px; border-radius: 10px; color: #fff; }
+.bs .buy { background: #12a150; } .bs .sell { background: #e5484d; }
+.mk__brand { text-align: center; margin-top: 2px; }
+.mk--bank { background: #f4f6fb; color: #0c1130; text-align: left; }
+.card { height: 96px; border-radius: 14px; padding: 14px; background: linear-gradient(135deg, #0e7a4f, #0b3d2b); color: #fff; display: grid; align-content: space-between; position: relative; }
+.card__chip { width: 30px; height: 22px; border-radius: 5px; background: #e8c66a; }
+.card b { font-size: 16px; letter-spacing: .1em; } .card small { position: absolute; right: 14px; bottom: 12px; font-size: 14px; font-weight: 900; opacity: 1; }
+.loan { background: #fff; border-radius: 12px; padding: 12px; display: grid; gap: 4px; }
+.loan b { font-size: 24px; }
+.loan__bar { height: 6px; border-radius: 6px; background: #e3e6f0; margin: 6px 0; } .loan__bar i { display: block; width: 45%; height: 100%; border-radius: 6px; background: #0e7a4f; }
+.mk--taxi { background: #fff; color: #0c1130; padding: 0; overflow: hidden; }
+.map { position: relative; height: 170px; background: #e9eef3; }
+.road { position: absolute; background: #fff; }
+.r1 { left: 0; right: 0; top: 60%; height: 14px; } .r2 { top: 0; bottom: 0; left: 30%; width: 14px; } .r3 { top: 0; bottom: 0; left: 72%; width: 10px; }
+.car { position: absolute; left: 26%; top: 50%; font-size: 30px; }
+.pin { position: absolute; left: 62%; top: 30%; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #000; }
+.note { padding: 14px; text-align: left; display: grid; gap: 2px; }
+.note b { font-size: 17px; }
+@media (max-width: 600px) { .screen--pic { min-height: 0; padding: 16px; } .reels span { width: 54px; height: 64px; font-size: 40px; line-height: 64px; } }
+.coin em { color: #0c1130; }
