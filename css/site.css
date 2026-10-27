@@ -845,9 +845,9 @@ body { line-height: 1.6; }
 .bs .buy { background: #12a150; } .bs .sell { background: #e5484d; }
 .mk__brand { text-align: center; margin-top: 2px; }
 .mk--bank { background: #f4f6fb; color: #0c1130; text-align: left; }
-.card { height: 96px; border-radius: 14px; padding: 14px; background: linear-gradient(135deg, #0e7a4f, #0b3d2b); color: #fff; display: grid; align-content: space-between; position: relative; }
-.card__chip { width: 30px; height: 22px; border-radius: 5px; background: #e8c66a; }
-.card b { font-size: 16px; letter-spacing: .1em; } .card small { position: absolute; right: 14px; bottom: 12px; font-size: 14px; font-weight: 900; opacity: 1; }
+.bcard { height: 96px; border-radius: 14px; padding: 14px; background: linear-gradient(135deg, #0e7a4f, #0b3d2b); color: #fff; display: grid; align-content: space-between; position: relative; }
+.bcard__chip { width: 30px; height: 22px; border-radius: 5px; background: #e8c66a; }
+.bcard b { font-size: 16px; letter-spacing: .1em; } .bcard small { position: absolute; right: 14px; bottom: 12px; font-size: 14px; font-weight: 900; opacity: 1; }
 .loan { background: #fff; border-radius: 12px; padding: 12px; display: grid; gap: 4px; }
 .loan b { font-size: 24px; }
 .loan__bar { height: 6px; border-radius: 6px; background: #e3e6f0; margin: 6px 0; } .loan__bar i { display: block; width: 45%; height: 100%; border-radius: 6px; background: #0e7a4f; }
@@ -861,3 +861,32 @@ body { line-height: 1.6; }
 .note b { font-size: 17px; }
 @media (max-width: 600px) { .screen--pic { min-height: 0; padding: 16px; } .reels span { width: 54px; height: 64px; font-size: 40px; line-height: 64px; } }
 .coin em { color: #0c1130; }
+
+/* languages band in the middle of the page */
+.lang-band { max-width: 1000px; margin: 0 auto; padding: clamp(60px, 9vh, 110px) var(--pad); text-align: center; }
+.lang-band__sub { margin: 12px auto 0; color: var(--muted); font-size: 18px; max-width: 520px; }
+.lang-band .langs--car { margin: 30px auto 0 !important; padding: 0 !important; }
+
+/* scroll hint at the bottom of the first screen */
+.hero { position: relative; }
+.scroll-hint { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; color: var(--muted); text-decoration: none; margin: 0 !important; }
+.scroll-hint small { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.scroll-hint__mouse { width: 24px; height: 38px; border-radius: 14px; border: 2px solid rgba(220, 228, 255, .55); display: grid; justify-items: center; padding-top: 7px; }
+.scroll-hint__mouse i { width: 4px; height: 8px; border-radius: 4px; background: var(--sky); animation: wheel 1.8s ease-in-out infinite; }
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { opacity: 0; } }
+.scroll-hint:hover { color: var(--text); }
+
+/* interpreting card: more air */
+.call { gap: 12px; padding: 6px; }
+.call__cc { padding: 12px 14px; }
+
+@media (max-width: 600px) {
+  .hero__facts { margin-bottom: auto !important; padding-bottom: 70px !important; }
+  .scroll-hint { bottom: 18px; }
+  .lang-band { padding: 48px var(--pad) 40px; }
+  .lang-band__sub { font-size: 16px; }
+  .lang-band .langs--car { padding: 0 !important; margin-top: 22px !important; }
+}
+@media (prefers-reduced-motion: reduce) { .scroll-hint__mouse i { animation: none; } }
+.hero > .scroll-hint { position: absolute !important; left: 50%; transform: translateX(-50%); margin: 0 !important; z-index: 2; }
+.lang-band { padding-top: clamp(90px, 12vh, 140px); }
