@@ -577,3 +577,12 @@ main, .foot { position: relative; z-index: 1; }
 .do__why b { color: var(--text); }
 @media (max-width: 900px) { .do__grid { grid-template-columns: 1fr; } }
 .dox .copy__text { color: #0c1130; margin: 12px 0; font-size: 17px; }
+
+/* English gloss under every foreign line: shows it is a translation, readable without the language */
+.gl { display: block; font: 700 11.5px/1.3 Manrope, sans-serif; letter-spacing: .01em; color: rgba(255, 255, 255, .72); margin: 2px 0 6px; padding: 0 !important; background: none !important; border-radius: 0 !important; text-decoration: none; }
+.gl--dark { color: #6b7299; }
+.web .gl { font-size: 13px; margin-top: -4px; }
+.post__img .gl { justify-self: start; font-size: 13px; }
+.casino .gl { display: block; margin: -8px 0 12px; font-size: 13px; }
+.player__cc span { display: block; font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, .8); }
+.player__cc { bottom: 34px; }
