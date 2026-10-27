@@ -597,3 +597,33 @@ main, .foot { position: relative; z-index: 1; }
 .file:hover .file__btn { background: rgba(127, 178, 255, .28); }
 .file:focus-within { outline: 2px solid var(--sky); outline-offset: 2px; }
 .form__err { color: #ff8a8a; font-size: 14px; font-weight: 600; }
+
+/* phone reading comfort: bigger, brighter body text, more air, nothing floating over the text */
+@media (max-width: 600px) {
+  :root { --muted: #bcc2de; }
+  body { font-size: 17px; line-height: 1.6; }
+  .hero { padding: 92px 0 28px; }
+  .hero__what { font-size: 15px; margin-bottom: 14px; }
+  .hero__title { font-size: 42px; line-height: 1.02; }
+  .hero__lead { font-size: 17px; line-height: 1.6; margin-top: 18px; }
+  .hero__facts { font-size: 14px; }
+  .kicker { font-size: 30px; line-height: 1.1; }
+  .svc__sub, .show__sub { font-size: 16px; line-height: 1.55; }
+  .do, .svc, .show, .faq { padding-top: 64px; padding-bottom: 64px; }
+  .dox h3, .card h3 { font-size: 21px; }
+  .dox p, .card > p { font-size: 16px; line-height: 1.55; }
+  .do__why { flex-direction: column; align-items: center; font-size: 16px; }
+  .slide__info p, .steps li { font-size: 16px; line-height: 1.55; }
+  .steps li strong { font-size: 17px; }
+  .f > span { font-size: 15px; }
+  .file small, .form__note { font-size: 14px; line-height: 1.5; }
+  .faq summary { font-size: 18px; line-height: 1.35; }
+  .faq details p { font-size: 16px; line-height: 1.6; }
+  .foot__cols nav a, .foot__brand p { font-size: 16px; }
+  .foot__fine { font-size: 12.5px; line-height: 1.5; }
+  /* the corner globe: smaller, no bubble, so it never covers a line of text */
+  .trip__say { display: none; }
+  .trip__globe { width: 46px; height: 46px; }
+  .trip__globe canvas { inset: 5px; width: 36px; height: 36px; }
+  .trip { right: 10px; bottom: 10px; opacity: .85; }
+}

@@ -157,7 +157,7 @@
     const R0 = Math.max(W * .86, H * .8), R1 = Math.min(W, H) * (phone ? .42 : .3);
     if (big.t0 == null) big.t0 = t;
     const it = t - big.t0, ip = big.intro ? smooth(Math.min(1, it / 1600)) : 1;
-    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * .4 + R0, H * .54, e) + (1 - ip) * H * .55 * (1 - e);
+    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * (phone ? .66 : .4) + R0, H * .54, e) + (1 - ip) * H * .55 * (1 - e);
     const at0 = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
@@ -175,7 +175,7 @@
       g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr * lerp(1, .9, e), 0, 7); g.fill();
     }
     /* first visit: greetings rise out of the planet and fade, for about three seconds */
-    if (big.intro && e < .5) {
+    if (big.intro && e < .5 && !phone) {
       if (it > 700 && it < 3600 && it - (big.last || 0) > 170) {
         big.last = it;
         const sx = cx + (Math.random() - .5) * Math.min(W * .8, R * 1.4), dx = sx - cx;
