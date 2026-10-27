@@ -231,27 +231,4 @@
     });
   }
 
-  /* first load: the title "translates" itself — letters from other alphabets settle into English */
-  const GLYPHS = 'абвгдежзиклмнопрстуфхцчшщыэюяαβγδεζηθλμνξπρσφχψωابتثجحخدذرزسشصضطظعغفقكلمنهوي日本語中文한국어ไทยहिन्दीשלום';
-  const decode = (el, delay) => {
-    const end = el.textContent, len = end.length, t0 = performance.now() + delay, dur = 1100;
-    const tick = (t) => {
-      const k = Math.max(0, Math.min(1, (t - t0) / dur));
-      let out = '';
-      for (let n = 0; n < len; n++) {
-        const ch = end[n];
-        out += ch === ' ' || k * len * 1.15 > n + Math.random() * 3 ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0];
-      }
-      el.textContent = k >= 1 ? end : out;
-      if (k < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  if (!still) {
-    const lines = $$('.hero__title .ln > span');
-    lines.forEach((ln, n) => {
-      const leaf = ln.querySelector('em') || ln;
-      decode(leaf, 150 + n * 180);
-    });
-  }
 })();
