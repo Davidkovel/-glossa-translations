@@ -765,3 +765,10 @@ body { line-height: 1.6; }
 }
 @media (max-width: 600px) { .hero { padding-top: 104px !important; } }
 @media (max-width: 600px) { .hero { padding-top: 136px !important; } }
+/* phone hero, final: the text block is centred between the header and the language strip */
+@media (max-width: 600px) {
+  .hero { padding-top: 70px !important; }
+  .hero__what { margin-top: auto !important; }
+  .hero__facts { margin-bottom: auto !important; }
+  .langs { margin-top: 0 !important; padding-top: 18px; }
+}
