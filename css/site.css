@@ -495,3 +495,22 @@ main, .foot { position: relative; z-index: 1; }
 .foot__fine { max-width: 1240px; margin: 0 auto; padding-top: 22px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint); }
 @media (max-width: 900px) { .foot__cols { grid-template-columns: 1fr 1fr; } .foot__brand { grid-column: 1 / -1; } }
 .svc__sub { max-width: 1240px; margin: 12px auto 0; color: var(--muted); font-size: 18px; }
+
+/* reveal on scroll: from a light blur */
+.rv { opacity: 0; transform: translateY(26px); filter: blur(10px); transition: opacity .8s var(--rv-d, 0ms), transform .9s cubic-bezier(.2, .8, .2, 1) var(--rv-d, 0ms), filter .8s var(--rv-d, 0ms); }
+.rv.rv-on { opacity: 1; transform: none; filter: none; }
+
+/* compact languages: one row, smaller pills */
+.langs { gap: 0; }
+.langs__track span { padding: 9px 18px; font-size: clamp(15px, 1.25vw, 17px); }
+.hero__title .ln > span { white-space: nowrap; }
+
+/* how we start + quick request (mk-style) */
+.steps li span { color: #dfe6ff; }
+.steps li strong { color: #fff; display: block; font-size: 18px; margin-bottom: 2px; }
+.price__go { display: flex; flex-wrap: wrap; gap: 10px; }
+.price__go .btn--line { color: #fff; }
+.form__title { font: 800 26px/1.1 Manrope, sans-serif; letter-spacing: -.03em; }
+.form__lead { color: var(--muted); margin-top: -6px; }
+.form__note { font-size: 13.5px; color: var(--faint); text-align: center; }
+.f--promo input { max-width: 260px; }

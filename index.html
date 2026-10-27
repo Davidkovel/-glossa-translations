@@ -54,9 +54,6 @@
       <div class="langs__row" data-faixa><div class="langs__track">
         <span>English</span><span>Deutsch</span><span>Español</span><span>Türkçe</span><span>Polski</span><span>Français</span><span>Português</span><span>Italiano</span><span>Қазақша</span><span>Nederlands</span><span>Čeština</span><span>Svenska</span>
       </div></div>
-      <div class="langs__row langs__row--back" data-faixa><div class="langs__track">
-        <span>日本語</span><span>العربية</span><span>中文</span><span>한국어</span><span>हिन्दी</span><span>Ελληνικά</span><span>עברית</span><span>ไทย</span><span>Tiếng Việt</span><span>Română</span><span>Magyar</span><span>Suomi</span>
-      </div></div>
     </div>
   </section>
 
@@ -258,32 +255,37 @@
   <!-- 6 · the one action -->
   <section class="price" id="price">
     <div class="price__side">
-      <h2>Your price in 15 minutes</h2>
+      <h2>How we start</h2>
       <ol class="steps">
-        <li><b>1</b>Send the text or describe the file.</li>
-        <li><b>2</b>Get a fixed price and a date.</li>
-        <li><b>3</b>Translator, editor and native proofreader do the rest.</li>
+        <li><b>1</b><span><strong>Send us the text.</strong> In Telegram or by email: PDF, Word, a photo or a link.</span></li>
+        <li><b>2</b><span><strong>We agree on the price and the deadline.</strong> You get a fixed price within 15 minutes.</span></li>
+        <li><b>3</b><span><strong>We translate.</strong> Translator, editor and native proofreader, then the file comes back to you.</span></li>
       </ol>
-      <p class="price__off"><b>−10%</b> on your first order, automatically.</p>
-      <p class="price__alt">Faster: <a href="https://t.me/lingvo_translations">Telegram</a> · <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a></p>
+      <div class="price__go">
+        <a class="btn btn--brand btn--lg" href="https://t.me/lingvo_translations">Send in Telegram <span class="arr" aria-hidden="true"></span></a>
+        <a class="btn btn--line btn--lg" href="mailto:hi@lingvo-translations.com">Send by email</a>
+      </div>
+      <p class="price__off"><b>−10%</b> on your first order, applied automatically.</p>
     </div>
     <form class="form" data-form>
-      <label class="f"><span>Service</span>
-        <select name="service">
-          <option>Certified documents</option><option>Website or app</option><option>Games &amp; iGaming</option><option>Legal &amp; business</option><option>Transcription</option><option>Subtitles</option><option>Voice-over</option><option>Interpreting</option><option>Editing an AI draft</option><option>Something else</option>
-        </select>
-      </label>
-      <div class="f2">
-        <label class="f"><span>From</span><input name="from" placeholder="e.g. English" list="langs"></label>
-        <label class="f"><span>To</span><input name="to" placeholder="e.g. German, Polish" list="langs"></label>
-      </div>
-      <datalist id="langs"><option>English</option><option>German</option><option>Polish</option><option>Spanish</option><option>Portuguese</option><option>Turkish</option><option>French</option><option>Italian</option><option>Kazakh</option><option>Arabic</option><option>Japanese</option><option>Chinese</option><option>Korean</option></datalist>
+      <h3 class="form__title">Quick request</h3>
+      <p class="form__lead">Leave a contact and we will write to you within 15 minutes.</p>
       <div class="f2">
         <label class="f"><span>Name</span><input name="name" required autocomplete="name"></label>
-        <label class="f"><span>Email or Telegram</span><input name="contact" required autocomplete="email"></label>
+        <label class="f"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
       </div>
-      <label class="f"><span>About the text <em>optional</em></span><textarea name="text" rows="3" placeholder="How many pages or words, deadline, link"></textarea></label>
-      <button class="btn btn--brand btn--lg btn--full" type="submit">Get my price <span class="arr" aria-hidden="true"></span></button>
+      <div class="f2">
+        <label class="f"><span>Phone or Telegram</span><input name="phone" autocomplete="tel" placeholder="@username"></label>
+        <label class="f"><span>Service</span>
+          <select name="service">
+            <option>Certified documents</option><option>Website or app</option><option>Games &amp; iGaming</option><option>Legal &amp; business</option><option>Transcription</option><option>Subtitles</option><option>Voice-over</option><option>Interpreting</option><option>Editing an AI draft</option><option>Something else</option>
+          </select>
+        </label>
+      </div>
+      <label class="f"><span>Your request</span><textarea name="text" rows="3" placeholder="What to translate, from which language into which, and by when"></textarea></label>
+      <label class="f f--promo"><span>Promo code <em>optional</em></span><input name="promo" placeholder="If you have one"></label>
+      <button class="btn btn--brand btn--lg btn--full" type="submit">Send request <span class="arr" aria-hidden="true"></span></button>
+      <p class="form__note">Files are easiest in Telegram or attached to the email.</p>
       <p class="form__ok" data-ok hidden>Your email app should open with the request ready. Nothing opened? Write to <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p>
     </form>
   </section>

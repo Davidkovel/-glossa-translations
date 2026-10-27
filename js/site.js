@@ -72,12 +72,12 @@
     e.preventDefault();
     const d = new FormData(form);
     send({
-      Service: d.get('service'),
-      From: d.get('from'),
-      To: d.get('to'),
       Name: d.get('name'),
-      Contact: d.get('contact'),
-      About: d.get('text'),
+      Email: d.get('email'),
+      'Phone or Telegram': d.get('phone'),
+      Service: d.get('service'),
+      Request: d.get('text'),
+      'Promo code': d.get('promo'),
     });
     $('[data-ok]').hidden = false;
   });
@@ -155,7 +155,7 @@
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
     const rot = big.rot, tilt = lerp(-.5, .45, e);
-    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .14, e);
+    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .1, e);
     g.clearRect(0, 0, W, H);
     const rim = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08);
     rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, `rgba(127,178,255,${.55 * fade})`); rim.addColorStop(1, 'rgba(127,178,255,0)');
@@ -216,4 +216,42 @@
     requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);
+
+  /* blocks come in from a light blur as they scroll into view; cards one after another */
+  const reveal = '.kicker, .svc__sub, .show__sub, .logos p, .fx, .card, .show__tabs, .show__stage, .price__side, .form, .faq__list, .foot__cta, .foot__cols';
+  if (!still) {
+    const io = new IntersectionObserver((list) => list.forEach((en) => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('rv-on'); io.unobserve(en.target);
+    }), { rootMargin: '0px 0px -12% 0px' });
+    $$(reveal).forEach((el) => {
+      const sib = [...el.parentElement.children].filter((c) => c.matches(reveal));
+      el.style.setProperty('--rv-d', Math.min(sib.indexOf(el), 5) * 90 + 'ms');
+      el.classList.add('rv'); io.observe(el);
+    });
+  }
+
+  /* first load: the title "translates" itself — letters from other alphabets settle into English */
+  const GLYPHS = 'абвгдежзиклмнопрстуфхцчшщыэюяαβγδεζηθλμνξπρσφχψωابتثجحخدذرزسشصضطظعغفقكلمنهوي日本語中文한국어ไทยहिन्दीשלום';
+  const decode = (el, delay) => {
+    const end = el.textContent, len = end.length, t0 = performance.now() + delay, dur = 1100;
+    const tick = (t) => {
+      const k = Math.max(0, Math.min(1, (t - t0) / dur));
+      let out = '';
+      for (let n = 0; n < len; n++) {
+        const ch = end[n];
+        out += ch === ' ' || k * len * 1.15 > n + Math.random() * 3 ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+      }
+      el.textContent = k >= 1 ? end : out;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (!still) {
+    const lines = $$('.hero__title .ln > span');
+    lines.forEach((ln, n) => {
+      const leaf = ln.querySelector('em') || ln;
+      decode(leaf, 150 + n * 180);
+    });
+  }
 })();
