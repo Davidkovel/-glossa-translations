@@ -711,3 +711,15 @@ body { line-height: 1.6; }
   .price__go { justify-content: center; }
   .foot__cta { justify-content: center; text-align: center; }
 }
+
+/* phone hero: the text sits in the middle of the first screen, the language and brand strips stay small */
+@media (max-width: 600px) {
+  .hero { min-height: 100svh; justify-content: center; padding: 80px 0 24px; }
+  .langs { margin-top: 28px !important; }
+  .langs__track span { padding: 7px 13px; font-size: 14px; }
+  .logos { padding: 26px 0 10px; }
+  .logos p { margin-bottom: 14px; font-size: 13px; }
+  .chip { height: 42px; min-width: 104px; padding: 0 14px; border-radius: 12px; }
+  .lg--ms { height: 17px; } .lg--uber { height: 15px; } .lg--wb { height: 16px; } .lg--pm { height: 26px; }
+  .w1win, .wgg { font-size: 18px; }
+}
