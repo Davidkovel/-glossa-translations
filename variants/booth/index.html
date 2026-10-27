@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Versio — translation in 120+ languages</title>
+<meta name="description" content="Translation and localization agency. Documents, websites, apps and games in 120+ languages. Three people check every text. Price in 15 minutes.">
+<link rel="icon" href="favicon.svg">
+<link rel="preload" href="fonts/unb-lat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/golos-lat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/site.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 40 40">
+    <rect x="3.5" y="8.5" width="29" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="3.4"/>
+    <path d="M3.5 32.5h29" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+    <path d="M18 27 25.5 17.5" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="18" cy="27" r="3.4" fill="currentColor"/>
+    <circle cx="34" cy="7" r="4" fill="#ffad1f"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Versio, home"><svg class="brand__mark"><use href="#mark"/></svg><span>versio</span></a>
+  <nav class="top__nav" aria-label="Sections">
+    <a href="#channels">Services</a><a href="#check">How we check</a><a href="#clients">Clients</a><a href="#faq">FAQ</a>
+  </nav>
+  <a class="top__tg" href="https://t.me/versio_translations">Telegram</a>
+  <a class="key key--amber" href="#console">Get a price</a>
+</header>
+
+<main id="top">
+
+  <!-- the hall: booths, the headline, the delegate console -->
+  <section class="hall">
+    <ol class="booths" aria-label="Language booths">
+      <li><button class="booth" data-ch="1" data-code="EN" data-name="English"><span class="booth__ch">01</span><span class="booth__name">English</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="2" data-code="UA" data-name="Українська"><span class="booth__ch">02</span><span class="booth__name">Українська</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="3" data-code="DE" data-name="Deutsch"><span class="booth__ch">03</span><span class="booth__name">Deutsch</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="4" data-code="PL" data-name="Polski"><span class="booth__ch">04</span><span class="booth__name">Polski</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="5" data-code="ES" data-name="Español"><span class="booth__ch">05</span><span class="booth__name">Español</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="6" data-code="PT" data-name="Português"><span class="booth__ch">06</span><span class="booth__name">Português</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="7" data-code="TR" data-name="Türkçe"><span class="booth__ch">07</span><span class="booth__name">Türkçe</span><span class="booth__lamp"></span></button></li>
+      <li><button class="booth" data-ch="8" data-code="AR" data-name="العربية"><span class="booth__ch">08</span><span class="booth__name" lang="ar">العربية</span><span class="booth__lamp"></span></button></li>
+      <li class="booth booth--more" aria-hidden="true"><span class="booth__ch">+112</span><span class="booth__name">more booths</span></li>
+    </ol>
+
+    <div class="hall__words">
+      <h1>Every language<br>has its booth.</h1>
+      <p>Translation and localization for documents, websites, apps and games. Turn the dial to your language pair and get a price in 15 minutes.<br><span class="offer">−10% on your first order</span></p>
+    </div>
+
+    <form class="console" id="console" data-form aria-label="Price request">
+      <div class="console__deck">
+        <div class="dialbox">
+          <div class="dial" data-dial="from" role="slider" tabindex="0" aria-label="Translate from" aria-valuemin="1" aria-valuemax="8" aria-valuenow="2" aria-valuetext="Українська">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><g class="dial__ticks"></g><g class="dial__knob"><circle cx="60" cy="60" r="34" class="dial__body"/><circle cx="60" cy="60" r="27" class="dial__cap"/><rect x="58" y="30" width="4" height="15" rx="2" class="dial__ptr"/></g></svg>
+          </div>
+          <span class="dialbox__label">From <b data-from-name>Українська</b></span>
+        </div>
+        <div class="dialbox">
+          <div class="dial" data-dial="to" role="slider" tabindex="0" aria-label="Translate into" aria-valuemin="1" aria-valuemax="8" aria-valuenow="3" aria-valuetext="Deutsch">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><g class="dial__ticks"></g><g class="dial__knob"><circle cx="60" cy="60" r="34" class="dial__body"/><circle cx="60" cy="60" r="27" class="dial__cap"/><rect x="58" y="30" width="4" height="15" rx="2" class="dial__ptr"/></g></svg>
+          </div>
+          <span class="dialbox__label">Into <b data-to-name>Deutsch</b></span>
+        </div>
+
+        <fieldset class="keys">
+          <legend>Service</legend>
+          <label><input type="radio" name="service" value="Written translation" checked><span>Written</span></label>
+          <label><input type="radio" name="service" value="Certified translation"><span>Certified</span></label>
+          <label><input type="radio" name="service" value="Website / app"><span>Website / app</span></label>
+          <label><input type="radio" name="service" value="Games / iGaming"><span>Games</span></label>
+          <label><input type="radio" name="service" value="Audio / video"><span>Audio / video</span></label>
+          <label><input type="radio" name="service" value="Editing"><span>Editing</span></label>
+        </fieldset>
+
+        <div class="readout">
+          <output class="lcd" aria-live="polite"><b data-lcd-pair>UA → DE</b><span data-lcd-svc>Written translation</span><span class="lcd__note">−10% first order</span></output>
+          <button class="key key--amber key--big" type="button" data-open aria-expanded="false" aria-controls="drawer">Get my price</button>
+        </div>
+      </div>
+
+      <div class="drawer" id="drawer" hidden>
+        <input name="name" placeholder="Your name" required autocomplete="name" aria-label="Your name">
+        <input name="email" type="email" placeholder="Email" required autocomplete="email" aria-label="Email">
+        <input name="phone" placeholder="Phone or Telegram (optional)" autocomplete="tel" aria-label="Phone or Telegram">
+        <textarea name="text" rows="1" placeholder="Text or file details (optional)" aria-label="Text or file description"></textarea>
+        <button class="key key--amber" type="submit">Send by email</button>
+        <p class="drawer__ok" data-ok hidden>Your email app should open with the request ready. Nothing opened? Write to <a href="mailto:hi@versio-translations.com">hi@versio-translations.com</a> or <a href="https://t.me/versio_translations">Telegram</a>.</p>
+      </div>
+    </form>
+  </section>
+
+  <!-- three people in every booth -->
+  <section class="check" id="check">
+    <h2>Three people sit in every booth.</h2>
+    <div class="glass">
+      <div class="seat"><span class="tent">Translator</span><p>A native speaker who knows your subject.</p></div>
+      <div class="seat"><span class="tent">Editor</span><p>Checks meaning, numbers and terms.</p></div>
+      <div class="seat"><span class="tent">Proofreader</span><p>Reads it the way your client will.</p></div>
+    </div>
+    <p class="check__note">About 2,000–2,500 words a day per linguist with all three checks. Urgent orders are split across a team.</p>
+  </section>
+
+  <!-- the channel card: services -->
+  <section class="channels" id="channels">
+    <h2>The channel card</h2>
+    <p class="channels__hint">Pick a channel and it is set on the console.</p>
+    <ol class="card">
+      <li><button type="button" data-svc="Written translation"><span class="ch">CH 1</span><b>Written translation</b><span class="what">Contracts, reports, manuals, marketing</span></button></li>
+      <li><button type="button" data-svc="Certified translation"><span class="ch">CH 2</span><b>Certified translation</b><span class="what">Passports, diplomas, certificates. Same day</span></button></li>
+      <li><button type="button" data-svc="Website / app"><span class="ch">CH 3</span><b>Websites &amp; apps</b><span class="what">Interface, SEO, store pages, your files or CMS</span></button></li>
+      <li><button type="button" data-svc="Games / iGaming"><span class="ch">CH 4</span><b>Games &amp; iGaming</b><span class="what">Casino and sportsbook UI, bonus terms, KYC</span></button></li>
+      <li><button type="button" data-svc="Audio / video"><span class="ch">CH 5</span><b>Audio &amp; video</b><span class="what">Subtitles, voice-over, interpreting</span></button></li>
+      <li><button type="button" data-svc="Editing"><span class="ch">CH 6</span><b>Editing &amp; proofreading</b><span class="what">Your text or an AI draft, made native</span></button></li>
+    </ol>
+  </section>
+
+  <!-- one number, said once -->
+  <section class="stat">
+    <p class="stat__n"><span data-count="76">76</span>%</p>
+    <p class="stat__t">of online shoppers prefer to buy when the product information is in their own language.</p>
+    <p class="stat__src">CSA Research, «Can't Read, Won't Buy — B2C», 2020</p>
+  </section>
+
+  <!-- delegations -->
+  <section class="clients" id="clients">
+    <h2>Delegations we speak for</h2>
+    <div class="desk">
+      <figure class="plate"><span class="tent tent--big">1win</span><figcaption>Casino and sportsbook for local markets<b>EN → ES · PT · TR</b></figcaption></figure>
+      <figure class="plate"><span class="tent tent--big">Parimatch</span><figcaption>Promo and app copy that fits the buttons<b>EN → UA · KZ</b></figcaption></figure>
+      <figure class="plate"><span class="tent tent--big">WhiteBIT</span><figcaption>Exchange UI, KYC and help center<b>EN → DE · PL · TR</b></figcaption></figure>
+      <figure class="plate"><span class="tent tent--big">Uber</span><figcaption>Driver and rider messages<b>EN → UA · PL</b></figcaption></figure>
+    </div>
+    <p class="clients__line">26,000+ projects since 2022, in 120+ languages. Also for GGPro and Microsoft.</p>
+  </section>
+
+  <!-- questions from the floor -->
+  <section class="faq" id="faq">
+    <h2>Questions from the floor</h2>
+    <details><summary>How fast can you translate?</summary><p>About 2,000–2,500 words a day per linguist with all three checks. Urgent orders are split across a team and can be ready the same day.</p></details>
+    <details><summary>Can you certify documents?</summary><p>Yes: passports, diplomas and certificates with stamp and signature, standard or same-day.</p></details>
+    <details><summary>Which languages?</summary><p>More than 120, including all EU languages, Ukrainian, Turkish, Arabic, Japanese, Korean and Chinese.</p></details>
+    <details><summary>Is my file safe?</summary><p>We sign an NDA on request. Only your project's linguists see the files, and we delete them after delivery if you ask.</p></details>
+    <details><summary>How do I pay?</summary><p>Card, bank transfer (EUR, USD, UAH) or USDT. Companies can pay by invoice.</p></details>
+  </section>
+
+  <!-- close -->
+  <section class="floor">
+    <h2>The floor is yours.</h2>
+    <p>Tell us the pair and the file. A price and a date in 15 minutes, −10% on the first order.</p>
+    <div class="floor__acts">
+      <a class="key key--amber key--big" href="#console">Turn the dial</a>
+      <a class="floor__link" href="https://t.me/versio_translations">Telegram</a>
+      <a class="floor__link" href="mailto:hi@versio-translations.com">hi@versio-translations.com</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <a class="brand brand--small" href="#top" aria-label="Versio, home"><svg class="brand__mark"><use href="#mark"/></svg><span>versio</span></a>
+  <span>Card · bank transfer · USDT · invoice</span>
+  <span>© 2026 Versio · <a href="privacy.html">Privacy</a></span>
+</footer>
+
+<aside class="leave" data-leave hidden aria-label="Before you go">
+  <p>Leaving? Leave an email and get your price first.</p>
+  <form data-leave-form><input name="email" type="email" placeholder="Email" required aria-label="Email"><button class="key key--amber">Get price</button></form>
+  <button class="leave__x" type="button" data-leave-x aria-label="Close"></button>
+</aside>
+
+</body>
+</html>

@@ -2,181 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Glossa Translations — international translation agency</title>
-<meta name="description" content="International translation agency: documents, websites, apps, games and iGaming in 120+ languages. Three checks on every text. 26,000+ projects in 4 years.">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0d1014">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Versio Translations — they won't buy what they can't read</title>
+<meta name="description" content="Translation agency: certified documents, websites, apps and iGaming in 120+ languages. Translator, editor and native proofreader on every text. Price in 15 minutes.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/simple.css">
-<link rel="stylesheet" href="css/home.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script defer src="js/bg3d.js"></script>
-<script defer src="js/i18n.js"></script>
-<script defer src="js/main.js"></script>
-<script defer src="js/typing.js"></script>
-<script defer src="js/reviews.js"></script>
-<script defer src="js/exit.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/site.js" defer></script>
 </head>
 <body>
-<canvas id="bg3d" aria-hidden="true"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 40 40">
+    <rect x="11" y="2" width="26" height="30" rx="5" fill="#cfc6ff"/>
+    <path d="M5 11a5 5 0 0 1 5-5h13l8 8v18a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z" fill="#5b3df5"/>
+    <path d="M23 6v6a2 2 0 0 0 2 2h6z" fill="#9886ff"/>
+    <path d="M11 18l7 12 7-12" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <!-- the Versio seal: ring text + V; used in the hero, on the contract and on the offer -->
+  <symbol id="seal" viewBox="0 0 200 200">
+    <defs><path id="ring" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+    <circle cx="100" cy="100" r="96" fill="currentColor"/>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="58" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
+    <text fill="#fff" font-family="Manrope, sans-serif" font-size="14" font-weight="800" letter-spacing="2.1" textLength="452" lengthAdjust="spacing"><textPath href="#ring" textLength="452">VERSIO · CERTIFIED · 3 CHECKS · 120+ LANGUAGES · </textPath></text>
+    <path d="M78 84l22 38 22-38" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="#"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#a8a2ff" stroke-width="1.5"/><ellipse cx="18" cy="18" rx="7" ry="16.5" fill="none" stroke="#a8a2ff" stroke-width="1.5"/><path d="M1.5 18h33" stroke="#a8a2ff" stroke-width="1.5"/></svg>Glossa<small>translations</small></a>
-    <nav aria-label="Main"><a href="#services">Services</a><a href="#cases">Cases</a><a href="#faq">FAQ</a><a href="#contact">Contacts</a></nav>
-    <a class="btn btn-primary" href="#contact">Request a free quote</a>
-  </div>
+<header class="bar">
+  <a class="logo" href="#top" aria-label="Versio Translations, home"><svg class="logo__mark"><use href="#mark"/></svg>Versio</a>
+  <nav class="bar__nav" aria-label="Sections">
+    <a href="#problems">Problems we fix</a><a href="#what">What we translate</a><a href="#faq">FAQ</a>
+  </nav>
+  <a class="bar__tg" href="https://t.me/versio_translations">Telegram</a>
+  <a class="btn btn--ink" href="#price">Get a price</a>
 </header>
 
-<main>
-  <!-- 1. who we are, in one look -->
-  <section class="hero h2">
-    <div class="wrap">
-      <div class="hero__l">
-        <p class="eyebrow">Translation &amp; localization since 2022</p>
-        <h1>International<br><em>translation agency</em></h1>
-        <p class="sub">Documents, websites, apps and games in 120+ languages. Every text is checked by three people.</p>
-        <div class="ctas"><a class="btn btn-primary" href="#contact">For business →</a><a class="btn btn-ghost" href="#contact">For private clients</a></div>
-        <div class="live mini" aria-hidden="true">
-          <span class="live__pair"><b>EN</b> → <b data-to>UA</b></span>
-          <span class="live__src" data-src>Your order ships tomorrow.</span>
-          <span class="live__out" data-out>Ваше замовлення відправимо завтра.</span>
-        </div>
-      </div>
+<main id="top">
+
+  <!-- 1 · hero: the customer's problem in one line, the seal, "buy" in a dozen languages -->
+  <section class="hero">
+    <h1 class="hero__title">
+      <span class="ln"><span>They won't buy</span></span>
+      <span class="ln"><span>what they can't</span></span>
+      <span class="ln"><span><em>read.</em></span></span>
+    </h1>
+    <svg class="seal hero__seal" aria-hidden="true"><use href="#seal"/></svg>
+    <p class="hero__lead">Websites, apps, contracts and documents in 120+ languages. Three people check every text.</p>
+    <div class="hero__cta">
+      <a class="btn btn--brand btn--lg" href="#price" data-client="Business">Get a price in 15 min <span class="arr" aria-hidden="true"></span></a>
+      <a class="btn btn--line btn--lg" href="#price" data-client="Private" data-service="Certified">Certify a document</a>
     </div>
+    <div class="buy" aria-hidden="true">
+      <div class="buy__row" data-faixa><div class="buy__track"><span>Buy</span><span>Kaufen</span><span>Купити</span><span>Satın al</span><span>Comprar</span><span>購入する</span><span>Kup teraz</span><span>Acheter</span><span>شراء</span><span>Acquista</span><span>Сатып алу</span><span>구매</span></div></div>
+    </div>
+    <p class="hero__trust">Translating for <b>1win</b> · <b>Parimatch</b> · <b>WhiteBIT</b> · <b>GGPro</b> · <b>Microsoft</b> · <b>Uber</b></p>
   </section>
 
-  <!-- 2. numbers -->
-  <section class="stats" aria-label="Glossa in numbers">
-    <div class="wrap">
-      <div><b>4</b><span>years of experience</span></div>
-      <div><b>26,000+</b><span>projects delivered</span></div>
-      <div><b>120+</b><span>languages</span></div>
-      <div><b>3</b><span>checks on every text</span></div>
-    </div>
+  <!-- 2 · the problems: each one is struck out as it scrolls in, the fix appears under it -->
+  <section class="pains" id="problems">
+    <h2 class="kicker">Sound familiar?</h2>
+    <ol class="pains__list">
+      <li data-in><p class="pain"><span>The embassy sent your translation back.</span></p><p class="fix">Certified with stamp and signature. Same day if you need it.</p></li>
+      <li data-in><p class="pain"><span>Your app says “Add to cart” in Istanbul.</span></p><p class="fix">We translate straight in your files: JSON, XLIFF, Figma.</p></li>
+      <li data-in><p class="pain"><span>Machine translation in your T&amp;Cs.</span></p><p class="fix">A translator, an editor and a native proofreader on every text.</p></li>
+      <li data-in><p class="pain"><span>The agency needs a week.</span></p><p class="fix">Urgent jobs are split across a team. Same day is possible.</p></li>
+      <li data-in><p class="pain"><span>Nobody tells you the price.</span></p><p class="fix">A fixed price and a date in 15 minutes.</p></li>
+    </ol>
   </section>
 
-  <!-- 3. clients -->
-  <div class="logos" aria-label="Clients: 1win, Parimatch, WhiteBIT, Uber, GGPro, Microsoft">
-    <p>Teams we translate for</p>
-    <div class="track">
-      <div class="set"><span><img src="img/logos/1win.png" alt="" width="34" height="34">1win</span><span>PARIMATCH</span><span><img class="mono" src="img/logos/whitebit.png" alt="" width="34" height="34">WhiteBIT</span><span><img class="mono" src="img/logos/uber.svg" alt="" width="70" height="26"></span><span>GGPro</span><span>Microsoft</span></div>
-      <div class="set" aria-hidden="true"><span><img src="img/logos/1win.png" alt="" width="34" height="34">1win</span><span>PARIMATCH</span><span><img class="mono" src="img/logos/whitebit.png" alt="" width="34" height="34">WhiteBIT</span><span><img class="mono" src="img/logos/uber.svg" alt="" width="70" height="26"></span><span>GGPro</span><span>Microsoft</span></div>
-    </div>
-  </div>
-
-  <!-- 4. services -->
-  <section class="block" id="services">
-    <div class="wrap">
-      <h2>Our <em>services</em></h2>
-      <div class="svc">
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div><h3>Written translation</h3><p>Contracts, reports, manuals and marketing. Any subject.</p></article>
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7.5 21l4.5-2.5 4.5 2.5-1.5-7.5"/></svg></div><h3>Certified translation</h3><p>Passports, diplomas, certificates. Same-day option.</p></article>
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></div><h3>Website &amp; app localization</h3><p>Interface, SEO and store pages, in your files or CMS.</p></article>
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M8 10v4M6 12h4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg></div><h3>Games &amp; iGaming</h3><p>Casino and sportsbook UI, bonus terms, KYC.</p></article>
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M13 15h4M7 11h2"/></svg></div><h3>Audio &amp; video</h3><p>Subtitles, voice-over, transcripts and interpreting.</p></article>
-        <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><h3>Editing &amp; proofreading</h3><p>Your translation or an AI draft, brought to native level.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. quality -->
-  <section class="block" id="quality" style="padding-top:0">
-    <div class="wrap">
-      <h2>Three people check <em>every text</em></h2>
-      <ol class="checks">
-        <li><b>01</b><h3>Translator</h3><p>A native speaker who knows your subject.</p></li>
-        <li><b>02</b><h3>Editor</h3><p>Checks meaning, numbers and terms.</p></li>
-        <li><b>03</b><h3>Native proofreader</h3><p>Reads it like your customer will.</p></li>
+  <!-- 3 · one contract through three people; plays once when it comes into view -->
+  <section class="trip" data-trip>
+    <h2 class="trip__title">One contract. <em>Three people.</em> One stamp.</h2>
+    <div class="trip__stage">
+      <ol class="crew">
+        <li data-s="1"><b>Translator</b><span>native, knows your field</span></li>
+        <li data-s="2"><b>Editor</b><span>meaning, numbers, terms</span></li>
+        <li data-s="3"><b>Proofreader</b><span>reads it like your client</span></li>
       </ol>
-    </div>
-  </section>
-
-  <!-- 6. recent cases -->
-  <section class="block" id="cases" style="padding-top:0">
-    <div class="wrap">
-      <h2>Recent <em>cases</em></h2>
-      <div class="cases">
-        <article><div class="cases__tags"><span>iGaming</span><span>localization</span></div><h3>Casino &amp; sportsbook localization for 1win</h3><p>Lobby, bonus terms and support texts adapted for local markets.</p><span class="cases__pair">EN → ES · PT · TR</span></article>
-        <article><div class="cases__tags"><span>betting</span><span>marketing</span></div><h3>Promo and app texts for Parimatch</h3><p>Short marketing copy that keeps the tone and fits the buttons.</p><span class="cases__pair">EN → UA · KZ</span></article>
-        <article><div class="cases__tags"><span>crypto</span><span>fintech</span></div><h3>Exchange interface for WhiteBIT</h3><p>Deposit, KYC and help-center texts with exact financial terms.</p><span class="cases__pair">EN → DE · PL · TR</span></article>
-        <article><div class="cases__tags"><span>mobility</span><span>support</span></div><h3>Driver and rider texts for Uber</h3><p>In-app messages and support macros, short and clear.</p><span class="cases__pair">EN → UA · PL</span></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. reviews: filled from js/reviews.js with the agency's own reviews; hidden while that list is empty -->
-  <section class="block" id="reviews" style="padding-top:0" hidden>
-    <div class="wrap">
-      <h2>What clients <em>say</em></h2>
-      <div class="reviews"></div>
-    </div>
-  </section>
-
-  <!-- 8. offer -->
-  <section class="block" style="padding-top:0">
-    <div class="wrap">
-      <div class="coupon">
-        <div><h2>10% off your <em>first order</em></h2><ul><li>Any service, any volume</li><li>Applied automatically, no code needed</li></ul><a class="btn btn-primary" href="#contact">Send a request →</a></div>
-        <div class="coupon__tag"><b>−10%</b><span>first order</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. faq -->
-  <section class="block" id="faq" style="padding-top:0">
-    <div class="wrap">
-      <h2>Quick <em>answers</em></h2>
-      <div class="faq">
-        <details><summary>How fast can you translate?<i aria-hidden="true"></i></summary><p>About 2,000–2,500 words a day per linguist with all three checks. Urgent orders are split across a team and can be ready the same day.</p></details>
-        <details><summary>Can you certify documents?<i aria-hidden="true"></i></summary><p>Yes: passports, diplomas and certificates with stamp and signature, standard or same-day.</p></details>
-        <details><summary>Which languages?<i aria-hidden="true"></i></summary><p>More than 120, including all EU languages, Ukrainian, Turkish, Arabic, Japanese, Korean and Chinese.</p></details>
-        <details><summary>Is my file safe?<i aria-hidden="true"></i></summary><p>We sign an NDA on request. Only your project's linguists see the files, and we delete them after delivery if you ask.</p></details>
-        <details><summary>How do I pay?<i aria-hidden="true"></i></summary><p>Card, bank transfer (EUR, USD, UAH) or USDT. Companies can pay by invoice.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. the form, at the end -->
-  <section class="block" id="contact" style="padding-top:0">
-    <div class="wrap">
-      <div class="rush">
-        <div class="rush__l">
-          <h2>Tight deadline? <em>Contact us!</em></h2>
-          <p>Submit your data and our manager will contact you within a couple of minutes to discuss the details.</p>
-          <div class="nf">
-            <h3>Didn't find what you were looking for?</h3>
-            <p>Write or call, and we will pick the right service for your request.</p>
-            <a class="nf__line" href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a>
-            <a class="nf__line" href="https://t.me/glossa_translations" target="_blank" rel="noopener">Telegram @glossa_translations</a>
-          </div>
+      <div class="paper" aria-hidden="true">
+        <div class="paper__head">
+          <b class="paper__src">ДОГОВІР № 14</b>
+          <b class="paper__dst">VERTRAG Nr. 14</b>
+          <span class="paper__pair">UA → DE</span>
         </div>
-        <div class="rush__r" data-form="rush"></div>
+        <i style="--w:92%"></i><i style="--w:78%"></i><i style="--w:86%"></i><i style="--w:64%"></i><i style="--w:90%"></i><i style="--w:72%"></i><i style="--w:40%"></i>
+        <div class="paper__ticks"><span data-s="1"></span><span data-s="2"></span><span data-s="3"></span></div>
+        <svg class="seal paper__seal"><use href="#seal"/></svg>
       </div>
+      <p class="trip__done"><span class="dot"></span>Delivered · ready to sign</p>
+    </div>
+  </section>
+
+  <!-- 4 · proof: the owner's numbers and clients on a dark band -->
+  <section class="proof">
+    <div class="proof__nums">
+      <div><b data-conta="4">4</b><span>years in translation</span></div>
+      <div><b><span data-conta="26000">26,000</span>+</b><span>projects delivered</span></div>
+      <div><b><span data-conta="120">120</span>+</b><span>languages</span></div>
+      <div><b data-conta="3">3</b><span>checks on every text</span></div>
+    </div>
+    <div class="proof__logos" data-faixa><div class="proof__track"><span>1win</span><span>PARIMATCH</span><span>WhiteBIT</span><span>GGPro</span><span>Microsoft</span><span>Uber</span></div></div>
+  </section>
+
+  <!-- 5 · what we translate: big rows, each with the real thing it produces -->
+  <section class="what" id="what">
+    <h2 class="kicker">What we translate</h2>
+    <ul class="rows">
+      <li class="row">
+        <span class="row__n">01</span><h3>Certified documents</h3><p>Passports, diplomas, certificates. Stamp and signature.</p>
+        <div class="peek peek--pass" aria-hidden="true"><b>PASSPORT</b><i></i><i></i><i></i><span class="ph"></span><svg class="seal"><use href="#seal"/></svg></div>
+      </li>
+      <li class="row">
+        <span class="row__n">02</span><h3>Websites &amp; apps</h3><p>Interface, store pages and SEO, in your files or CMS.</p>
+        <div class="peek peek--app" aria-hidden="true"><small>EN → ES</small><span>Añadir al carrito</span><span class="g">Pagar ahora</span></div>
+      </li>
+      <li class="row">
+        <span class="row__n">03</span><h3>Games &amp; iGaming</h3><p>Casino and sportsbook UI, bonus terms, KYC.</p>
+        <div class="peek peek--game" aria-hidden="true"><small>EN → TR</small><b>Hoş geldin bonusu</b><span>100 free spins</span></div>
+      </li>
+      <li class="row">
+        <span class="row__n">04</span><h3>Contracts &amp; reports</h3><p>Legal, finance, manuals and marketing.</p>
+        <div class="peek peek--deal" aria-hidden="true"><small>EN → PL</small><b>UMOWA nr 14</b><i style="--w:90%"></i><i style="--w:70%"></i><i style="--w:82%"></i></div>
+      </li>
+      <li class="row">
+        <span class="row__n">05</span><h3>Audio &amp; video</h3><p>Subtitles, voice-over, transcripts, interpreting.</p>
+        <div class="peek peek--sub" aria-hidden="true"><span class="play"></span><em>Shall we go?</em></div>
+      </li>
+      <li class="row">
+        <span class="row__n">06</span><h3>Editing AI drafts</h3><p>Your machine translation, brought to native level.</p>
+        <div class="peek peek--edit" aria-hidden="true"><s>Welcome bonus for you is</s><b>Your welcome bonus</b></div>
+      </li>
+    </ul>
+    <ul class="cases">
+      <li><b>1win</b><span>Casino and sportsbook for local markets</span><em>EN → ES · PT · TR</em></li>
+      <li><b>Parimatch</b><span>Promo and app texts</span><em>EN → UA · KZ</em></li>
+      <li><b>WhiteBIT</b><span>Exchange interface, KYC, help center</span><em>EN → DE · PL · TR</em></li>
+      <li><b>Uber</b><span>Driver and rider texts</span><em>EN → UA · PL</em></li>
+    </ul>
+  </section>
+
+  <!-- 6 · the one action: price request on violet -->
+  <section class="price" id="price">
+    <div class="price__head">
+      <h2>Your price<br>in 15 minutes.</h2>
+      <p>No price list: every text is different. Tell us what you need.</p>
+      <div class="price__off"><svg class="seal"><use href="#seal"/></svg><b>−10%</b><span>first order, automatic</span></div>
+    </div>
+    <form class="form" data-form>
+      <div class="who" role="group" aria-label="Client type">
+        <label><input type="radio" name="client" value="Business" checked><span>Business</span></label>
+        <label><input type="radio" name="client" value="Private"><span>Private</span></label>
+      </div>
+      <div class="chips" role="group" aria-label="Service">
+        <label><input type="checkbox" name="service" value="Certified"><span>Certified</span></label>
+        <label><input type="checkbox" name="service" value="Website / app"><span>Website / app</span></label>
+        <label><input type="checkbox" name="service" value="Games"><span>iGaming</span></label>
+        <label><input type="checkbox" name="service" value="Written"><span>Contracts</span></label>
+        <label><input type="checkbox" name="service" value="Audio / video"><span>Audio / video</span></label>
+        <label><input type="checkbox" name="service" value="Editing"><span>Editing</span></label>
+      </div>
+      <div class="fields">
+        <input name="name" placeholder="Your name" required autocomplete="name" aria-label="Your name">
+        <input name="email" type="email" placeholder="Email" required autocomplete="email" aria-label="Email">
+        <input name="phone" placeholder="Phone or Telegram" autocomplete="tel" aria-label="Phone or Telegram">
+        <textarea name="text" rows="2" placeholder="Which languages? Describe the text or file" aria-label="Languages and text"></textarea>
+      </div>
+      <button class="btn btn--ink btn--lg btn--full" type="submit">Send by email <span class="arr" aria-hidden="true"></span></button>
+      <p class="form__ok" data-ok hidden>Your email app should open with the request ready. Nothing opened? Write to <a href="mailto:hi@versio-translations.com">hi@versio-translations.com</a> or <a href="https://t.me/versio_translations">Telegram</a>.</p>
+    </form>
+  </section>
+
+  <!-- 7 · faq -->
+  <section class="faq" id="faq">
+    <h2 class="kicker">Quick answers</h2>
+    <div class="faq__list">
+      <details><summary>How fast can you translate?</summary><p>About 2,000–2,500 words a day per linguist with all three checks. Urgent orders are split across a team and can be ready the same day.</p></details>
+      <details><summary>Can you certify documents?</summary><p>Yes: passports, diplomas and certificates with stamp and signature, standard or same-day.</p></details>
+      <details><summary>Which languages?</summary><p>More than 120, including all EU languages, Ukrainian, Turkish, Arabic, Japanese, Korean and Chinese.</p></details>
+      <details><summary>Is my file safe?</summary><p>We sign an NDA on request. Only your project's linguists see the files, and we delete them after delivery if you ask.</p></details>
+      <details><summary>How do I pay?</summary><p>Card, bank transfer (EUR, USD, UAH) or USDT. Companies can pay by invoice.</p></details>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap"><span>© 2026 Glossa Translations</span><span><a href="mailto:hi@glossa-translations.com">hi@glossa-translations.com</a> · <a href="privacy.html">Privacy</a></span></div>
+<footer class="foot">
+  <a class="logo" href="#top" aria-label="Versio Translations, home"><svg class="logo__mark"><use href="#mark"/></svg>Versio</a>
+  <div class="foot__contact"><a href="mailto:hi@versio-translations.com">hi@versio-translations.com</a><a href="https://t.me/versio_translations">Telegram</a><a href="privacy.html">Privacy</a></div>
+  <p class="foot__fine">© 2026 Versio Translations · Card, bank transfer, USDT, invoice</p>
 </footer>
 
-<a class="tg" href="https://t.me/glossa_translations" target="_blank" rel="noopener" aria-label="Write to us on Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.5-1.4ZM8.1 13.5l9.6-6.1c.5-.3.9-.1.5.2l-8.2 7.4-.3 3.4-1.6-4.9Z"/></svg>Telegram</a>
-
-<div class="exit" hidden role="dialog" aria-modal="true" aria-labelledby="exit-h">
-  <div class="exit__card">
-    <button class="exit__x" type="button" aria-label="Close">×</button>
-    <p class="exit__k">−10%</p>
-    <h2 id="exit-h">Leaving? Get your price first.</h2>
-    <p class="exit__p">Pick a service and leave an email. Price in 15 minutes.</p>
-    <div data-form="cost"></div>
+<div class="exit" data-exit hidden>
+  <div class="exit__box" role="dialog" aria-label="Before you go">
+    <button class="exit__x" data-exit-close aria-label="Close"></button>
+    <svg class="seal exit__seal" aria-hidden="true"><use href="#seal"/></svg>
+    <h3>Leaving? Get your price first.</h3>
+    <p>−10% on the first order.</p>
+    <form data-exit-form>
+      <input name="email" type="email" placeholder="Email" required aria-label="Email">
+      <button class="btn btn--brand">Get price</button>
+    </form>
   </div>
 </div>
-
-<div class="cookie" hidden><span>Only essential cookies.</span><button class="btn btn-primary" type="button">OK</button></div>
 </body>
 </html>
