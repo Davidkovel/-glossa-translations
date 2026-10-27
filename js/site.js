@@ -128,7 +128,9 @@
   const fit = (c) => { const r = c.getBoundingClientRect(); c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr); };
 
   const planet = $('[data-planet]');
-  const big = planet && { g: planet.getContext('2d'), pts: sphere(2200), seen: true };
+  let introSeen = null;
+  try { introSeen = sessionStorage.getItem('lingvo-intro'); sessionStorage.setItem('lingvo-intro', '1'); } catch (_) {}
+  const big = planet && { g: planet.getContext('2d'), pts: sphere(2200), seen: true, intro: !still && !introSeen && scrollY < 50, parts: [] };
   const hi = big && document.createElement('span');
   if (big) {
     fit(planet);
@@ -150,7 +152,9 @@
     big.fx = big.fx == null || still ? fxT : big.fx + (fxT - big.fx) * .05;
     const fx = big.fx;
     const R0 = Math.max(W * .86, H * .8), R1 = Math.min(W, H) * (phone ? .42 : .3);
-    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * .4 + R0, H * .54, e);
+    if (big.t0 == null) big.t0 = t;
+    const it = t - big.t0, ip = big.intro ? smooth(Math.min(1, it / 1600)) : 1;
+    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * .4 + R0, H * .54, e) + (1 - ip) * H * .55 * (1 - e);
     const at0 = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
@@ -166,6 +170,23 @@
       if (z < -.05 || y > H + 4 || y < -4) continue;
       g.fillStyle = `rgba(127,178,255,${(.15 + z * .75) * fade})`;
       g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr * lerp(1, .9, e), 0, 7); g.fill();
+    }
+    /* first visit: greetings rise out of the planet and fade, for about three seconds */
+    if (big.intro && e < .5) {
+      if (it > 700 && it < 3600 && it - (big.last || 0) > 170) {
+        big.last = it;
+        const sx = cx + (Math.random() - .5) * Math.min(W * .8, R * 1.4), dx = sx - cx;
+        if (Math.abs(dx) < R) big.parts.push({ w: HELLO[(Math.random() * HELLO.length) | 0][0], x: sx, y: cy - Math.sqrt(R * R - dx * dx), b: it, s: 15 + Math.random() * 10 });
+      }
+      big.parts = big.parts.filter((q) => it - q.b < 2200);
+      for (const q of big.parts) {
+        const k = (it - q.b) / 2200, a = k < .2 ? k / .2 : 1 - (k - .2) / .8;
+        g.font = `700 ${q.s * dpr}px Manrope, system-ui, sans-serif`; g.textAlign = 'center';
+        g.fillStyle = `rgba(200,222,255,${a * .95})`; g.fillText(q.w, q.x, q.y - 12 * dpr - k * 110 * dpr);
+        g.fillStyle = `rgba(127,178,255,${a})`; g.beginPath(); g.arc(q.x, q.y - k * 30 * dpr, 2.5 * dpr, 0, 7); g.fill();
+      }
+      g.textAlign = 'start';
+      if (it > 6000) big.intro = false;
     }
     const at = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
     const [x, y, z] = P(onSphere(HELLO[at][2], HELLO[at][3]));
@@ -216,19 +237,5 @@
     requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);
-
-  /* blocks come in from a light blur as they scroll into view; cards one after another */
-  const reveal = '.kicker, .svc__sub, .show__sub, .logos p, .fx, .card, .show__tabs, .show__stage, .price__side, .form, .faq__list, .foot__cta, .foot__cols';
-  if (!still) {
-    const io = new IntersectionObserver((list) => list.forEach((en) => {
-      if (!en.isIntersecting) return;
-      en.target.classList.add('rv-on'); io.unobserve(en.target);
-    }), { rootMargin: '0px 0px -12% 0px' });
-    $$(reveal).forEach((el) => {
-      const sib = [...el.parentElement.children].filter((c) => c.matches(reveal));
-      el.style.setProperty('--rv-d', Math.min(sib.indexOf(el), 5) * 90 + 'ms');
-      el.classList.add('rv'); io.observe(el);
-    });
-  }
 
 })();
