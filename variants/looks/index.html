@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lingvo — hero looks</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { background: var(--bg); color: var(--text); font: 500 17px/1.5 Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .stage { position: fixed; inset: 0; overflow: hidden; background: var(--bgcss, var(--bg)); }
+  .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .photo::after { content: ""; position: absolute; inset: 0; background: var(--overlay, transparent); }
+  .earth { position: absolute; width: 1100px; left: 50%; top: 58%; transform: translateX(-50%); mix-blend-mode: screen; border-radius: 50%; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .words { position: absolute; inset: -10%; display: flex; flex-wrap: wrap; gap: 10px 34px; align-content: center; justify-content: center; transform: rotate(-8deg); font-weight: 800; font-size: 88px; line-height: 1; letter-spacing: -.04em; color: var(--pattern); }
+  header { position: relative; z-index: 2; display: flex; align-items: center; gap: 26px; padding: 16px 56px; border-bottom: 1px solid var(--line); background: var(--bar); }
+  .logo { font-weight: 800; font-size: 21px; letter-spacing: -.035em; display: flex; align-items: center; gap: 9px; }
+  .logo i { width: 28px; height: 28px; border-radius: 7px; background: var(--accent); display: grid; place-items: center; color: var(--on); font-style: normal; font-size: 15px; }
+  header nav { margin-left: auto; display: flex; gap: 26px; font-weight: 600; font-size: 15px; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 99px; padding: 12px 20px; font-weight: 700; font-size: 15px; background: var(--accent); color: var(--on); }
+  .btn--lg { padding: 18px 30px; font-size: 17px; }
+  .btn--line { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px var(--line2); }
+  main { position: relative; z-index: 2; height: calc(100% - 66px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 40px 60px; }
+  .what { font-weight: 700; color: var(--accent2, var(--accent)); margin-bottom: 18px; }
+  h1 { margin: 0; font-size: 116px; font-weight: 800; line-height: .95; letter-spacing: -.055em; }
+  h1 em { font-style: normal; color: var(--accent2, var(--accent)); }
+  .lead { max-width: 600px; margin-top: 24px; font-size: 20px; color: var(--muted); }
+  .cta { display: flex; gap: 12px; margin-top: 30px; }
+  .tag { position: fixed; z-index: 3; left: 18px; bottom: 16px; font: 800 15px Manrope; padding: 8px 14px; border-radius: 99px; background: #fff; color: #111; box-shadow: 0 6px 20px rgba(0, 0, 0, .3); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage"></div>
+<header><span class="logo"><i>L</i>Lingvo</span><nav><span>Services</span><span>Clients</span><span>FAQ</span><span>Telegram</span></nav><span class="btn">Get a price</span></header>
+<main>
+  <p class="what">Translation agency</p>
+  <h1>Translation into<br><em>every language</em></h1>
+  <p class="lead">Documents, websites, apps, games, audio and video. A translator, an editor and a native proofreader check every text.</p>
+  <div class="cta"><span class="btn btn--lg">Get a price in 15 min →</span><span class="btn btn--lg btn--line">See services</span></div>
+</main>
+<span class="tag" id="tag"></span>
+<script>
+/* each look: colours + one background idea. ?v=1..16 */
+const LOOKS = [
+  { n: 'Globe lines · night blue', bg: '#070a1c', text: '#eef0ff', muted: '#9ba3cc', accent: '#4d6bff', on: '#fff', accent2: '#8ea0ff', globe: { type: 'lines', color: '142,160,255', r: .46, cy: .62 } },
+  { n: 'Dotted globe · night blue', bg: '#060816', text: '#eef0ff', muted: '#9ba3cc', accent: '#4d6bff', on: '#fff', accent2: '#8ea0ff', globe: { type: 'dots', color: '142,160,255', r: .5, cy: .66 } },
+  { n: 'Planet rising', bg: '#05060f', text: '#f2f4ff', muted: '#a3a9cc', accent: '#ffffff', on: '#05060f', accent2: '#7fb2ff', globe: { type: 'dots', color: '127,178,255', r: 1.15, cy: 1.75, rim: true } },
+  { n: 'Earth from space (NASA photo)', bg: '#000', text: '#fff', muted: '#b8bccc', accent: '#fff', on: '#000', accent2: '#7fc4ff', earth: true },
+  { n: 'City lights at night (NASA photo)', bg: '#02030a', text: '#fff', muted: '#c9cde0', accent: '#ffb347', on: '#1a1000', accent2: '#ffc879', photo: 'img/night.jpg', overlay: 'linear-gradient(180deg, rgba(2,3,10,.75), rgba(2,3,10,.35) 60%, rgba(2,3,10,.7))' },
+  { n: 'Sunrise over Earth (ISS photo)', bg: '#02030a', text: '#fff', muted: '#d5d8e6', accent: '#fff', on: '#02030a', accent2: '#ffd39a', photo: 'img/horizon.jpg', overlay: 'linear-gradient(180deg, rgba(2,3,10,.55), rgba(2,3,10,.15) 70%)' },
+  { n: 'Espresso & caramel', bg: '#1b130d', text: '#f3e7d8', muted: '#bba48c', accent: '#d49a5c', on: '#1b130d', globe: { type: 'lines', color: '212,154,92', r: .48, cy: .62 } },
+  { n: 'Cream paper & brown', bg: '#f3ede3', text: '#2b1d14', muted: '#6e5a4a', accent: '#2b1d14', on: '#f3ede3', accent2: '#b5562b', globe: { type: 'lines', color: '120,80,50', r: .48, cy: .62, alpha: .5 } },
+  { n: 'Sand & navy, map grid', bg: '#ece4d6', text: '#14233d', muted: '#5a6478', accent: '#1f3a5f', on: '#fff', accent2: '#c0622f', grid: '31,58,95' },
+  { n: 'Terracotta', bg: '#b4532a', text: '#fff6ec', muted: '#f6d5bf', accent: '#fff6ec', on: '#7a2f12', accent2: '#2a160d', globe: { type: 'dots', color: '255,240,225', r: .5, cy: .68, alpha: .8 } },
+  { n: 'Navy & gold', bg: '#0b1630', text: '#f4efe4', muted: '#a9b3c9', accent: '#c9a45c', on: '#0b1630', globe: { type: 'lines', color: '201,164,92', r: .47, cy: .62 } },
+  { n: 'Airy white & blue globe', bg: '#fbfbfd', text: '#0f1b33', muted: '#5b6479', accent: '#1f4fd8', on: '#fff', globe: { type: 'dots', color: '31,79,216', r: .5, cy: .7, alpha: .55 } },
+  { n: 'Warm sunset gradient', bg: '#fbe9dc', bgcss: 'linear-gradient(160deg, #ffe3cf 0%, #f7d6e0 45%, #d9d6f5 100%)', text: '#2a1a14', muted: '#6d5550', accent: '#2a1a14', on: '#fff', accent2: '#c2552d' },
+  { n: '“Hello” in every script', bg: '#f4efe6', text: '#24180f', muted: '#6e5d4e', accent: '#24180f', on: '#f4efe6', accent2: '#b5562b', words: 'rgba(60,40,25,.07)' },
+  { n: 'Midnight & Earth on the side', bg: '#03040b', text: '#fff', muted: '#b4b9cf', accent: '#4d8bff', on: '#fff', accent2: '#8fc1ff', earth: 'side' },
+  { n: 'Charcoal & copper', bg: '#121212', text: '#f2ece6', muted: '#a59e98', accent: '#c27a45', on: '#121212', globe: { type: 'lines', color: '194,122,69', r: .46, cy: .62 } },
+];
+const i = Math.max(1, Math.min(LOOKS.length, +new URLSearchParams(location.search).get('v') || 1)) - 1;
+const L = LOOKS[i];
+const root = document.documentElement.style;
+const light = /^#f|^#e|^#fb/.test(L.bg);
+Object.entries({ bg: L.bg, text: L.text, muted: L.muted, accent: L.accent, on: L.on, accent2: L.accent2 || L.accent,
+  line: light ? 'rgba(0,0,0,.09)' : 'rgba(255,255,255,.1)', line2: light ? 'rgba(0,0,0,.25)' : 'rgba(255,255,255,.4)',
+  bar: light ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)', bgcss: L.bgcss || L.bg }).forEach(([k, v]) => root.setProperty('--' + k, v));
+document.getElementById('tag').textContent = (i + 1) + ' · ' + L.n;
+const stage = document.getElementById('stage');
+
+if (L.photo) { const p = document.createElement('div'); p.className = 'photo'; p.style.backgroundImage = `url(${L.photo})`; p.style.setProperty('--overlay', L.overlay); stage.append(p); }
+if (L.earth) { const e = document.createElement('img'); e.src = 'img/earth.jpg'; e.className = 'earth'; if (L.earth === 'side') Object.assign(e.style, { width: '900px', left: 'auto', right: '-260px', top: '18%', transform: 'none', opacity: .9 }); stage.append(e); }
+if (L.words) {
+  const w = document.createElement('div'); w.className = 'words'; w.style.setProperty('--pattern', L.words);
+  const hi = ['Hello', 'Hola', 'Merhaba', 'こんにちは', 'Bonjour', 'مرحبا', 'Hallo', 'Olá', 'Ciao', '你好', 'Cześć', '안녕하세요', 'Γεια', 'שלום', 'Hej', 'नमस्ते'];
+  w.innerHTML = Array.from({ length: 48 }, (_, k) => `<span>${hi[k % hi.length]}</span>`).join(''); stage.append(w);
+}
+
+/* globe / map grid on a canvas: orthographic projection, slow spin */
+if (L.globe || L.grid) {
+  const c = document.createElement('canvas'); stage.append(c);
+  const g = c.getContext('2d'); const dpr = Math.min(2, devicePixelRatio || 1);
+  const size = () => { c.width = innerWidth * dpr; c.height = innerHeight * dpr; };
+  size(); addEventListener('resize', size);
+  const pts = []; const N = 2600; const ga = Math.PI * (3 - Math.sqrt(5));
+  for (let k = 0; k < N; k++) { const y = 1 - (k / (N - 1)) * 2; const r = Math.sqrt(1 - y * y); pts.push([Math.cos(ga * k) * r, y, Math.sin(ga * k) * r]); }
+  const draw = (t) => {
+    const W = c.width, H = c.height; g.clearRect(0, 0, W, H);
+    if (L.grid) {
+      g.strokeStyle = `rgba(${L.grid},.13)`; g.lineWidth = dpr;
+      for (let x = 0; x <= W; x += 90 * dpr) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); }
+      for (let k = -6; k <= 6; k++) { const y = H / 2 + Math.sin(k / 6 * 1.2) * H * .6; g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); }
+      g.strokeStyle = `rgba(${L.grid},.28)`; g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.stroke();
+      return;
+    }
+    const o = L.globe; const R = Math.min(W, H) * o.r * (o.r > 1 ? 1.2 : 1); const cx = W / 2, cy = H * o.cy; const a = (o.alpha || 1);
+    const rot = t / 22000, tilt = .35;
+    const proj = (x, y, z) => { const x1 = x * Math.cos(rot) + z * Math.sin(rot), z1 = -x * Math.sin(rot) + z * Math.cos(rot); const y2 = y * Math.cos(tilt) - z1 * Math.sin(tilt), z2 = y * Math.sin(tilt) + z1 * Math.cos(tilt); return [cx + x1 * R, cy - y2 * R, z2]; };
+    if (o.rim) { const gr = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08); gr.addColorStop(0, `rgba(${o.color},.0)`); gr.addColorStop(.3, `rgba(${o.color},.55)`); gr.addColorStop(1, `rgba(${o.color},0)`); g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, R * 1.08, 0, 7); g.fill(); }
+    if (o.type === 'dots') {
+      for (const p of pts) { const [x, y, z] = proj(...p); if (z < -.05) continue; g.fillStyle = `rgba(${o.color},${(.15 + z * .75) * a})`; g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr, 0, 7); g.fill(); }
+    } else {
+      g.lineWidth = 1.2 * dpr;
+      const line = (fn) => { let prev = null; for (let s = 0; s <= 120; s++) { const q = proj(...fn(s / 120)); if (prev && q[2] > -0.02 && prev[2] > -0.02) { g.strokeStyle = `rgba(${o.color},${(.12 + q[2] * .5) * a})`; g.beginPath(); g.moveTo(prev[0], prev[1]); g.lineTo(q[0], q[1]); g.stroke(); } prev = q; } };
+      for (let m = 0; m < 12; m++) { const lon = m / 12 * Math.PI; line((u) => { const lat = -Math.PI / 2 + u * Math.PI; return [Math.cos(lat) * Math.cos(lon), Math.sin(lat), Math.cos(lat) * Math.sin(lon)]; }); line((u) => { const lat = -Math.PI / 2 + u * Math.PI; return [Math.cos(lat) * Math.cos(lon + Math.PI), Math.sin(lat), Math.cos(lat) * Math.sin(lon + Math.PI)]; }); }
+      for (let p = -5; p <= 5; p++) { const lat = p / 6 * Math.PI / 2; line((u) => { const lon = u * Math.PI * 2; return [Math.cos(lat) * Math.cos(lon), Math.sin(lat), Math.cos(lat) * Math.sin(lon)]; }); }
+      g.strokeStyle = `rgba(${o.color},${.35 * a})`; g.beginPath(); g.arc(cx, cy, R, 0, 7); g.stroke();
+    }
+  };
+  const loop = (t) => { draw(t); requestAnimationFrame(loop); }; requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>

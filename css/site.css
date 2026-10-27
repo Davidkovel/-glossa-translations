@@ -382,3 +382,50 @@ body::before { content: ""; position: fixed; inset: -20%; z-index: -1; pointer-e
   .fx, .card, .slide, .form, .faq__list { -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%); }
 }
 .btn--line::before { background: linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, 0)); }
+
+/* ===== look 3 «planet rising» (27.10, his pick): near-black space, the lit edge of a dotted planet, white CTA, sky-blue accent ===== */
+:root { --bg: #05060f; --bg2: #0a0c1a; --card: #10132a; --card2: #171b38; --text: #f2f4ff; --muted: #a3a9cc; --faint: #5d648c; --line: rgba(170, 190, 255, .12); --sky: #7fb2ff; --head: Manrope, system-ui, sans-serif; }
+body::before { display: none; }
+.hero { position: relative; overflow: hidden; background: none; }
+.hero > *:not(.planet) { position: relative; z-index: 1; }
+.planet { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero__what { text-transform: none; letter-spacing: 0; font-size: 17px; font-weight: 700; color: var(--sky); }
+.hero__title { font-weight: 800; letter-spacing: -.055em; line-height: .95; }
+em { color: var(--sky); }
+.kicker, .slide__info h3, .price__side h2, .casino b, .bn__title, .exit h3, .logo { font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -.045em; }
+.logo { font-size: 21px; letter-spacing: -.035em; }
+.bar { background: rgba(5, 6, 15, .66); }
+.btn--brand { background: #fff; color: #05060f; border: 0; box-shadow: 0 10px 30px -12px rgba(127, 178, 255, .55); }
+.btn--brand:hover { background: #fff; }
+.btn--brand::before { display: none; }
+.btn--line { box-shadow: inset 0 0 0 1.5px rgba(242, 244, 255, .35); background: rgba(5, 6, 15, .35); }
+.btn--line::before { display: none; }
+.langs__track span { background: rgba(10, 12, 26, .6); }
+.langs__track span:nth-child(3n+2) { background: rgba(127, 178, 255, .18); border-color: rgba(127, 178, 255, .45); color: #dfeaff; }
+.slide { background: linear-gradient(150deg, rgba(127, 178, 255, .12), rgba(255, 255, 255, .02) 60%); }
+.slide__info .pair { background: #fff; color: #05060f; }
+.show__tabs button::after { background: var(--sky); }
+.price__side { background: radial-gradient(120% 120% at 50% 130%, #2b5bd6 0%, #10204f 45%, #070b1e 100%); border: 1px solid rgba(127, 178, 255, .3); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15); }
+.steps b { background: #fff; color: #05060f; }
+
+/* the scroll globe: a small planet in the corner, a ring for how far you are, a hello in a new language */
+.trip { position: fixed; right: clamp(14px, 2.4vw, 32px); bottom: clamp(14px, 2.4vw, 32px); z-index: 30; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); opacity: 0; transform: translateY(20px) scale(.9); transition: opacity .4s, transform .5s cubic-bezier(.3, 1.4, .5, 1); }
+.trip.is-on { opacity: 1; transform: none; }
+.trip__say { display: grid; gap: 1px; text-align: right; padding: 9px 14px; border-radius: 16px 16px 4px 16px; background: rgba(10, 12, 26, .78); border: 1px solid var(--line); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.trip__say b { font-size: 17px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
+.trip__say small { font-size: 12px; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+.trip__say.pop b { animation: pop .45s cubic-bezier(.3, 1.5, .5, 1); }
+@keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+.trip__globe { position: relative; width: 72px; height: 72px; flex: none; }
+.trip__globe canvas { position: absolute; inset: 8px; width: 56px; height: 56px; border-radius: 50%; }
+.trip__globe svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.trip__track { fill: none; stroke: rgba(170, 190, 255, .16); stroke-width: 3; }
+.trip__bar { fill: none; stroke: var(--sky); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 207.3; stroke-dashoffset: 207.3; filter: drop-shadow(0 0 4px rgba(127, 178, 255, .7)); }
+.trip.is-end .trip__say { background: #fff; color: #05060f; }
+.trip.is-end .trip__say small { color: #4a5070; }
+@media (max-width: 600px) {
+  .trip__globe { width: 58px; height: 58px; }
+  .trip__globe canvas { inset: 7px; width: 44px; height: 44px; }
+  .trip__say b { font-size: 15px; }
+}
+.hero > .planet { margin: 0 !important; }

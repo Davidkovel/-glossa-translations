@@ -22,12 +22,6 @@
 
   $$('[data-in]').forEach((el) => seen(el, () => el.classList.add('on'), '0px 0px -25% 0px'));
 
-  const trip = $('[data-trip]');
-  if (trip) seen($('.paper', trip), () => {
-    if (still) { trip.dataset.step = 4; return; }
-    [500, 1500, 2500, 3500].forEach((t, i) => setTimeout(() => { trip.dataset.step = i + 1; }, t));
-  });
-
   /* clients showcase: a logo picks the slide; it moves on by itself every 5 s */
   const show = $('[data-show]');
   if (show) {
@@ -106,4 +100,106 @@
     send({ Email: new FormData(e.target).get('email'), Request: 'Price for a translation (exit form)' });
     exit.hidden = true;
   });
+
+  /* ===== the planet and the scroll globe =====
+     One dotted globe drawn twice: big and rising at the bottom of the hero, with greetings at their real
+     places on it; small in the corner once you scroll, with a ring for how far down the page you are. */
+  const HELLO = [
+    ['Hello', 'English', 51.5, -0.1], ['Hola', 'Español', 40.4, -3.7], ['Bonjour', 'Français', 48.9, 2.35],
+    ['Hallo', 'Deutsch', 52.5, 13.4], ['Ciao', 'Italiano', 41.9, 12.5], ['Cześć', 'Polski', 52.2, 21],
+    ['Merhaba', 'Türkçe', 41, 29], ['Γεια σου', 'Ελληνικά', 38, 23.7], ['שלום', 'עברית', 31.8, 35.2],
+    ['مرحبا', 'العربية', 24.7, 46.7], ['Сәлем', 'Қазақша', 51.2, 71.4], ['नमस्ते', 'हिन्दी', 28.6, 77.2],
+    ['Xin chào', 'Tiếng Việt', 21, 105.8], ['你好', '中文', 39.9, 116.4], ['안녕하세요', '한국어', 37.6, 127],
+    ['こんにちは', '日本語', 35.7, 139.7], ['Olá', 'Português', -23.5, -46.6], ['Hi', 'English', 40.7, -74],
+  ];
+  const RAD = Math.PI / 180;
+  const onSphere = (lat, lon) => [Math.cos(lat * RAD) * Math.cos(lon * RAD), Math.sin(lat * RAD), Math.cos(lat * RAD) * Math.sin(lon * RAD)];
+  const sphere = (n) => {
+    const out = [], ga = Math.PI * (3 - Math.sqrt(5));
+    for (let k = 0; k < n; k++) { const y = 1 - (k / (n - 1)) * 2, r = Math.sqrt(1 - y * y); out.push([Math.cos(ga * k) * r, y, Math.sin(ga * k) * r]); }
+    return out;
+  };
+  const projector = (cx, cy, R, rot, tilt) => ([x, y, z]) => {
+    const x1 = x * Math.cos(rot) + z * Math.sin(rot), z1 = -x * Math.sin(rot) + z * Math.cos(rot);
+    const y2 = y * Math.cos(tilt) - z1 * Math.sin(tilt), z2 = y * Math.sin(tilt) + z1 * Math.cos(tilt);
+    return [cx + x1 * R, cy - y2 * R, z2];
+  };
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  const fit = (c) => { const r = c.getBoundingClientRect(); c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr); };
+
+  const planet = $('[data-planet]');
+  const big = planet && { g: planet.getContext('2d'), pts: sphere(2600), seen: true };
+  if (big) {
+    fit(planet);
+    addEventListener('resize', () => fit(planet));
+    new IntersectionObserver(([e]) => { big.seen = e.isIntersecting; }).observe(planet);
+  }
+  const drawPlanet = (t) => {
+    const { g, pts } = big, W = planet.width, H = planet.height;
+    const R = Math.max(W * .86, H * .8), cx = W / 2, cy = H * .4 + R;
+    const P = projector(cx, cy, R, t / 50000 + scrollY * .0012, -.5);
+    g.clearRect(0, 0, W, H);
+    const rim = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08);
+    rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, 'rgba(127,178,255,.55)'); rim.addColorStop(1, 'rgba(127,178,255,0)');
+    g.fillStyle = rim; g.beginPath(); g.arc(cx, cy, R * 1.08, 0, 7); g.fill();
+    g.fillStyle = '#05060f'; g.beginPath(); g.arc(cx, cy, R, 0, 7); g.fill();
+    for (const p of pts) {
+      const [x, y, z] = P(p);
+      if (z < -.05 || y > H + 4) continue;
+      g.fillStyle = `rgba(127,178,255,${.15 + z * .75})`;
+      g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr, 0, 7); g.fill();
+    }
+    g.font = `700 ${15 * dpr}px Manrope, system-ui, sans-serif`;
+    for (const [word, , lat, lon] of HELLO) {
+      const [x, y, z] = P(onSphere(lat, lon));
+      if (z < .2 || y < 0 || y > H - 8 * dpr) continue;
+      const a = Math.min(1, (z - .2) * 3);
+      g.fillStyle = `rgba(190,215,255,${a})`;
+      g.beginPath(); g.arc(x, y, 2.6 * dpr, 0, 7); g.fill();
+      g.fillStyle = `rgba(242,244,255,${a * .92})`;
+      g.fillText(word, x + 8 * dpr, y - 6 * dpr);
+    }
+  };
+
+  const trip = $('[data-trip]');
+  const mini = trip && { c: $('[data-mini]', trip), pts: sphere(420), rot: 0, at: -1 };
+  if (mini) { trip.hidden = false; fit(mini.c); mini.g = mini.c.getContext('2d'); }
+  const drawMini = () => {
+    const { c, g, pts } = mini, W = c.width;
+    const [, , lat, lon] = HELLO[Math.max(0, mini.at) % HELLO.length];
+    mini.rot += ((lon * RAD - Math.PI / 2) - mini.rot) * (still ? 1 : .08);
+    const P = projector(W / 2, W / 2, W / 2 * .94, mini.rot, .45);
+    g.clearRect(0, 0, W, W);
+    g.fillStyle = '#0a0d22'; g.beginPath(); g.arc(W / 2, W / 2, W / 2, 0, 7); g.fill();
+    for (const p of pts) {
+      const [x, y, z] = P(p); if (z < 0) continue;
+      g.fillStyle = `rgba(127,178,255,${.2 + z * .7})`; g.fillRect(x, y, dpr * 1.3, dpr * 1.3);
+    }
+    const [x, y, z] = P(onSphere(lat, lon));
+    if (z > 0) { g.fillStyle = '#fff'; g.beginPath(); g.arc(x, y, 3 * dpr, 0, 7); g.fill(); }
+  };
+  const updateTrip = () => {
+    if (!mini) return;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    trip.classList.toggle('is-on', scrollY > innerHeight * .5);
+    $('[data-trip-bar]', trip).style.strokeDashoffset = (207.3 * (1 - p)).toFixed(1);
+    $('[data-trip-pct]', trip).textContent = Math.round(p * 100);
+    const end = p > .96, at = end ? HELLO.length : Math.min(HELLO.length - 1, Math.floor(p * HELLO.length));
+    if (at === mini.at) return;
+    mini.at = at;
+    trip.classList.toggle('is-end', end);
+    $('[data-trip-word]', trip).textContent = end ? 'Your language?' : HELLO[at][0];
+    $('[data-trip-lang]', trip).textContent = end ? 'Get a price' : HELLO[at][1];
+    const say = $('.trip__say', trip); say.classList.remove('pop'); void say.offsetWidth; say.classList.add('pop');
+  };
+  addEventListener('scroll', updateTrip, { passive: true });
+  updateTrip();
+
+  const frame = (t) => {
+    if (big && big.seen) drawPlanet(still ? 0 : t);
+    if (mini && trip.classList.contains('is-on')) drawMini();
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
 })();
