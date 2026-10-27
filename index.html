@@ -20,9 +20,11 @@
     <rect x="11" y="2" width="26" height="30" rx="5" fill="#9fb0ff"/>
     <path d="M5 11a5 5 0 0 1 5-5h13l8 8v18a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z" fill="#4d6bff"/>
     <path d="M23 6v6a2 2 0 0 0 2 2h6z" fill="#8ea0ff"/>
-    <path d="M13 17v12h11" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="18" cy="23.5" r="7.6" fill="none" stroke="#fff" stroke-width="2.3"/><ellipse cx="18" cy="23.5" rx="3.3" ry="7.6" fill="none" stroke="#fff" stroke-width="2"/><path d="M10.6 23.5h14.8" stroke="#fff" stroke-width="2"/>
   </symbol>
 </svg>
+
+<canvas class="planet" data-planet aria-hidden="true"></canvas>
 
 <header class="bar">
   <a class="logo" href="#top" aria-label="Lingvo Translations, home"><svg class="logo__mark"><use href="#mark"/></svg>Lingvo<small>translations</small></a>
@@ -37,7 +39,6 @@
 
   <!-- 1 · hero -->
   <section class="hero">
-    <canvas class="planet" data-planet aria-hidden="true"></canvas>
     <p class="hero__what">Translation agency</p>
     <h1 class="hero__title">
       <span class="ln"><span>Translation into</span></span>
@@ -190,7 +191,7 @@
 
   <!-- 5 · clients: pick a logo, see what we translated for them -->
   <section class="show" id="clients" data-show>
-    <h2 class="kicker">What we translated for them</h2>
+    <h2 class="kicker">Texts we wrote and translated for them</h2>
     <div class="show__tabs" role="tablist" aria-label="Clients">
       <button role="tab" aria-selected="true" data-tab="0"><img src="img/logo-whitebit.svg" alt="WhiteBIT"></button>
       <button role="tab" aria-selected="false" data-tab="1"><span class="w1win">1win</span></button>
@@ -201,50 +202,50 @@
 
       <div class="slide is-on" data-slide="0">
         <div class="screen screen--light">
-          <div class="ex">
-            <div class="ex__top"><b>BTC / EUR</b><span class="up">+2,14 %</span></div>
-            <div class="ex__tabs"><b>Kaufen</b><span>Verkaufen</span></div>
-            <label>Preis <span>61 240,50 EUR</span></label>
-            <label>Menge <span>0,0150 BTC</span></label>
-            <label>Gesamt <span>918,61 EUR</span></label>
-            <span class="ex__btn">BTC kaufen</span>
+          <div class="web">
+            <div class="web__bar"><i></i><i></i><i></i><span>whitebit.com/de/blog</span></div>
+            <small>Blog · Krypto-Grundlagen</small>
+            <b>Krypto-Staking einfach erklärt</b>
+            <p>Was Staking ist, wie Belohnungen entstehen und worauf Sie achten sollten.</p>
+            <span class="web__btn web__btn--wb">Weiterlesen</span>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → DE · PL · TR</span><h3>Exchange interface, KYC and help center</h3><p>Exact financial terms in every market.</p></div>
+        <div class="slide__info"><span class="pair">EN → DE · PL · TR</span><h3>Website and blog texts</h3><p>Pages and articles that read as if they were written in that language.</p></div>
       </div>
 
       <div class="slide" data-slide="1">
-        <div class="screen">
-          <div class="bn">
-            <div class="bn__nav"><b>Casino</b><span>Deportes</span><span>En vivo</span><span>Promociones</span></div>
-            <b class="bn__title">Bono de<br>bienvenida</b>
-            <span class="bn__btn">Jugar ahora</span>
+        <div class="screen screen--light">
+          <div class="post">
+            <div class="post__head"><span class="post__ava post__ava--1win">1w</span><div><b>1win</b><small>Patrocinado</small></div></div>
+            <div class="post__img post__img--1win"><b>¡Tu bono de bienvenida te espera!</b><span>Regístrate</span></div>
+            <p class="post__cap"><b>1win</b> Empieza hoy con ventaja. Más de 1 000 juegos en tu idioma.</p>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → ES · PT · TR</span><h3>Casino and sportsbook for local markets</h3><p>Bonus terms, banners and the whole interface.</p></div>
+        <div class="slide__info"><span class="pair">EN → ES · PT · TR</span><h3>Social media posts</h3><p>Posts, stories and captions written for each market.</p></div>
       </div>
 
       <div class="slide" data-slide="2">
-        <div class="screen">
-          <div class="slip">
-            <small>Купон</small>
-            <p><span>Қайрат — Астана</span><b>2.15</b></p>
-            <p><span>Тотал 2.5 артық</span><b>1.80</b></p>
-            <p class="slip__sum"><span>Бәс сомасы</span><b>5 000 ₸</b></p>
-            <span class="slip__btn">Бәс жасау</span>
+        <div class="screen screen--light">
+          <div class="post">
+            <div class="post__head"><span class="post__ava post__ava--pm">PM</span><div><b>Parimatch</b><small>Демеуші</small></div></div>
+            <div class="post__img post__img--pm"><b>Бүгін матч күні!</b><span>Толығырақ</span></div>
+            <p class="post__cap"><b>parimatch</b> Сүйікті командаңды қолда.</p>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → KZ</span><h3>Promo and app texts</h3><p>Same tone, buttons that fit.</p></div>
+        <div class="slide__info"><span class="pair">EN → KZ</span><h3>SMM and promo texts</h3><p>The same tone of voice in every language.</p></div>
       </div>
 
       <div class="slide" data-slide="3">
-        <div class="screen screen--soft">
-          <div class="push">
-            <div class="push__card"><span class="push__icon"><img src="img/logo-uber.svg" alt=""></span><div><b>Twój kierowca jest na miejscu</b><small>Szary Skoda · WX 4821K</small></div></div>
-            <div class="push__card push__card--2"><span class="push__icon"><img src="img/logo-uber.svg" alt=""></span><div><b>Kierowca dojedzie za 3 min</b><small>Oceń przejazd po zakończeniu</small></div></div>
+        <div class="screen screen--light">
+          <div class="web">
+            <div class="web__bar"><i></i><i></i><i></i><span>uber.com/pl/drive</span></div>
+            <small>Dla kierowców</small>
+            <b>Zarabiaj, kiedy chcesz</b>
+            <p>Jeździsz według własnego grafiku i sam decydujesz, kiedy pracujesz.</p>
+            <span class="web__btn">Zacznij jeździć</span>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → PL</span><h3>Driver and rider texts</h3><p>Short, clear, never cut off.</p></div>
+        <div class="slide__info"><span class="pair">EN → PL</span><h3>Website texts</h3><p>Short, clear pages for drivers and riders.</p></div>
       </div>
 
     </div>

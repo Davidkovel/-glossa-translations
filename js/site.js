@@ -128,37 +128,46 @@
   const fit = (c) => { const r = c.getBoundingClientRect(); c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr); };
 
   const planet = $('[data-planet]');
-  const big = planet && { g: planet.getContext('2d'), pts: sphere(2600), seen: true };
+  const big = planet && { g: planet.getContext('2d'), pts: sphere(2200), seen: true };
+  const hi = big && document.createElement('span');
   if (big) {
     fit(planet);
     addEventListener('resize', () => fit(planet));
-    new IntersectionObserver(([e]) => { big.seen = e.isIntersecting; }).observe(planet);
+    hi.className = 'planet__hi'; hi.setAttribute('aria-hidden', 'true'); hi.style.opacity = 0; document.body.append(hi);
   }
+  const smooth = (x) => x * x * (3 - 2 * x);
+  const lerp = (a, b, k) => a + (b - a) * k;
+  /* hero: a huge planet rising at the bottom. After the first screen it becomes a ball behind the page
+     that drifts left, right, left, right and ends in the centre, turned to the country of the current hello. */
   const drawPlanet = (t) => {
-    const { g, pts } = big, W = planet.width, H = planet.height;
-    const R = Math.max(W * .86, H * .8), cx = W / 2, cy = H * .4 + R;
-    const P = projector(cx, cy, R, t / 50000 + scrollY * .0012, -.5);
+    const { g, pts } = big, W = planet.width, H = planet.height, phone = innerWidth < 700;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const e = smooth(Math.min(1, scrollY / innerHeight));
+    const u = Math.max(0, Math.min(1, (scrollY - innerHeight) / Math.max(1, max - innerHeight)));
+    const X = phone ? [.5, .78, .22, .78, .5] : [.5, .2, .8, .2, .8, .5];
+    const seg = u * (X.length - 1), k = Math.min(X.length - 2, Math.floor(seg));
+    const fx = lerp(X[k], X[k + 1], smooth(seg - k));
+    const R0 = Math.max(W * .86, H * .8), R1 = Math.min(W, H) * (phone ? .42 : .3);
+    const R = lerp(R0, R1, e), cx = lerp(W / 2, fx * W, e), cy = lerp(H * .4 + R0, H * .54, e);
+    const rot = lerp(t / 50000 + scrollY * .0012, mini ? mini.rot : 0, e), tilt = lerp(-.5, .45, e);
+    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .6, e);
     g.clearRect(0, 0, W, H);
     const rim = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08);
-    rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, 'rgba(127,178,255,.55)'); rim.addColorStop(1, 'rgba(127,178,255,0)');
+    rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, `rgba(127,178,255,${.55 * fade})`); rim.addColorStop(1, 'rgba(127,178,255,0)');
     g.fillStyle = rim; g.beginPath(); g.arc(cx, cy, R * 1.08, 0, 7); g.fill();
     g.fillStyle = '#05060f'; g.beginPath(); g.arc(cx, cy, R, 0, 7); g.fill();
-    for (const p of pts) {
-      const [x, y, z] = P(p);
-      if (z < -.05 || y > H + 4) continue;
-      g.fillStyle = `rgba(127,178,255,${.15 + z * .75})`;
-      g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr, 0, 7); g.fill();
+    for (const q of pts) {
+      const [x, y, z] = P(q);
+      if (z < -.05 || y > H + 4 || y < -4) continue;
+      g.fillStyle = `rgba(127,178,255,${(.15 + z * .75) * fade})`;
+      g.beginPath(); g.arc(x, y, (1 + z * 1.6) * dpr * lerp(1, .9, e), 0, 7); g.fill();
     }
-    g.font = `700 ${15 * dpr}px Manrope, system-ui, sans-serif`;
-    for (const [word, , lat, lon] of HELLO) {
-      const [x, y, z] = P(onSphere(lat, lon));
-      if (z < .2 || y < 0 || y > H - 8 * dpr) continue;
-      const a = Math.min(1, (z - .2) * 3);
-      g.fillStyle = `rgba(190,215,255,${a})`;
-      g.beginPath(); g.arc(x, y, 2.6 * dpr, 0, 7); g.fill();
-      g.fillStyle = `rgba(242,244,255,${a * .92})`;
-      g.fillText(word, x + 8 * dpr, y - 6 * dpr);
-    }
+    const at = mini && mini.at >= 0 ? Math.min(mini.at, HELLO.length - 1) : 0;
+    const [x, y, z] = P(onSphere(HELLO[at][2], HELLO[at][3]));
+    const show = e > .6 && z > .2;
+    if (show) { g.fillStyle = '#fff'; g.beginPath(); g.arc(x, y, 4 * dpr, 0, 7); g.fill(); }
+    hi.style.opacity = show ? Math.min(1, (e - .6) * 4) : 0;
+    if (show) { hi.style.left = (x / dpr) + 'px'; hi.style.top = (y / dpr) + 'px'; if (hi.textContent !== HELLO[at][0]) hi.textContent = HELLO[at][0]; }
   };
 
   const trip = $('[data-trip]');
