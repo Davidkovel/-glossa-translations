@@ -72,12 +72,12 @@
     e.preventDefault();
     const d = new FormData(form);
     send({
+      Client: d.get('client'),
+      Services: d.getAll('service').join(', '),
       Name: d.get('name'),
       Email: d.get('email'),
       'Phone or Telegram': d.get('phone'),
-      Service: d.get('service'),
       Request: d.get('text'),
-      'Promo code': d.get('promo'),
     });
     $('[data-ok]').hidden = false;
   });

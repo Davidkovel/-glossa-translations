@@ -288,23 +288,34 @@
     </div>
     <form class="form" data-form>
       <h3 class="form__title">Quick request</h3>
-      <p class="form__lead">Leave a contact and we will write to you within 15 minutes.</p>
+      <p class="form__lead">To get a faster answer, choose what your request is about.</p>
+      <div class="who" role="group" aria-label="Client type">
+        <label><input type="radio" name="client" value="Business" checked><span>Business needs</span></label>
+        <label><input type="radio" name="client" value="Private"><span>Private needs</span></label>
+      </div>
+      <div class="chips" role="group" aria-label="Services">
+        <label><input type="checkbox" name="service" value="Certified documents"><span>Certified documents</span></label>
+        <label><input type="checkbox" name="service" value="Website or app"><span>Website / app</span></label>
+        <label><input type="checkbox" name="service" value="Games and iGaming"><span>iGaming</span></label>
+        <label><input type="checkbox" name="service" value="Legal and business"><span>Legal &amp; business</span></label>
+        <label><input type="checkbox" name="service" value="Transcription"><span>Transcription</span></label>
+        <label><input type="checkbox" name="service" value="Subtitles"><span>Subtitles</span></label>
+        <label><input type="checkbox" name="service" value="Voice-over"><span>Voice-over</span></label>
+        <label><input type="checkbox" name="service" value="Interpreting"><span>Interpreting</span></label>
+        <label><input type="checkbox" name="service" value="Editing"><span>Editing</span></label>
+      </div>
       <div class="f2">
         <label class="f"><span>Name</span><input name="name" required autocomplete="name"></label>
         <label class="f"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
       </div>
-      <div class="f2">
-        <label class="f"><span>Phone or Telegram</span><input name="phone" autocomplete="tel" placeholder="@username"></label>
-        <label class="f"><span>Service</span>
-          <select name="service">
-            <option>Certified documents</option><option>Website or app</option><option>Games &amp; iGaming</option><option>Legal &amp; business</option><option>Transcription</option><option>Subtitles</option><option>Voice-over</option><option>Interpreting</option><option>Editing an AI draft</option><option>Something else</option>
-          </select>
-        </label>
-      </div>
+      <label class="f"><span>Phone or Telegram</span><input name="phone" autocomplete="tel" placeholder="+48 … or @username"></label>
       <label class="f"><span>Your request</span><textarea name="text" rows="3" placeholder="What to translate, from which language into which, and by when"></textarea></label>
-      <label class="f f--promo"><span>Promo code <em>optional</em></span><input name="promo" placeholder="If you have one"></label>
-      <button class="btn btn--brand btn--lg btn--full" type="submit">Send request <span class="arr" aria-hidden="true"></span></button>
-      <p class="form__note">Files are easiest in Telegram or attached to the email.</p>
+      <div class="file">
+        <span class="file__icon" aria-hidden="true"></span>
+        <div><b>Have a file?</b><small>Send it in <a href="https://t.me/lingvo_translations">Telegram</a> or to <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a>. PDF, Word, Excel, PowerPoint, photos, SRT. We never open programs or macros.</small></div>
+      </div>
+      <button class="btn btn--brand btn--lg btn--full" type="submit">Submit your request <span class="arr" aria-hidden="true"></span></button>
+      <p class="form__note">By sending the request you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
       <p class="form__ok" data-ok hidden>Your email app should open with the request ready. Nothing opened? Write to <a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p>
     </form>
   </section>
