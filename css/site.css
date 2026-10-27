@@ -764,3 +764,4 @@ body { line-height: 1.6; }
   .hero__cta { margin-top: 26px; }
 }
 @media (max-width: 600px) { .hero { padding-top: 104px !important; } }
+@media (max-width: 600px) { .hero { padding-top: 136px !important; } }
