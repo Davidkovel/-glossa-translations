@@ -28,6 +28,24 @@
     [500, 1500, 2500, 3500].forEach((t, i) => setTimeout(() => { trip.dataset.step = i + 1; }, t));
   });
 
+  /* clients showcase: a logo picks the slide; it moves on by itself every 5 s */
+  const show = $('[data-show]');
+  if (show) {
+    const tabs = $$('[data-tab]', show);
+    const slides = $$('[data-slide]', show);
+    let at = 0, timer = null;
+    const go = (i) => {
+      at = (i + tabs.length) % tabs.length;
+      tabs.forEach((t, k) => t.setAttribute('aria-selected', String(k === at)));
+      slides.forEach((s, k) => s.classList.toggle('is-on', k === at));
+    };
+    const run = () => { clearInterval(timer); if (!still) timer = setInterval(() => go(at + 1), 5000); };
+    tabs.forEach((t, k) => t.addEventListener('click', () => { go(k); run(); }));
+    show.addEventListener('mouseenter', () => { clearInterval(timer); show.classList.add('is-paused'); });
+    show.addEventListener('mouseleave', () => { show.classList.remove('is-paused'); run(); });
+    run();
+  }
+
   /* numbers count up */
   $$('[data-conta]').forEach((el) => {
     const end = +el.dataset.conta;
