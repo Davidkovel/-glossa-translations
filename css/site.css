@@ -773,3 +773,8 @@ body { line-height: 1.6; }
   .langs { margin-top: 0 !important; padding-top: 18px; }
 }
 @media (max-width: 600px) { .hero__facts { padding-bottom: 10vh; } }
+
+/* hero lead: solid, light weight, says which languages */
+.hero__lead { color: #e4e8f8; font-weight: 400; opacity: 1; }
+.hero__langs { display: block; color: #fff; font-weight: 500; margin-bottom: 4px; }
+@media (max-width: 600px) { .hero__facts { padding-bottom: 16vh; } }
