@@ -772,3 +772,4 @@ body { line-height: 1.6; }
   .hero__facts { margin-bottom: auto !important; }
   .langs { margin-top: 0 !important; padding-top: 18px; }
 }
+@media (max-width: 600px) { .hero__facts { padding-bottom: 10vh; } }
