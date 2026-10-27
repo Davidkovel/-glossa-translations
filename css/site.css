@@ -627,3 +627,55 @@ main, .foot { position: relative; z-index: 1; }
   .trip__globe canvas { inset: 5px; width: 36px; height: 36px; }
   .trip { right: 10px; bottom: 10px; opacity: .85; }
 }
+
+/* ===== air pass (27.10): more room, calmer brands, clean logo, industries ===== */
+body { line-height: 1.6; }
+.logo { gap: 11px; }
+.logo__mark { width: 32px; height: 32px; }
+.logo__word { display: grid; line-height: 1; font: 800 20px/1 Manrope, sans-serif; letter-spacing: -.035em; }
+.logo__word small { margin: 3px 0 0; font: 700 9.5px/1 Manrope, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); align-self: auto; }
+.logo small { display: block; }
+.intro__brand small { text-transform: uppercase; letter-spacing: .2em; font-size: 11px; }
+
+/* sections breathe */
+.do, .svc, .show, .faq { padding-top: clamp(90px, 14vh, 160px); padding-bottom: clamp(70px, 10vh, 120px); }
+.kicker { margin-bottom: 6px; }
+.svc__sub, .show__sub { max-width: 640px; line-height: 1.6; }
+.do__grid, .svc__grid { gap: 26px; margin-top: 44px; }
+.dox, .card { padding: 12px 12px 30px; }
+.dox h3, .card h3 { margin-top: 22px; }
+.dox p, .card > p { line-height: 1.6; max-width: 46ch; }
+.do__why { margin-top: 34px; gap: 12px 40px; }
+.hero__lead { line-height: 1.6; }
+.faq details p { line-height: 1.7; }
+
+/* brands: smaller, calmer chips */
+.logos { padding: 48px 0 30px; }
+.chip { height: 58px; min-width: 156px; padding: 0 24px; border-radius: 14px; }
+.lg--ms { height: 22px; } .lg--uber { height: 19px; } .lg--wb { height: 21px; } .lg--pm { height: 34px; }
+.w1win, .wgg { font-size: 23px; }
+.logos__track { gap: 14px; }
+
+/* industries: text tabs */
+.show__tabs { gap: 6px; margin-top: 36px; }
+.show__tabs button { height: auto; min-width: 0; padding: 12px 20px; font: 700 15px/1 Manrope, sans-serif; color: var(--muted); background: transparent !important; opacity: 1; box-shadow: none; border-radius: 99px; }
+.show__tabs button:nth-child(n) { background: transparent !important; }
+.show__tabs button[aria-selected="true"] { background: #fff !important; color: #05060f; }
+.show__tabs button::after { left: 18%; width: 64%; bottom: 3px; height: 2px; border-radius: 2px; }
+.show__stage { margin-top: 34px; }
+.slide { gap: clamp(28px, 5vw, 72px); padding: clamp(28px, 4.4vw, 64px); }
+.slide__info p { line-height: 1.6; max-width: 44ch; }
+.slide__brands { margin-top: 18px !important; padding-top: 16px; border-top: 1px solid var(--line); font-size: 15px !important; }
+.slide__brands b { color: var(--text); }
+.web__btn--bank { background: #0e7a4f; }
+@media (max-width: 600px) {
+  .show__tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; width: 100%; scrollbar-width: none; }
+  .show__tabs::-webkit-scrollbar { display: none; }
+  .show__tabs button { flex: none; height: auto; padding: 11px 16px; }
+  .chip { height: 48px; min-width: 120px; padding: 0 16px; }
+  .logo__word { font-size: 19px; }
+}
+.show__sub { margin: 12px auto 0; }
+.foot { padding-bottom: 110px; }
+@media (max-width: 600px) { .foot { padding-bottom: 80px; } }
+@media (max-width: 600px) { .file { flex-wrap: wrap; } .file > div { flex: 1 1 70%; } .file__btn { margin-left: 46px; } }

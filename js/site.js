@@ -162,7 +162,7 @@
     const rotT = lerp(t / 50000 + scrollY * .0012, HELLO[at0][3] * RAD - Math.PI / 2, e);
     big.rot = big.rot == null || still ? rotT : big.rot + (rotT - big.rot) * .03;
     const rot = big.rot, tilt = lerp(-.5, .45, e);
-    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .1, e);
+    const P = projector(cx, cy, R, rot, tilt), fade = lerp(1, .24, e);
     g.clearRect(0, 0, W, H);
     const rim = g.createRadialGradient(cx, cy, R * .97, cx, cy, R * 1.08);
     rim.addColorStop(0, 'rgba(127,178,255,0)'); rim.addColorStop(.3, `rgba(127,178,255,${.55 * fade})`); rim.addColorStop(1, 'rgba(127,178,255,0)');
@@ -178,8 +178,8 @@
     if (big.intro && e < .5 && !phone) {
       if (it > 700 && it < 3600 && it - (big.last || 0) > 170) {
         big.last = it;
-        const sx = cx + (Math.random() - .5) * Math.min(W * .8, R * 1.4), dx = sx - cx;
-        if (Math.abs(dx) < R) big.parts.push({ w: HELLO[(Math.random() * HELLO.length) | 0][0], x: sx, y: cy - Math.sqrt(R * R - dx * dx), b: it, s: 15 + Math.random() * 10 });
+        const side = Math.random() < .5 ? -1 : 1, sx = cx + side * (W * (.31 + Math.random() * .16)), dx = sx - cx;
+        if (Math.abs(dx) < R && Math.abs(dx) > W * .3) big.parts.push({ w: HELLO[(Math.random() * HELLO.length) | 0][0], x: sx, y: cy - Math.sqrt(R * R - dx * dx), b: it, s: 15 + Math.random() * 10 });
       }
       big.parts = big.parts.filter((q) => it - q.b < 2200);
       for (const q of big.parts) {

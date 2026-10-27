@@ -17,22 +17,22 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 40 40">
-    <rect x="11" y="2" width="26" height="30" rx="5" fill="#9fb0ff"/>
-    <path d="M5 11a5 5 0 0 1 5-5h13l8 8v18a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z" fill="#4d6bff"/>
-    <path d="M23 6v6a2 2 0 0 0 2 2h6z" fill="#8ea0ff"/>
-    <circle cx="18" cy="23.5" r="7.6" fill="none" stroke="#fff" stroke-width="2.3"/><ellipse cx="18" cy="23.5" rx="3.3" ry="7.6" fill="none" stroke="#fff" stroke-width="2"/><path d="M10.6 23.5h14.8" stroke="#fff" stroke-width="2"/>
+    <rect width="40" height="40" rx="11" fill="#7fb2ff"/>
+    <circle cx="20" cy="20" r="11" fill="none" stroke="#05060f" stroke-width="2.6"/>
+    <ellipse cx="20" cy="20" rx="4.8" ry="11" fill="none" stroke="#05060f" stroke-width="2.3"/>
+    <path d="M9.5 16.5h21M9.5 23.5h21" stroke="#05060f" stroke-width="2.3"/>
   </symbol>
 </svg>
 
 <div class="intro" data-intro hidden aria-hidden="true">
   <canvas data-intro-globe></canvas>
   <p class="intro__word" data-intro-word>Hello</p>
-  <p class="intro__brand">Lingvo<small>translations</small></p>
+  <p class="intro__brand">Lingvo<small>Translations</small></p>
 </div>
 <canvas class="planet" data-planet aria-hidden="true"></canvas>
 
 <header class="bar">
-  <a class="logo" href="#top" aria-label="Lingvo Translations, home"><svg class="logo__mark"><use href="#mark"/></svg>Lingvo<small>translations</small></a>
+  <a class="logo" href="#top" aria-label="Lingvo Translations, home"><svg class="logo__mark"><use href="#mark"/></svg><span class="logo__word">Lingvo<small>Translations</small></span></a>
   <nav class="bar__nav" aria-label="Sections">
     <a href="#services">Services</a><a href="#clients">Clients</a><a href="#faq">FAQ</a>
   </nav>
@@ -215,62 +215,76 @@
 
   <!-- 5 · clients: pick a logo, see what we translated for them -->
   <section class="show" id="clients" data-show>
-    <h2 class="kicker">Selected work</h2>
-    <p class="show__sub">Website, blog and social media texts for brands in many markets.</p>
-    <div class="show__tabs" role="tablist" aria-label="Clients">
-      <button role="tab" aria-selected="true" data-tab="0"><img src="img/logo-whitebit.svg" alt="WhiteBIT"></button>
-      <button role="tab" aria-selected="false" data-tab="1"><span class="w1win">1win</span></button>
-      <button role="tab" aria-selected="false" data-tab="2"><img src="img/logo-parimatch.svg" alt="Parimatch" class="t-pm"></button>
-      <button role="tab" aria-selected="false" data-tab="3"><img src="img/logo-uber.svg" alt="Uber" class="t-uber"></button>
+    <h2 class="kicker">Industries we work with</h2>
+    <p class="show__sub">A few examples. We write and translate for many more brands in each of these fields.</p>
+    <div class="show__tabs" role="tablist" aria-label="Industries">
+      <button role="tab" aria-selected="true" data-tab="0">iGaming</button>
+      <button role="tab" aria-selected="false" data-tab="1">Sports betting</button>
+      <button role="tab" aria-selected="false" data-tab="2">Crypto &amp; fintech</button>
+      <button role="tab" aria-selected="false" data-tab="3">Banks &amp; loans</button>
+      <button role="tab" aria-selected="false" data-tab="4">Apps &amp; mobility</button>
     </div>
     <div class="show__stage">
 
       <div class="slide is-on" data-slide="0">
         <div class="screen screen--light">
+          <div class="post">
+            <div class="post__head"><span class="post__ava post__ava--1win">1w</span><div><b>Casino brand</b><small>Patrocinado</small></div></div>
+            <div class="post__img post__img--1win"><b>¡Tu bono de bienvenida te espera!</b><span class="gl">EN · Your welcome bonus is waiting!</span><span>Regístrate</span></div>
+            <p class="post__cap">Posts, banners and bonus terms for each market.</p>
+          </div>
+        </div>
+        <div class="slide__info"><span class="pair">EN → ES · PT · TR</span><h3>Casinos and slots</h3><p>Social media, promo banners, bonus terms and support texts.</p><p class="slide__brands">For example: <b>1win</b> and other operators</p></div>
+      </div>
+
+      <div class="slide" data-slide="1">
+        <div class="screen screen--light">
+          <div class="post">
+            <div class="post__head"><span class="post__ava post__ava--pm">PM</span><div><b>Betting brand</b><small>Демеуші</small></div></div>
+            <div class="post__img post__img--pm"><b>Бүгін матч күні!</b><span class="gl">EN · It’s match day!</span><span>Толығырақ</span></div>
+            <p class="post__cap">Match-day posts in the voice of the brand.</p>
+          </div>
+        </div>
+        <div class="slide__info"><span class="pair">EN → KZ · ES · PT</span><h3>Sportsbooks</h3><p>Match-day posts, push messages and promo texts in a lively tone.</p><p class="slide__brands">For example: <b>Parimatch</b>, <b>GGPro</b> and others</p></div>
+      </div>
+
+      <div class="slide" data-slide="2">
+        <div class="screen screen--light">
           <div class="web">
-            <div class="web__bar"><i></i><i></i><i></i><span>whitebit.com/de/blog</span></div>
+            <div class="web__bar"><i></i><i></i><i></i><span>exchange.com/de/blog</span></div>
             <small>Blog · Krypto-Grundlagen</small>
             <b>Krypto-Staking einfach erklärt</b><span class="gl gl--dark">EN · Crypto staking, simply explained</span>
             <p>Was Staking ist, wie Belohnungen entstehen und worauf Sie achten sollten.</p>
             <span class="web__btn web__btn--wb">Weiterlesen</span>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → DE · PL · TR</span><h3>Website and blog texts</h3><p>Pages and articles that read as if they were written in that language.</p></div>
-      </div>
-
-      <div class="slide" data-slide="1">
-        <div class="screen screen--light">
-          <div class="post">
-            <div class="post__head"><span class="post__ava post__ava--1win">1w</span><div><b>1win</b><small>Patrocinado</small></div></div>
-            <div class="post__img post__img--1win"><b>¡Tu bono de bienvenida te espera!</b><span class="gl">EN · Your welcome bonus is waiting!</span><span>Regístrate</span></div>
-            <p class="post__cap"><b>1win</b> Empieza hoy con ventaja. Más de 1 000 juegos en tu idioma.</p>
-          </div>
-        </div>
-        <div class="slide__info"><span class="pair">EN → ES · PT · TR</span><h3>Social media posts</h3><p>Posts, stories and captions written for each market.</p></div>
-      </div>
-
-      <div class="slide" data-slide="2">
-        <div class="screen screen--light">
-          <div class="post">
-            <div class="post__head"><span class="post__ava post__ava--pm">PM</span><div><b>Parimatch</b><small>Демеуші</small></div></div>
-            <div class="post__img post__img--pm"><b>Бүгін матч күні!</b><span class="gl">EN · It’s match day!</span><span>Толығырақ</span></div>
-            <p class="post__cap"><b>parimatch</b> Сүйікті командаңды қолда.</p>
-          </div>
-        </div>
-        <div class="slide__info"><span class="pair">EN → KZ</span><h3>SMM and promo texts</h3><p>The same tone of voice in every language.</p></div>
+        <div class="slide__info"><span class="pair">EN → DE · PL · TR</span><h3>Crypto exchanges and fintech</h3><p>Blog articles, help-center pages and exact financial terms.</p><p class="slide__brands">For example: <b>WhiteBIT</b> and other platforms</p></div>
       </div>
 
       <div class="slide" data-slide="3">
         <div class="screen screen--light">
           <div class="web">
-            <div class="web__bar"><i></i><i></i><i></i><span>uber.com/pl/drive</span></div>
+            <div class="web__bar"><i></i><i></i><i></i><span>bank.es/prestamos</span></div>
+            <small>Préstamos personales</small>
+            <b>Tu préstamo online en 10 minutos</b><span class="gl gl--dark">EN · Your online loan in 10 minutes</span>
+            <p>Sin papeles y sin visitar una oficina. Respuesta el mismo día.</p>
+            <span class="web__btn web__btn--bank">Solicitar ahora</span>
+          </div>
+        </div>
+        <div class="slide__info"><span class="pair">EN → ES · PL · RO</span><h3>Banks and lending</h3><p>Loan pages, terms and conditions, emails and app texts that stay clear and legally exact.</p><p class="slide__brands">Banks and credit companies</p></div>
+      </div>
+
+      <div class="slide" data-slide="4">
+        <div class="screen screen--light">
+          <div class="web">
+            <div class="web__bar"><i></i><i></i><i></i><span>ride-app.com/pl/drive</span></div>
             <small>Dla kierowców</small>
             <b>Zarabiaj, kiedy chcesz</b><span class="gl gl--dark">EN · Earn whenever you want</span>
             <p>Jeździsz według własnego grafiku i sam decydujesz, kiedy pracujesz.</p>
             <span class="web__btn">Zacznij jeździć</span>
           </div>
         </div>
-        <div class="slide__info"><span class="pair">EN → PL</span><h3>Website texts</h3><p>Short, clear pages for drivers and riders.</p></div>
+        <div class="slide__info"><span class="pair">EN → PL · DE</span><h3>Apps and mobility</h3><p>Website pages, app screens and messages for drivers and riders.</p><p class="slide__brands">For example: <b>Uber</b>, <b>Microsoft</b> and others</p></div>
       </div>
 
     </div>
@@ -351,11 +365,11 @@
   </div>
   <div class="foot__cols">
     <div class="foot__brand">
-      <a class="logo" href="#top" aria-label="Lingvo Translations, home"><svg class="logo__mark"><use href="#mark"/></svg>Lingvo<small>translations</small></a>
+      <a class="logo" href="#top" aria-label="Lingvo Translations, home"><svg class="logo__mark"><use href="#mark"/></svg><span class="logo__word">Lingvo<small>Translations</small></span></a>
       <p>Translator, editor and native proofreader on every text. 120+ languages.</p>
     </div>
     <nav aria-label="Services"><b>Services</b><a href="#services">Certified documents</a><a href="#services">Websites &amp; apps</a><a href="#services">Games &amp; iGaming</a><a href="#services">Subtitles &amp; voice-over</a></nav>
-    <nav aria-label="Company"><b>Company</b><a href="#clients">Selected work</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a></nav>
+    <nav aria-label="Company"><b>Company</b><a href="#clients">Industries</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a></nav>
     <nav aria-label="Contact"><b>Contact</b><a href="mailto:hi@lingvo-translations.com">hi@lingvo-translations.com</a><a href="https://t.me/lingvo_translations">Telegram</a><span>Card · bank transfer · USDT · invoice</span></nav>
   </div>
   <p class="foot__fine">© 2026 Lingvo Translations · Photos: Wikimedia Commons (German passport cover, public domain). Logos belong to their owners.</p>
