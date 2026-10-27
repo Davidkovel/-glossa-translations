@@ -723,3 +723,29 @@ body { line-height: 1.6; }
   .lg--ms { height: 17px; } .lg--uber { height: 15px; } .lg--wb { height: 16px; } .lg--pm { height: 26px; }
   .w1win, .wgg { font-size: 18px; }
 }
+
+/* ===== phone layout (last block on purpose: it must win over the desktop «air» rules) ===== */
+@media (max-width: 600px) {
+  .hero { min-height: 0 !important; justify-content: flex-start; padding: 84px 0 8px !important; }
+  .hero__title { font-size: 40px; }
+  .hero__lead { font-size: 16px; }
+  .hero__cta { margin-top: 22px; gap: 10px; }
+  .hero__cta .btn--lg { padding: 15px 22px; font-size: 16px; }
+  .hero__facts { margin-top: 16px; }
+  .langs { margin-top: 20px !important; }
+  .logos { padding: 22px 0 6px; }
+  .do, .svc, .show, .faq { padding-top: 52px !important; padding-bottom: 44px !important; }
+  .price { margin-bottom: 52px; }
+  .do__grid, .svc__grid { margin-top: 24px; }
+  .kicker { font-size: 28px; }
+  /* What we do: swipe sideways like the services */
+  .do__grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-inline: calc(var(--pad) * -1); padding: 0 var(--pad) 8px; scrollbar-width: none; }
+  .do__grid::-webkit-scrollbar { display: none; }
+  .dox { flex: 0 0 84%; scroll-snap-align: center; }
+  .do__why { margin-top: 20px; gap: 6px; }
+  .show__tabs { margin-top: 22px; }
+  .show__stage { margin-top: 18px; }
+  .foot { padding-top: 48px; }
+  .foot__cta h2 { font-size: 30px; }
+  .foot__cols { gap: 22px; padding: 28px 0; }
+}
