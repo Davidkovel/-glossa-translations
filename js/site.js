@@ -60,12 +60,12 @@
     e.preventDefault();
     const d = new FormData(form);
     send({
-      Client: d.get('client'),
-      Services: d.getAll('service').join(', '),
+      Service: d.get('service'),
+      From: d.get('from'),
+      To: d.get('to'),
       Name: d.get('name'),
-      Email: d.get('email'),
-      Phone: d.get('phone'),
-      Request: d.get('text'),
+      Contact: d.get('contact'),
+      About: d.get('text'),
     });
     $('[data-ok]').hidden = false;
   });
