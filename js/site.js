@@ -129,7 +129,7 @@
 
   const planet = $('[data-planet]');
   let introSeen = null;
-  try { introSeen = sessionStorage.getItem('lingvo-intro'); sessionStorage.setItem('lingvo-intro', '1'); } catch (_) {}
+  try { introSeen = sessionStorage.getItem('lingvo-intro-2'); sessionStorage.setItem('lingvo-intro-2', '1'); } catch (_) {}
   const big = planet && { g: planet.getContext('2d'), pts: sphere(2200), seen: true, intro: !still && !introSeen && scrollY < 50, parts: [] };
   const hi = big && document.createElement('span');
   if (big) {
@@ -231,7 +231,36 @@
   addEventListener('scroll', updateTrip, { passive: true });
   updateTrip();
 
+  /* opening screen (first visit in a session): a turning globe, "hello" in one language after another,
+     the name, then the page opens. About two seconds; a click, a key or the wheel skips it. */
+  const intro = $('[data-intro]');
+  if (intro && big && big.intro) {
+    intro.hidden = false;
+    const ic = $('[data-intro-globe]', intro), ig = ic.getContext('2d'), ipts = sphere(900), word = $('[data-intro-word]', intro);
+    fit(ic);
+    let n = 0, done = false;
+    const swap = setInterval(() => { n = (n + 1) % HELLO.length; word.textContent = HELLO[n][0]; }, 130);
+    const spin = (t) => {
+      if (done) return;
+      const W = ic.width, P = projector(W / 2, W / 2, W / 2 * .92, t / 900, .35);
+      ig.clearRect(0, 0, W, W);
+      for (const q of ipts) { const [x, y, z] = P(q); if (z < 0) continue; ig.fillStyle = `rgba(127,178,255,${.2 + z * .8})`; ig.fillRect(x, y, 1.6 * dpr, 1.6 * dpr); }
+      requestAnimationFrame(spin);
+    };
+    requestAnimationFrame(spin);
+    const close = () => {
+      if (done) return; done = true; clearInterval(swap);
+      word.textContent = 'Hello'; intro.classList.add('is-out');
+      big.t0 = null;
+      setTimeout(() => intro.remove(), 700);
+    };
+    setTimeout(() => { clearInterval(swap); word.textContent = 'Hello'; intro.classList.add('is-name'); }, 1500);
+    setTimeout(close, 2300);
+    ['click', 'keydown', 'wheel', 'touchstart'].forEach((ev) => addEventListener(ev, close, { once: true, passive: true }));
+  } else if (intro) intro.remove();
+
   const frame = (t) => {
+
     if (big && big.seen) drawPlanet(still ? 0 : t);
     if (mini && trip.classList.contains('is-on')) drawMini();
     requestAnimationFrame(frame);
