@@ -469,3 +469,14 @@ main, .foot { position: relative; z-index: 1; }
 .pass { position: absolute; left: 9%; top: 11%; width: 38%; transform: rotate(-8deg); border-radius: 6px; box-shadow: 0 20px 34px -12px rgba(0, 0, 0, .75); }
 .doc--pass { position: absolute; right: 8%; top: 22%; width: 54%; transform: rotate(4deg); }
 .show__sub { margin-top: 12px; color: var(--muted); font-size: 18px; }
+
+/* the button example reads without German: the bad one spills out of its box, the good one fits */
+.btns__src { justify-self: center; font-size: 13px; color: var(--muted); }
+.btns__src b { color: var(--text); }
+.btn-ui { position: relative; overflow: visible; }
+.btn-ui i { position: absolute; top: -9px; right: -8px; font: 800 10.5px/1 Manrope, sans-serif; font-style: normal; letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 99px; }
+.btn-ui--bad { width: 58% !important; justify-self: center; text-align: left; padding-left: 12px; overflow: visible; }
+.btn-ui--bad span { display: block; white-space: nowrap; color: #ffb3b3; }
+.btn-ui--bad i { background: #ff5c5c; color: #fff; }
+.btn-ui--ok { width: 58%; }
+.btn-ui--ok i { background: #22c55e; color: #05230f; }
