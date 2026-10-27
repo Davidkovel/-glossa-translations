@@ -749,3 +749,13 @@ body { line-height: 1.6; }
   .foot__cta h2 { font-size: 30px; }
   .foot__cols { gap: 22px; padding: 28px 0; }
 }
+
+/* phone first screen: text in the middle of the screen, buttons a little lower, the planet and the
+   language strip at the bottom; partners come right after the first scroll */
+@media (max-width: 600px) {
+  .hero { min-height: 100svh !important; justify-content: center; padding: 76px 0 18px !important; }
+  .hero__what { margin-top: auto; }
+  .hero__cta { margin-top: 34px; }
+  .langs { margin-top: auto !important; padding-top: 28px; }
+  .logos { padding-top: 34px; }
+}
