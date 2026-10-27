@@ -778,3 +778,13 @@ body { line-height: 1.6; }
 .hero__lead { color: #e4e8f8; font-weight: 400; opacity: 1; }
 .hero__langs { display: block; color: #fff; font-weight: 500; margin-bottom: 4px; }
 @media (max-width: 600px) { .hero__facts { padding-bottom: 16vh; } }
+
+/* languages: a still, wrapped set right under the numbers — every name readable, nothing cut by the edge */
+.langs--static { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 720px; margin: 26px auto 0 !important; padding: 0 var(--pad) !important; }
+.langs--static span { padding: 7px 14px; border-radius: 99px; font-size: 15px; font-weight: 600; color: #e4e8f8; background: rgba(10, 12, 26, .7); border: 1px solid rgba(170, 190, 255, .2); }
+.langs--static .langs__more { color: #05060f; background: var(--sky); border-color: var(--sky); font-weight: 800; }
+@media (max-width: 600px) {
+  .hero__facts { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  .langs--static { margin: 20px auto auto !important; gap: 6px; padding-bottom: 12vh !important; }
+  .langs--static span { padding: 6px 11px; font-size: 13.5px; }
+}
