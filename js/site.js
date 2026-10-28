@@ -84,23 +84,17 @@
   };
   fileIn?.addEventListener('change', checkFile);
 
-  /* every request also lands in our Telegram: the site posts it to our Google Apps Script relay
-     (tools/telegram-relay.gs), which holds the bot token privately; the email post goes after it
-     (or after 8 s, so a slow relay never holds the visitor back) */
-  const RELAY = '';
-  const readFile = (file) => new Promise((ok) => {
-    if (!file) return ok(null);
-    const r = new FileReader();
-    r.onload = () => ok({ name: file.name, type: file.type, data: String(r.result).split(',')[1] });
-    r.onerror = () => ok(null);
-    r.readAsDataURL(file);
-  });
+  /* every request also lands in our Telegram through the bot; the email post goes after it
+     (or after 8 s, so a slow Telegram never holds the visitor back) */
+  const TG = 'https://api.telegram.org/bot9136561479:AAGB0NdWY1pyVXBKmtMU3_EcX799TbyT6N4/';
+  const TG_CHAT = '7756519451';
   const tell = (fields, file) => {
-    if (!RELAY) return Promise.resolve();
-    return readFile(file).then((f) => fetch(RELAY, {
-      method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ fields, file: f }),
-    }));
+    const text = '🆕 New client — Lingvo site\n\n' + Object.entries(fields).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
+    const msg = fetch(TG + 'sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: TG_CHAT, text }) });
+    if (!file) return msg;
+    const fd = new FormData();
+    fd.append('chat_id', TG_CHAT); fd.append('document', file, file.name); fd.append('caption', 'File from ' + (fields.Name || fields.Email || 'the site'));
+    return msg.then(() => fetch(TG + 'sendDocument', { method: 'POST', body: fd }));
   };
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
