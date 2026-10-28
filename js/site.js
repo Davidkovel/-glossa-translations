@@ -83,7 +83,37 @@
     return !err;
   };
   fileIn?.addEventListener('change', checkFile);
-  form?.addEventListener('submit', (e) => { if (!checkFile()) e.preventDefault(); });
+
+  /* every request also lands in our Telegram: the site posts it to our Google Apps Script relay
+     (tools/telegram-relay.gs), which holds the bot token privately; the email post goes after it
+     (or after 8 s, so a slow relay never holds the visitor back) */
+  const RELAY = '';
+  const readFile = (file) => new Promise((ok) => {
+    if (!file) return ok(null);
+    const r = new FileReader();
+    r.onload = () => ok({ name: file.name, type: file.type, data: String(r.result).split(',')[1] });
+    r.onerror = () => ok(null);
+    r.readAsDataURL(file);
+  });
+  const tell = (fields, file) => {
+    if (!RELAY) return Promise.resolve();
+    return readFile(file).then((f) => fetch(RELAY, {
+      method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ fields, file: f }),
+    }));
+  };
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!checkFile() || form.dataset.sending) return;
+    form.dataset.sending = '1';
+    const d = new FormData(form);
+    const fields = {
+      Name: d.get('name'), Email: d.get('email'), 'Phone / Telegram': d.get('phone'),
+      Client: d.get('client'), Services: d.getAll('service').join(', '), Request: d.get('text'),
+    };
+    const f = fileIn && fileIn.files[0];
+    Promise.race([tell(fields, f).catch(() => {}), new Promise((r) => setTimeout(r, 8000))]).then(() => form.submit());
+  });
 
   /* exit intent: once per visit */
   const exit = $('[data-exit]');
@@ -100,7 +130,9 @@
   exit?.addEventListener('click', (e) => { if (e.target === exit) exit.hidden = true; });
   $('[data-exit-form]')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    send({ Email: new FormData(e.target).get('email'), Request: 'Price for a translation (exit form)' });
+    const fields = { Email: new FormData(e.target).get('email'), Request: 'Price for a translation (exit form)' };
+    tell(fields).catch(() => {});
+    send(fields);
     exit.hidden = true;
   });
 
