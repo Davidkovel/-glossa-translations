@@ -1,7 +1,7 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const MAIL = 'hi@lingvo-translations.com';
+  const MAIL = 'lingvotranslate.agency@gmail.com';
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* header line once the page moves */
