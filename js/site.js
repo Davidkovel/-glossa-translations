@@ -106,7 +106,10 @@
       Client: d.get('client'), Services: d.getAll('service').join(', '), 'Reply in': d.get('reply'), Request: d.get('text'),
     };
     const f = fileIn && fileIn.files[0];
-    Promise.race([tell(fields, f).catch(() => {}), new Promise((r) => setTimeout(r, 8000))]).then(() => form.submit());
+    const mail = fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } }).catch(() => {});
+    Promise.race([Promise.all([tell(fields, f).catch(() => {}), mail]), new Promise((r) => setTimeout(r, 8000))]).then(() => {
+      form.innerHTML = '<div class="mx-thanks"><b>Thank you! Your request is in.</b><p>We reply within 15 minutes in working hours. Faster: <a href="https://wa.me/4367763178397">WhatsApp</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p></div>';
+    });
   });
 
   /* exit intent: once per visit */
