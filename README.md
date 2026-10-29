@@ -65,7 +65,7 @@ Method: skill `site-que-vende` in team-agent/library/skills.
 Preview: run `start.bat`, then open http://localhost:8797/
 - Hero: "Translations accepted the first time", for companies and people moving abroad, free redo guarantee, two buttons (business / private).
 - `#pain` — "Sound familiar?": visa refused, deadline missed, word-for-word text.
-- `#cases` — "Results, not promises": 3 cases. **The numbers and quotes are examples, not real — replace or remove before publishing.**
+- `#cases` — "What a typical job looks like": 3 typical orders (what we can do, no invented clients or quotes). Swap for real cases when we have them.
 - `#why` — table: freelancer vs typical agency vs Lingvo.
 - FAQ: + "What if the embassy or court rejects it?", + "Why not a cheaper freelancer?"
 
