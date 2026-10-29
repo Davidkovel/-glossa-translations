@@ -103,7 +103,7 @@
     const d = new FormData(form);
     const fields = {
       Name: d.get('name'), Email: d.get('email'), 'Phone / Telegram': d.get('phone'),
-      Client: d.get('client'), Services: d.getAll('service').join(', '), Request: d.get('text'),
+      Client: d.get('client'), Services: d.getAll('service').join(', '), 'Reply in': d.get('reply'), Request: d.get('text'),
     };
     const f = fileIn && fileIn.files[0];
     Promise.race([tell(fields, f).catch(() => {}), new Promise((r) => setTimeout(r, 8000))]).then(() => form.submit());
@@ -305,4 +305,11 @@
     const tog = () => mcta.classList.toggle('is-on', scrollY > innerHeight * .8 && !atForm);
     addEventListener('scroll', tog, { passive: true }); tog();
   }
+})();
+/* a service page links here with ?service=…: tick that service in the form */
+(() => {
+  const s = new URLSearchParams(location.search).get('service');
+  if (!s) return;
+  const c = document.querySelector(`.chips input[value="${CSS.escape(s)}"]`);
+  if (c) c.checked = true;
 })();
