@@ -2,7 +2,7 @@
 
 Одностраничный сайт агентства переводов и локализации. Чистый HTML + CSS + JS, без сборки и без npm.
 
-- **Живой сайт:** https://davidkovel.github.io/-glossa-translations/ (GitHub Pages, ветка `main`, корень)
+- **Живой сайт:** https://lingvotranslations.website/ (GitHub Pages, ветка `main`, корень)
 - **Локально:** `start.bat` → http://localhost:8797/
 - **Обновить сайт:** правка → `git commit` → `git push`, через ~1 минуту изменения на GitHub Pages
 
@@ -77,7 +77,7 @@ Backup of the previous page: `index.backup-2910.html`. Not pushed yet.
 Prepared on 29.10.2026.
 
 1. ~~Remove `noindex`~~ — done 29.10.2026, the site is open to Google.
-2. **Domain**: if we buy one, put it in Settings → Pages → Custom domain, then replace `https://davidkovel.github.io/-glossa-translations/` with it in: canonical/og:url and JSON-LD of the 4 pages, `robots.txt`, `sitemap.xml`, `og:image`.
+2. **Domain**: if we buy one, put it in Settings → Pages → Custom domain, then replace `https://lingvotranslations.website/` with it in: canonical/og:url and JSON-LD of the 4 pages, `robots.txt`, `sitemap.xml`, `og:image`.
 3. **Google Search Console**: add the site, verify, submit `sitemap.xml`, request indexing of the 4 pages.
 4. **Google Business Profile** (Google Maps), only if we have an address clients can visit or a service area.
 5. **Check**: Rich Results Test on each page (schema: ProfessionalService, FAQPage, Service with prices, BreadcrumbList), PageSpeed Insights on mobile.

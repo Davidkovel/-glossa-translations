@@ -2,7 +2,7 @@
    The site posts the request here; the Worker checks the file and sends everything to our Telegram bot.
    The bot key lives only in the Worker's secrets (TG_TOKEN, TG_CHAT), never in the site's code. */
 
-const ORIGINS = ['https://davidkovel.github.io', 'http://localhost:8797'];
+const ORIGINS = ['https://lingvotranslations.website', 'https://www.lingvotranslations.website', 'https://davidkovel.github.io', 'http://localhost:8797'];
 const MAX = 5 * 1024 * 1024;
 const SIG = { pdf: ['25504446'], docx: ['504b0304'], xlsx: ['504b0304'], pptx: ['504b0304'], jpg: ['ffd8ff'], jpeg: ['ffd8ff'], png: ['89504e47'] };
 const TEXT = ['txt', 'srt', 'vtt'];

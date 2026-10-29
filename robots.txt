@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://davidkovel.github.io/-glossa-translations/sitemap.xml
+Sitemap: https://lingvotranslations.website/sitemap.xml
