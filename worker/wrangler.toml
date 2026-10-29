@@ -1,0 +1,4 @@
+name = "lingvo-form"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+account_id = "e4c26773e1b80f5df6728369b4b33fd0"

@@ -102,21 +102,20 @@
 
   /* every request also lands in our Telegram through the bot; the email post goes after it
      (or after 8 s, so a slow Telegram never holds the visitor back) */
-  const TG = 'https://api.telegram.org/bot9136561479:AAGB0NdWY1pyVXBKmtMU3_EcX799TbyT6N4/';
-  const TG_CHAT = '7756519451';
   /* email copy of every request: Web3Forms (the access key is public by design, it only allows sending to our inbox) */
   const W3 = '4f8213ab-bc0a-4499-9ea2-d80a766fa23a';
   const web3 = (fields) => fetch('https://api.web3forms.com/submit', {
     method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(Object.assign({ access_key: W3, subject: 'New request — Lingvo site', from_name: 'Lingvo site', replyto: fields.Email || '' }, fields)),
   }).catch(() => {});
+  /* requests go to our Cloudflare Worker (worker/worker.js): it checks the file again and sends everything to Telegram.
+     The bot key is a secret of the Worker, not in this file. */
+  const API = 'https://lingvo-form.lingvotranslate-agency.workers.dev';
   const tell = (fields, file) => {
-    const text = '🆕 New client — Lingvo site\n\n' + Object.entries(fields).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
-    const msg = fetch(TG + 'sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: TG_CHAT, text }) });
-    if (!file) return msg;
     const fd = new FormData();
-    fd.append('chat_id', TG_CHAT); fd.append('document', file, file.name); fd.append('caption', 'File from ' + (fields.Name || fields.Email || 'the site'));
-    return msg.then(() => fetch(TG + 'sendDocument', { method: 'POST', body: fd }));
+    Object.entries(fields).forEach(([k, v]) => { if (v) fd.append(k, v); });
+    if (file) fd.append('file', file, file.name);
+    return fetch(API, { method: 'POST', body: fd });
   };
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
