@@ -70,19 +70,35 @@
   /* the request form posts to FormSubmit, which mails it (with the file) to our inbox.
      Only documents and pictures, up to 10 MB; anything else is refused here before it is sent. */
   const form = $('[data-form]');
-  const OK_EXT = /\.(pdf|docx?|xlsx?|pptx?|txt|srt|vtt|jpe?g|png)$/i, MAX = 10 * 1024 * 1024;
+  const OK_EXT = /\.(pdf|docx|xlsx|pptx|txt|srt|vtt|jpe?g|png)$/i, MAX = 5 * 1024 * 1024;
   const fileIn = $('[data-file-input]'), fileName = $('[data-file-name]'), fileErr = $('[data-file-err]');
   const checkFile = () => {
     const f = fileIn && fileIn.files[0];
     let err = '';
-    if (f && !OK_EXT.test(f.name)) err = 'This file type is not accepted. Please send a PDF, Word, Excel, PowerPoint, text or image file.';
-    else if (f && f.size > MAX) err = 'The file is larger than 10 MB. Please send it in Telegram.';
+    if (f && !OK_EXT.test(f.name)) err = 'This file type is not accepted. Please send PDF, DOCX, XLSX, PPTX, TXT, SRT, JPG or PNG.';
+    else if (f && f.size > MAX) err = 'The file is larger than 5 MB. Please send it in Telegram.';
     if (err) fileIn.value = '';
     fileErr.hidden = !err; fileErr.textContent = err;
     fileName.textContent = fileIn.files[0] ? fileIn.files[0].name : 'Attach a file';
     return !err;
   };
-  fileIn?.addEventListener('change', checkFile);
+  /* the first bytes must match the type: a renamed program (.exe → .pdf) or a script is refused */
+  const SIG = { pdf: ['25504446'], docx: ['504b0304'], xlsx: ['504b0304'], pptx: ['504b0304'], jpg: ['ffd8ff'], jpeg: ['ffd8ff'], png: ['89504e47'] };
+  const sniff = (f) => f.slice(0, 8).arrayBuffer().then((b) => {
+    const hex = [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, '0')).join('');
+    const ext = f.name.split('.').pop().toLowerCase();
+    if (SIG[ext]) return SIG[ext].some((s) => hex.startsWith(s));
+    return !/^(4d5a|7f454c46|23212f|3c21|3c3f|3c73|3c68)/.test(hex); /* text files: no programs (MZ, ELF), scripts or HTML */
+  });
+  fileIn?.addEventListener('change', () => {
+    if (!checkFile()) return;
+    const f = fileIn.files[0];
+    if (f) sniff(f).then((ok) => {
+      if (ok) return;
+      fileIn.value = ''; fileName.textContent = 'Attach a file';
+      fileErr.hidden = false; fileErr.textContent = 'This file does not look like a real document or image. Please send another file.';
+    });
+  });
 
   /* every request also lands in our Telegram through the bot; the email post goes after it
      (or after 8 s, so a slow Telegram never holds the visitor back) */
@@ -105,6 +121,8 @@
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!checkFile() || form.dataset.sending) return;
+    const ff = fileIn && fileIn.files[0];
+    if (ff && !form.dataset.sniffed) { sniff(ff).then((ok) => { if (ok) { form.dataset.sniffed = '1'; form.requestSubmit(); } else { fileIn.value = ''; checkFile(); fileErr.hidden = false; fileErr.textContent = 'This file does not look like a real document or image. Please send another file.'; } }); return; }
     form.dataset.sending = '1';
     const d = new FormData(form);
     const fields = {
