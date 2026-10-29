@@ -88,6 +88,12 @@
      (or after 8 s, so a slow Telegram never holds the visitor back) */
   const TG = 'https://api.telegram.org/bot9136561479:AAGB0NdWY1pyVXBKmtMU3_EcX799TbyT6N4/';
   const TG_CHAT = '7756519451';
+  /* email copy of every request: Web3Forms (the access key is public by design, it only allows sending to our inbox) */
+  const W3 = '4f8213ab-bc0a-4499-9ea2-d80a766fa23a';
+  const web3 = (fields) => fetch('https://api.web3forms.com/submit', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(Object.assign({ access_key: W3, subject: 'New request — Lingvo site', from_name: 'Lingvo site', replyto: fields.Email || '' }, fields)),
+  }).catch(() => {});
   const tell = (fields, file) => {
     const text = '🆕 New client — Lingvo site\n\n' + Object.entries(fields).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
     const msg = fetch(TG + 'sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: TG_CHAT, text }) });
@@ -106,7 +112,7 @@
       Client: d.get('client'), Services: d.getAll('service').join(', '), 'Reply in': d.get('reply'), Request: d.get('text'),
     };
     const f = fileIn && fileIn.files[0];
-    const mail = fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } }).catch(() => {});
+    const mail = web3(fields);
     Promise.race([Promise.all([tell(fields, f).catch(() => {}), mail]), new Promise((r) => setTimeout(r, 8000))]).then(() => {
       form.innerHTML = '<div class="mx-thanks"><b>Thank you! Your request is in.</b><p>We reply within 15 minutes in working hours. Faster: <a href="https://wa.me/4367763178397">WhatsApp</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p></div>';
     });
@@ -129,6 +135,7 @@
     e.preventDefault();
     const fields = { Email: new FormData(e.target).get('email'), Request: 'Price for a translation (exit form)' };
     tell(fields).catch(() => {});
+    web3(fields);
     send(fields);
     exit.hidden = true;
   });
