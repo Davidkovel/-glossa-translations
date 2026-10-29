@@ -56,6 +56,11 @@
 .mx-exitf{display:grid;gap:6px;text-align:left} .mx-exitf span{font-size:13px;font-weight:700;color:var(--text)}
 .exit .mx-exitf input{background:#fff!important;color:#05060f!important;border-color:#fff!important}
 .exit .mx-exitf input::placeholder{color:#7a8099}
+.mx{padding-top:clamp(48px,5.5vw,80px)!important;padding-bottom:clamp(40px,4.5vw,64px)!important}
+.mx--tight{padding-top:clamp(32px,3.5vw,48px)!important;padding-bottom:clamp(32px,3.5vw,48px)!important}
+.mx-grid{margin-top:28px}
+.do,.svc,.show,.faq{padding-top:clamp(56px,6vw,88px)!important;padding-bottom:clamp(40px,4.5vw,64px)!important}
+.lang-band{padding-top:clamp(40px,5vw,72px)!important;padding-bottom:clamp(32px,4vw,56px)!important}
 @media(max-width:1000px){.mx-grid--4{grid-template-columns:1fr 1fr}}
 @media(max-width:800px){.mx-grid--4{grid-template-columns:1fr}.mx-float{bottom:84px;left:14px;padding:12px 16px}}
 @media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:12px 8px}.mx-case strong{font-size:42px}}
@@ -135,56 +140,12 @@
     <p class="mx-answer">We close exactly these three risks: <b>three-person check</b>, <b>fixed deadline in the contract</b>, <b>native speaker of your market</b>.</p>
   </section>
 
-  <section class="mx mx-cases" id="cases">
-    <h2 class="kicker">What a typical job looks like</h2>
-    <div class="mx-grid">
-      <div class="mx-case"><small>Company · contracts</small><strong>5 days</strong><p>for an 80-page contract pack: split across a team, one glossary, three checks on every page.</p><em>Fixed deadline written in the agreement.</em></div>
-      <div class="mx-case"><small>Product · app or website</small><strong>9 languages</strong><p>at once: language, currency, dates and tone adapted to each market, tested on screen before release.</p><em>One manager for all languages.</em></div>
-      <div class="mx-case"><small>Family · moving abroad</small><strong>1 day</strong><p>for birth, marriage and diploma certificates, translated and certified, ready for the embassy.</p><em>Free redo if it is rejected.</em></div>
-    </div>
-  </section>
-
-  <section class="mx mx-why" id="why">
-    <h2 class="kicker">Why us, not a freelancer or another agency</h2>
-    <div class="mx-tblw"><table class="mx-tbl">
-      <tr><th></th><th>Freelancer</th><th>Typical agency</th><th class="us">Lingvo</th></tr>
-      <tr><td>Who checks the text</td><td class="no">nobody</td><td>1 editor</td><td class="us">translator + 2 editors</td></tr>
-      <tr><td>Price</td><td class="no">“let's see”</td><td>after evaluation</td><td class="us">fixed in 15 min</td></tr>
-      <tr><td>If rejected</td><td class="no">your problem</td><td>paid fix</td><td class="us">free redo, guaranteed</td></tr>
-      <tr><td>Urgent job</td><td>maybe</td><td>2–3 days</td><td class="us">same day</td></tr>
-    </table></div>
-  </section>
 
 
 
-  <section class="mx mx-price" id="prices">
-    <h2 class="kicker">Prices</h2>
-    <p class="mx-sub">Starting prices. The exact price depends on the language pair, the subject and the deadline — you get it fixed in 15 minutes.</p>
-    <div class="mx-grid mx-grid--4">
-      <div class="mx-case"><small>Written translation</small><strong>from €0.06</strong><p>per word, translator + editor + proofreader.</p></div>
-      <div class="mx-case"><small>Certified document</small><strong>from €25</strong><p>passport, diploma, certificate — with stamp and signature.</p></div>
-      <div class="mx-case"><small>Website / app</small><strong>from €0.08</strong><p>per word, adapted to the market and checked on screen.</p></div>
-      <div class="mx-case"><small>Urgent, same day</small><strong>+50%</strong><p>the text is split across a team, same three checks.</p></div>
-    </div>
-    <p class="mx-answer">−10% on your first order · <a href="#price">Get the exact price →</a></p>
-  </section>
 
-  <section class="mx mx-safe" id="safe">
-    <h2 class="kicker">Your files are safe</h2>
-    <div class="mx-grid">
-      <div class="mx-card"><span class="ico ico--ok">✓</span><b>NDA before we start</b><p>We sign your NDA or ours before you send the files.</p></div>
-      <div class="mx-card"><span class="ico ico--ok">✓</span><b>Only your linguists</b><p>Files are seen only by the people working on your project.</p></div>
-      <div class="mx-card"><span class="ico ico--ok">✓</span><b>Deleted after delivery</b><p>Ask us and we delete your files and the translation once you have them.</p></div>
-    </div>
-  </section>
 
-  <section class="mx mx-reviews" id="reviews">
-    <h2 class="kicker">Client reviews</h2>
-    <div class="mx-tblw mx-soon">
-      <p><b>Reviews are coming soon.</b> We are collecting them from our clients and will publish them here.</p>
-      <p>Already worked with us? <a href="https://t.me/lingvo_translations">Send us your review in Telegram →</a></p>
-    </div>
-  </section>
+
 
   <!-- 3 · problems we fix: each card shows the problem and our answer -->
   <section class="do" id="problems">
@@ -323,6 +284,43 @@
 
     </div>
   </section>
+  <section class="mx mx-cases" id="cases">
+    <h2 class="kicker">What a typical job looks like</h2>
+    <div class="mx-grid">
+      <div class="mx-case"><small>Company · contracts</small><strong>5 days</strong><p>for an 80-page contract pack: split across a team, one glossary, three checks on every page.</p><em>Fixed deadline written in the agreement.</em></div>
+      <div class="mx-case"><small>Product · app or website</small><strong>9 languages</strong><p>at once: language, currency, dates and tone adapted to each market, tested on screen before release.</p><em>One manager for all languages.</em></div>
+      <div class="mx-case"><small>Family · moving abroad</small><strong>1 day</strong><p>for birth, marriage and diploma certificates, translated and certified, ready for the embassy.</p><em>Free redo if it is rejected.</em></div>
+    </div>
+  </section>
+  <section class="mx mx-why" id="why">
+    <h2 class="kicker">Why us, not a freelancer or another agency</h2>
+    <div class="mx-tblw"><table class="mx-tbl">
+      <tr><th></th><th>Freelancer</th><th>Typical agency</th><th class="us">Lingvo</th></tr>
+      <tr><td>Who checks the text</td><td class="no">nobody</td><td>1 editor</td><td class="us">translator + 2 editors</td></tr>
+      <tr><td>Price</td><td class="no">“let's see”</td><td>after evaluation</td><td class="us">fixed in 15 min</td></tr>
+      <tr><td>If rejected</td><td class="no">your problem</td><td>paid fix</td><td class="us">free redo, guaranteed</td></tr>
+      <tr><td>Urgent job</td><td>maybe</td><td>2–3 days</td><td class="us">same day</td></tr>
+    </table></div>
+  </section>
+  <section class="mx mx-price" id="prices">
+    <h2 class="kicker">Prices</h2>
+    <p class="mx-sub">Starting prices. The exact price depends on the language pair, the subject and the deadline — you get it fixed in 15 minutes.</p>
+    <div class="mx-grid mx-grid--4">
+      <div class="mx-case"><small>Written translation</small><strong>from €0.06</strong><p>per word, translator + editor + proofreader.</p></div>
+      <div class="mx-case"><small>Certified document</small><strong>from €25</strong><p>passport, diploma, certificate — with stamp and signature.</p></div>
+      <div class="mx-case"><small>Website / app</small><strong>from €0.08</strong><p>per word, adapted to the market and checked on screen.</p></div>
+      <div class="mx-case"><small>Urgent, same day</small><strong>+50%</strong><p>the text is split across a team, same three checks.</p></div>
+    </div>
+    <p class="mx-answer">−10% on your first order · <a href="#price">Get the exact price →</a></p>
+  </section>
+  <section class="mx mx-safe mx--tight" id="safe">
+    <h2 class="kicker">Your files are safe</h2>
+    <div class="mx-grid">
+      <div class="mx-card"><span class="ico ico--ok">✓</span><b>NDA before we start</b><p>We sign your NDA or ours before you send the files.</p></div>
+      <div class="mx-card"><span class="ico ico--ok">✓</span><b>Only your linguists</b><p>Files are seen only by the people working on your project.</p></div>
+      <div class="mx-card"><span class="ico ico--ok">✓</span><b>Deleted after delivery</b><p>Ask us and we delete your files and the translation once you have them.</p></div>
+    </div>
+  </section>
 
   <!-- languages: a calm band in the middle of the page -->
   <section class="lang-band" aria-label="Languages">
@@ -409,6 +407,13 @@
     </div>
   </section>
 
+  <section class="mx mx-reviews mx--tight" id="reviews">
+    <h2 class="kicker">Client reviews</h2>
+    <div class="mx-tblw mx-soon">
+      <p><b>Reviews are coming soon.</b> We are collecting them from our clients and will publish them here.</p>
+      <p>Already worked with us? <a href="https://t.me/lingvo_translations">Send us your review in Telegram →</a></p>
+    </div>
+  </section>
   <!-- 6 · the one action -->
   <section class="price" id="price">
     <div class="price__side">
