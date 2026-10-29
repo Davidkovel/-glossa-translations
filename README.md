@@ -71,3 +71,17 @@ Preview: run `start.bat`, then open http://localhost:8797/
 
 Open questions: real cases/testimonials; is the free-redo guarantee OK.
 Backup of the previous page: `index.backup-2910.html`. Not pushed yet.
+
+## Launch checklist (SEO) — do this on launch day
+
+Prepared on 29.10.2026.
+
+1. ~~Remove `noindex`~~ — done 29.10.2026, the site is open to Google.
+2. **Domain**: if we buy one, put it in Settings → Pages → Custom domain, then replace `https://davidkovel.github.io/-glossa-translations/` with it in: canonical/og:url and JSON-LD of the 4 pages, `robots.txt`, `sitemap.xml`, `og:image`.
+3. **Google Search Console**: add the site, verify, submit `sitemap.xml`, request indexing of the 4 pages.
+4. **Google Business Profile** (Google Maps), only if we have an address clients can visit or a service area.
+5. **Check**: Rich Results Test on each page (schema: ProfessionalService, FAQPage, Service with prices, BreadcrumbList), PageSpeed Insights on mobile.
+6. **Real reviews** → add a reviews block back (and `aggregateRating` only with real Google reviews).
+7. Telegram bot key is public in `js/site.js` → move sending to a Cloudflare Worker.
+
+Already done: titles and descriptions per page, canonical, og tags, JSON-LD schema, `robots.txt`, `sitemap.xml`, 3 service pages for search («certified translation for visa», «legal translation», «website and app localization»).
