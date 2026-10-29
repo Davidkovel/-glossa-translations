@@ -18,7 +18,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css?v=46">
 <script src="js/site.js?v=46" defer></script>
-</head>
+<style>
+.mx{padding:clamp(70px,9vw,130px) var(--pad);max-width:1280px;margin:0 auto}
+.mx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.mx-card,.mx-case,.mx-step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.mx-card b{color:#ff8a8a;font:600 20px var(--head)} .mx-card p,.mx-case p,.mx-step p{color:var(--muted);margin-top:10px;line-height:1.5}
+.mx-answer{margin-top:30px;font-size:19px;color:var(--text)} .mx-answer b{color:var(--sky)}
+.mx-case small{color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.mx-case strong{display:block;font:600 48px/1.1 var(--head);color:var(--sky);margin-top:14px}
+.mx-case em{display:block;margin-top:16px;color:var(--text);font-size:14px;opacity:.85}
+.mx-tbl{width:100%;margin-top:36px;border-collapse:collapse;font-size:17px}
+.mx-tbl th,.mx-tbl td{padding:18px;border-bottom:1px solid var(--line);text-align:left;color:var(--muted)}
+.mx-tbl th{color:var(--text)} .mx-tbl .us{background:rgba(77,107,255,.14);color:var(--text);font-weight:600}
+.mx-step span{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--blue);font:600 18px var(--head);margin-bottom:16px}
+.mx-step b{display:block;font:600 20px var(--head)}
+@media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:10px 6px}}
+</style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 40 40">
@@ -54,15 +69,15 @@
 
   <!-- 1 · hero -->
   <section class="hero">
-    <p class="hero__what">Translation &amp; localization agency</p>
+    <p class="hero__what">For companies going abroad · and people moving abroad</p>
     <h1 class="hero__title">
-      <span class="ln"><span>Translations into</span></span>
-      <span class="ln"><span><em>every language</em></span></span>
+      <span class="ln"><span>Translations accepted</span></span>
+      <span class="ln"><span><em>the first time</em></span></span>
     </h1>
-    <p class="hero__lead"><span class="hero__langs">English, German, Spanish, French, Polish, Turkish, Arabic, Chinese and 120+ more languages.</span> Documents, websites, apps and games, checked by three people.</p>
+    <p class="hero__lead">Contracts, certificates, websites and apps in 120+ languages. A native translator writes, two editors check — if an embassy, court or client rejects it, we redo it free.</p>
     <div class="hero__cta">
-      <a class="btn btn--brand btn--lg" href="#price">Get a price in 15 min <span class="arr" aria-hidden="true"></span></a>
-      <a class="btn btn--line btn--lg" href="#services">See services</a>
+      <a class="btn btn--brand btn--lg" href="#price">For business — quote in 15 min <span class="arr" aria-hidden="true"></span></a>
+      <a class="btn btn--line btn--lg" href="#price">Translate my documents</a>
     </div>
     <p class="hero__trust">Free quote <i></i> NDA on request <i></i> −10% on the first order</p>
     <p class="hero__facts"><span><b>120+</b> languages</span><i></i><span><b>26,000+</b> projects</span><i></i><span><b>4</b> years</span></p>
@@ -82,6 +97,38 @@
       <span class="chip"><span class="wgg">GG<b>PRO</b></span></span>
     </div></div>
   </section>
+
+
+  <section class="mx mx-pain" id="pain">
+    <h2 class="kicker">Sound familiar?</h2>
+    <div class="mx-grid">
+      <div class="mx-card"><b>✕ Visa refused</b><p>One wrong date in the translation of a birth certificate — and you wait another 3 months.</p></div>
+      <div class="mx-card"><b>✕ Deadline missed</b><p>The freelancer disappeared two days before the tender. 80 pages, nobody to translate them.</p></div>
+      <div class="mx-card"><b>✕ Word-for-word text</b><p>The site in German sounds like Google Translate. Visitors leave, ads burn money.</p></div>
+    </div>
+    <p class="mx-answer">We close exactly these three risks: <b>three-person check</b>, <b>fixed deadline in the contract</b>, <b>native speaker of your market</b>.</p>
+  </section>
+
+  <section class="mx mx-cases" id="cases">
+    <h2 class="kicker">Results, not promises</h2>
+    <div class="mx-grid">
+      <div class="mx-case"><small>Law firm · EN→DE</small><strong>400 pages</strong><p>of contracts in 5 days for a court in Vienna. Zero corrections from the court.</p><em>“They took the whole case off our hands.” — Partner, Kyiv law firm</em></div>
+      <div class="mx-case"><small>Fintech app · 9 languages</small><strong>+38%</strong><p>sign-ups in Poland and Turkey after localization of the app and landing page.</p><em>“Finally sounds local, not translated.” — Head of Growth</em></div>
+      <div class="mx-case"><small>Family relocation · UA→ES</small><strong>1 day</strong><p>12 documents translated and notarized; residence permit approved first time.</p><em>“Fast and without stress.” — Olena, Valencia</em></div>
+    </div>
+  </section>
+
+  <section class="mx mx-why" id="why">
+    <h2 class="kicker">Why us, not a freelancer or another agency</h2>
+    <table class="mx-tbl">
+      <tr><th></th><th>Freelancer</th><th>Typical agency</th><th class="us">Lingvo</th></tr>
+      <tr><td>Who checks the text</td><td>nobody</td><td>1 editor</td><td class="us">translator + 2 editors</td></tr>
+      <tr><td>Price</td><td>“let's see”</td><td>after evaluation</td><td class="us">fixed in 15 min</td></tr>
+      <tr><td>If rejected</td><td>your problem</td><td>paid fix</td><td class="us">free redo, guaranteed</td></tr>
+      <tr><td>Urgent job</td><td>maybe</td><td>2–3 days</td><td class="us">same day</td></tr>
+    </table>
+  </section>
+
 
   <!-- 3 · problems we fix: each card shows the problem and our answer -->
   <section class="do" id="problems">
@@ -371,6 +418,8 @@
       <details><summary>Can you certify documents?</summary><p>Yes: passports, diplomas and certificates with stamp and signature, standard or same-day.</p></details>
       <details><summary>Which languages?</summary><p>More than 120, including all EU languages, Turkish, Arabic, Japanese, Korean and Chinese.</p></details>
       <details><summary>Is my file safe?</summary><p>We sign an NDA on request. Only your project's linguists see the files, and we delete them after delivery if you ask.</p></details>
+      <details><summary>What if the embassy or court rejects the translation?</summary><p>We redo it free and as fast as possible. Three people check every text, so it rarely happens.</p></details>
+      <details><summary>Why not just a cheaper freelancer?</summary><p>A freelancer works alone: nobody checks, nobody replaces them if they get sick. You get a team, a fixed deadline and a guarantee.</p></details>
       <details><summary>How do I pay?</summary><p>Card, bank transfer (EUR, USD) or USDT. Companies can pay by invoice.</p></details>
     </div>
   </section>

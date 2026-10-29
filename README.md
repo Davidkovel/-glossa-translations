@@ -56,3 +56,18 @@
 
 Фон `#05060f`, текст `#f2f4ff`, акцент `#7fb2ff`, кнопки белые. Шрифт Manrope (Google Fonts).
 Логотип — слово «Lingv» + глобус вместо «o» + «translations» (символ `#globe-o` в `index.html`).
+
+## Sales blocks draft (29.10.2026) — waiting for approval
+
+Built from a competitor analysis (mk-translations.ua) and the questions: who buys, what pain, how we solve it, why us, how to buy.
+Method: skill `site-que-vende` in team-agent/library/skills.
+
+Preview: run `start.bat`, then open http://localhost:8797/
+- Hero: "Translations accepted the first time", for companies and people moving abroad, free redo guarantee, two buttons (business / private).
+- `#pain` — "Sound familiar?": visa refused, deadline missed, word-for-word text.
+- `#cases` — "Results, not promises": 3 cases. **The numbers and quotes are examples, not real — replace or remove before publishing.**
+- `#why` — table: freelancer vs typical agency vs Lingvo.
+- FAQ: + "What if the embassy or court rejects it?", + "Why not a cheaper freelancer?"
+
+Open questions: real cases/testimonials; is the free-redo guarantee OK.
+Backup of the previous page: `index.backup-2910.html`. Not pushed yet.
