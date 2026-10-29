@@ -20,19 +20,30 @@
 <script src="js/site.js?v=46" defer></script>
 <style>
 .mx{padding:clamp(70px,9vw,130px) var(--pad);max-width:1280px;margin:0 auto}
-.mx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
-.mx-card,.mx-case,.mx-step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
-.mx-card b{color:#ff8a8a;font:600 20px var(--head)} .mx-card p,.mx-case p,.mx-step p{color:var(--muted);margin-top:10px;line-height:1.5}
-.mx-answer{margin-top:30px;font-size:19px;color:var(--text)} .mx-answer b{color:var(--sky)}
-.mx-case small{color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-size:12px}
-.mx-case strong{display:block;font:600 48px/1.1 var(--head);color:var(--sky);margin-top:14px}
-.mx-case em{display:block;margin-top:16px;color:var(--text);font-size:14px;opacity:.85}
-.mx-tbl{width:100%;margin-top:36px;border-collapse:collapse;font-size:17px}
-.mx-tbl th,.mx-tbl td{padding:18px;border-bottom:1px solid var(--line);text-align:left;color:var(--muted)}
-.mx-tbl th{color:var(--text)} .mx-tbl .us{background:rgba(77,107,255,.14);color:var(--text);font-weight:600}
-.mx-step span{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--blue);font:600 18px var(--head);margin-bottom:16px}
-.mx-step b{display:block;font:600 20px var(--head)}
-@media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:10px 6px}}
+.mx .kicker{text-align:center}
+.mx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.mx-card,.mx-case,.mx-tblw{position:relative;border-radius:22px;padding:30px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 60px -40px rgba(0,0,0,.9)}
+.mx-card .ico{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,107,107,.12);color:#ff8a8a;font-size:20px;margin-bottom:18px}
+.mx-card b{display:block;font:600 21px/1.2 var(--head);letter-spacing:-.02em}
+.mx-card p,.mx-case p{color:var(--muted);margin-top:10px;line-height:1.55}
+.mx-answer{margin:34px auto 0;max-width:760px;text-align:center;font-size:19px;line-height:1.5;padding:22px 28px;border-radius:18px;background:rgba(77,107,255,.1);border:1px solid rgba(142,160,255,.25)}
+.mx-answer b{color:var(--sky)}
+.mx-case small{color:var(--sky);text-transform:uppercase;letter-spacing:.1em;font-size:12px;font-weight:600}
+.mx-case strong{display:block;font:600 54px/1 var(--head);letter-spacing:-.04em;margin-top:18px}
+.mx-case em{display:flex;gap:8px;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);color:var(--text);font-style:normal;font-size:14px}
+.mx-case em::before{content:"✓";color:#5ee0a0;font-weight:700}
+.mx-tblw{margin-top:40px;padding:8px;overflow-x:auto}
+.mx-tbl{width:100%;border-collapse:collapse;font-size:17px}
+.mx-tbl th,.mx-tbl td{padding:20px 22px;text-align:left;color:var(--muted)}
+.mx-tbl tr+tr td{border-top:1px solid rgba(255,255,255,.07)}
+.mx-tbl th{color:var(--text);font:600 15px var(--head)}
+.mx-tbl td:first-child{color:var(--text)}
+.mx-tbl .us{background:rgba(77,107,255,.16);color:#fff;font-weight:600}
+.mx-tbl th.us{border-radius:14px 14px 0 0;color:#fff} .mx-tbl tr:last-child .us{border-radius:0 0 14px 14px}
+.mx-tbl td.no{color:#ff8a8a}
+.chips input:checked + span{background:#fff!important;border-color:#fff!important;color:#05060f!important}
+.chips input:checked + span::before{content:"✓ ";font-weight:700}
+@media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:12px 8px}.mx-case strong{font-size:42px}}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -102,9 +113,9 @@
   <section class="mx mx-pain" id="pain">
     <h2 class="kicker">Sound familiar?</h2>
     <div class="mx-grid">
-      <div class="mx-card"><b>✕ Visa refused</b><p>One wrong date in the translation of a birth certificate — and you wait another 3 months.</p></div>
-      <div class="mx-card"><b>✕ Deadline missed</b><p>The freelancer disappeared two days before the tender. 80 pages, nobody to translate them.</p></div>
-      <div class="mx-card"><b>✕ Word-for-word text</b><p>The site in German sounds like Google Translate. Visitors leave, ads burn money.</p></div>
+      <div class="mx-card"><span class="ico">✕</span><b>Visa refused</b><p>One wrong date in the translation of a birth certificate — and you wait another 3 months.</p></div>
+      <div class="mx-card"><span class="ico">✕</span><b>Deadline missed</b><p>The freelancer disappeared two days before the tender. 80 pages, nobody to translate them.</p></div>
+      <div class="mx-card"><span class="ico">✕</span><b>Word-for-word text</b><p>The site in German sounds like Google Translate. Visitors leave, ads burn money.</p></div>
     </div>
     <p class="mx-answer">We close exactly these three risks: <b>three-person check</b>, <b>fixed deadline in the contract</b>, <b>native speaker of your market</b>.</p>
   </section>
@@ -120,13 +131,13 @@
 
   <section class="mx mx-why" id="why">
     <h2 class="kicker">Why us, not a freelancer or another agency</h2>
-    <table class="mx-tbl">
+    <div class="mx-tblw"><table class="mx-tbl">
       <tr><th></th><th>Freelancer</th><th>Typical agency</th><th class="us">Lingvo</th></tr>
-      <tr><td>Who checks the text</td><td>nobody</td><td>1 editor</td><td class="us">translator + 2 editors</td></tr>
-      <tr><td>Price</td><td>“let's see”</td><td>after evaluation</td><td class="us">fixed in 15 min</td></tr>
-      <tr><td>If rejected</td><td>your problem</td><td>paid fix</td><td class="us">free redo, guaranteed</td></tr>
+      <tr><td>Who checks the text</td><td class="no">nobody</td><td>1 editor</td><td class="us">translator + 2 editors</td></tr>
+      <tr><td>Price</td><td class="no">“let's see”</td><td>after evaluation</td><td class="us">fixed in 15 min</td></tr>
+      <tr><td>If rejected</td><td class="no">your problem</td><td>paid fix</td><td class="us">free redo, guaranteed</td></tr>
       <tr><td>Urgent job</td><td>maybe</td><td>2–3 days</td><td class="us">same day</td></tr>
-    </table>
+    </table></div>
   </section>
 
 
@@ -388,6 +399,7 @@
         <label><input type="checkbox" name="service" value="Voice-over"><span>Voice-over</span></label>
         <label><input type="checkbox" name="service" value="Interpreting"><span>Interpreting</span></label>
         <label><input type="checkbox" name="service" value="Editing"><span>Editing</span></label>
+        <label><input type="checkbox" name="service" value="Other"><span>Something else</span></label>
       </div>
       <div class="f2">
         <label class="f"><span>Name</span><input name="name" required autocomplete="name"></label>
