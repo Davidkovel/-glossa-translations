@@ -61,6 +61,9 @@
 .mx-grid{margin-top:28px}
 .do,.svc,.show,.faq{padding-top:clamp(56px,6vw,88px)!important;padding-bottom:clamp(40px,4.5vw,64px)!important}
 .lang-band{padding-top:clamp(40px,5vw,72px)!important;padding-bottom:clamp(32px,4vw,56px)!important}
+.svc:not(.is-all) .card--more{display:none}
+.mx-more{text-align:center;margin-top:24px}
+.do .kicker,.faq .kicker,.svc .kicker,.svc__sub{text-align:center}.svc__sub{margin-inline:auto}
 @media(max-width:1000px){.mx-grid--4{grid-template-columns:1fr 1fr}}
 @media(max-width:800px){.mx-grid--4{grid-template-columns:1fr}.mx-float{bottom:84px;left:14px;padding:12px 16px}}
 @media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:12px 8px}.mx-case strong{font-size:42px}}
@@ -250,7 +253,7 @@
         <h3>Subtitles</h3><p>SRT and VTT, timed to the frame.</p>
       </article>
 
-      <article class="card">
+      <article class="card card--more">
         <div class="pic pic--deep">
           <svg class="mic" viewBox="0 0 120 170" aria-hidden="true">
             <defs><linearGradient id="micg" x1="0" x2="1"><stop offset="0" stop-color="#3b4470"/><stop offset=".5" stop-color="#c9d3f5"/><stop offset="1" stop-color="#3b4470"/></linearGradient></defs>
@@ -264,7 +267,7 @@
         <h3>Voice-over</h3><p>Native voices for ads, apps and video.</p>
       </article>
 
-      <article class="card">
+      <article class="card card--more">
         <div class="pic pic--blue">
           <div class="call">
             <div class="call__tile"><span>AK</span><small>Warsaw</small></div>
@@ -275,7 +278,7 @@
         <h3>Interpreting</h3><p>Online meetings and calls.</p>
       </article>
 
-      <article class="card">
+      <article class="card card--more">
         <div class="pic pic--deep">
           <div class="edit"><small>AI draft</small><s>Bonus of welcome for you is waiting</s><small>After our editor</small><b>Your welcome bonus is waiting</b></div>
         </div>
@@ -283,6 +286,7 @@
       </article>
 
     </div>
+    <p class="mx-more"><button type="button" class="btn btn--line" data-more onclick="this.closest('section').classList.add('is-all');this.parentNode.remove()">More services: voice-over, interpreting, editing <span class="arr" aria-hidden="true"></span></button></p>
   </section>
   <section class="mx mx-cases" id="cases">
     <h2 class="kicker">What a typical job looks like</h2>
