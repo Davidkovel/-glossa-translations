@@ -64,6 +64,11 @@
 .svc:not(.is-all) .card--more{display:none}
 .mx-more{text-align:center;margin-top:24px}
 .do .kicker,.faq .kicker,.svc .kicker,.svc__sub{text-align:center}.svc__sub{margin-inline:auto}
+.show__tabs{background:transparent!important;border:0!important;padding:0!important;gap:10px!important}
+.show__tabs button{background:rgba(142,160,255,.12)!important;border:1px solid rgba(142,160,255,.3)!important;color:var(--text)!important;padding:14px 22px!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,border-color .25s,transform .25s,box-shadow .25s!important}
+.show__tabs button:hover{background:rgba(142,160,255,.16)!important;border-color:rgba(142,160,255,.45)!important;transform:translateY(-2px)}
+.show__tabs button[aria-selected="true"]{background:linear-gradient(135deg,#5b78ff,#3a55f0)!important;border-color:#8ea0ff!important;color:#fff!important;box-shadow:0 12px 30px -10px rgba(77,107,255,.8),inset 0 1px 0 rgba(255,255,255,.3)}
+.show__tabs button::after{background:rgba(255,255,255,.85)!important}
 @media(max-width:1000px){.mx-grid--4{grid-template-columns:1fr 1fr}}
 @media(max-width:800px){.mx-grid--4{grid-template-columns:1fr}.mx-float{bottom:84px;left:14px;padding:12px 16px}}
 @media(max-width:800px){.mx-grid{grid-template-columns:1fr}.mx-tbl{font-size:13px}.mx-tbl th,.mx-tbl td{padding:12px 8px}.mx-case strong{font-size:42px}}
