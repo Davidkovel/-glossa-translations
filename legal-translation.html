@@ -66,6 +66,19 @@
 .mx-floats.is-open .mx-float{opacity:1;transform:none;pointer-events:auto}
 .mx-chat{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.2);cursor:pointer;background:rgba(77,107,255,.85) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'/%3E%3C/svg%3E") center/24px no-repeat;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 26px -10px rgba(77,107,255,.8)}
 .mx-floats.is-open .mx-chat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E")}
+.mx-floats{display:none!important}
+.bar__tg{display:none!important}
+.mx-ic{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;flex:none;margin-left:6px;background:#25d366 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z'/%3E%3C/svg%3E") center/20px no-repeat}
+.mx-ic--tg{background:#2aabee url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M21.4 4.3 2.9 11.4c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.3z'/%3E%3C/svg%3E") center/19px no-repeat}
+.mx-ic:hover{transform:translateY(-1px)}
+.trip__globe{width:118px!important;height:118px!important}
+.trip__globe canvas{inset:13px!important;width:92px!important;height:92px!important;box-shadow:0 0 40px rgba(127,160,255,.45)}
+.trip__globe svg{width:118px;height:118px}
+.trip__bar{stroke-width:3.5!important}
+.trip__say{padding:12px 18px!important} .trip__say b{font-size:24px!important} .trip__say small{font-size:13px!important}
+.trip.is-on .trip__globe{animation:mxglow 3.2s ease-in-out infinite}
+@keyframes mxglow{0%,100%{filter:drop-shadow(0 0 0 rgba(127,160,255,0))}50%{filter:drop-shadow(0 0 18px rgba(127,160,255,.75))}}
+@media(max-width:800px){.bar .btn--brand{display:none!important}.trip{bottom:86px!important}.trip__globe{width:84px!important;height:84px!important}.trip__globe canvas{inset:9px!important;width:66px!important;height:66px!important}.trip__globe svg{width:84px;height:84px}.trip__say b{font-size:18px!important}.mx-ic{width:36px;height:36px;margin-left:4px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://davidkovel.github.io/-glossa-translations/#org", "name": "Lingvo Translations", "url": "https://davidkovel.github.io/-glossa-translations/", "email": "lingvotranslate.agency@gmail.com", "telephone": "+4367763178397", "image": "https://davidkovel.github.io/-glossa-translations/img/og.png", "priceRange": "€€", "areaServed": "Worldwide", "knowsLanguage": "120+ languages", "sameAs": ["https://t.me/lingvo_translations"], "contactPoint": {"@type": "ContactPoint", "telephone": "+4367763178397", "email": "lingvotranslate.agency@gmail.com", "contactType": "customer service", "availableLanguage": ["English", "German", "Ukrainian", "Russian", "Polish"]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you sign an NDA?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, ours or yours, before you send the files."}}, {"@type": "Question", "name": "Can you keep the layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Word, PDF and scans come back in the same layout."}}, {"@type": "Question", "name": "Which languages?", "acceptedAnswer": {"@type": "Answer", "text": "More than 120, including all EU languages."}}]}, {"@type": "Service", "name": "Legal and business translation", "provider": {"@id": "https://davidkovel.github.io/-glossa-translations/#org"}, "areaServed": "Worldwide", "url": "https://davidkovel.github.io/-glossa-translations/legal-translation.html", "offers": [{"@type": "Offer", "name": "Contracts and company papers", "priceCurrency": "EUR", "price": "0.06"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidkovel.github.io/-glossa-translations/"}, {"@type": "ListItem", "position": 2, "name": "Legal and business translation", "item": "https://davidkovel.github.io/-glossa-translations/legal-translation.html"}]}]}</script>
 </head>
@@ -73,8 +86,8 @@
 <header class="bar">
   <a class="logo" href="index.html" aria-label="Lingvo Translations, home"><span class="wm">Lingvo <span class="wm__t">translations</span></span></a>
   <nav class="bar__nav" aria-label="Sections"><a href="index.html#services">Services</a><a href="index.html#prices">Prices</a><a href="index.html#faq">FAQ</a></nav>
-  <a class="bar__tg" href="https://wa.me/4367763178397">WhatsApp</a><a class="bar__tg" href="https://t.me/lingvo_translations">Telegram</a>
-  <a class="btn btn--brand" href="index.html?service=Legal%20%26%20business#price">Get a price</a>
+  <a class="bar__tg" href="https://t.me/lingvo_translations">Telegram</a>
+  <a class="btn btn--brand" href="index.html?service=Legal%20%26%20business#price">Get a price</a><a class="mx-ic" href="https://wa.me/4367763178397" aria-label="WhatsApp"></a><a class="mx-ic mx-ic--tg" href="https://t.me/lingvo_translations" aria-label="Telegram"></a>
 </header>
 <main>
   <section class="mx" style="padding-top:150px;text-align:center">
