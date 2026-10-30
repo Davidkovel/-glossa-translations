@@ -1,4 +1,4 @@
-/* Meta Pixel: PageView, Lead on a sent form (site.js), Contact on a WhatsApp/Telegram click.
+/* Meta Pixel: PageView, Lead on a sent form (site.js), Contact on a WhatsApp/Telegram/email click.
    European visitors get it only after they accept the cookie bar. */
 (() => {
   const ID = '990429120133537';
@@ -14,7 +14,7 @@
     n('track', 'PageView');
   };
   document.addEventListener('click', (e) => {
-    if (e.target.closest?.('a[href*="wa.me/"], a[href*="t.me/"]')) window.fbq?.('track', 'Contact');
+    if (e.target.closest?.('a[href*="wa.me/"], a[href*="t.me/"], a[href^="mailto:"]')) window.fbq?.('track', 'Contact');
   });
   let saved = null;
   try { saved = localStorage.getItem(KEY); } catch (_) {}
