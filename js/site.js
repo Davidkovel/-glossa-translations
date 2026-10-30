@@ -131,6 +131,7 @@
     const f = fileIn && fileIn.files[0];
     const mail = web3(fields);
     Promise.race([Promise.all([tell(fields, f).catch(() => {}), mail]), new Promise((r) => setTimeout(r, 8000))]).then(() => {
+      window.fbq?.('track', 'Lead');
       form.innerHTML = '<div class="mx-thanks"><b>Thank you! Your request is in.</b><p>We reply within 15 minutes in working hours. Faster: <a href="https://wa.me/4367763178397">WhatsApp</a> or <a href="https://t.me/lingvo_translations">Telegram</a>.</p></div>';
     });
   });
@@ -152,6 +153,7 @@
     e.preventDefault();
     const fields = { Email: new FormData(e.target).get('email'), Request: 'Price for a translation (exit form)' };
     tell(fields).catch(() => {});
+    window.fbq?.('track', 'Lead');
     web3(fields);
     send(fields);
     exit.hidden = true;
